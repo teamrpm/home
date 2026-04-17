@@ -19,13 +19,13 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   drivers: [
     {
-      name: "Alex Martinez",
-      number: "07",
+      name: "Diogo Valente",
+      number: "131",
       role: "Team Captain · GT3 Lead",
-      nationality: "Spain",
-      series: "ACC · iRacing",
-      image: "images/drivers/alex.jpg",       // Replace with real photo
-      flag: "🇪🇸"
+      nationality: "Portuguese",
+      series: "Gran turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251482805983647/4ea40e61f16a4768e737e10a3d69f351_body.png",       // Replace with real photo
+      flag: "🇵🇹"
     },
     {
       name: "Lucas Fernandes",
