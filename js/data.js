@@ -130,37 +130,37 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   sponsors: [
     {
-      name: "SimTech Pro",
+      name: "RealPolimento",
       logo: "images/sponsors/simtech.png",
       url: "https://example.com",
       tier: "gold"
     },
     {
-      name: "RaceWear Co.",
+      name: "Cultifusao",
       logo: "images/sponsors/racewear.png",
       url: "https://example.com",
       tier: "gold"
     },
     {
-      name: "VelocityFX",
+      name: "Steelnor",
       logo: "images/sponsors/velocityfx.png",
       url: "https://example.com",
-      tier: "silver"
+      tier: "gold"
     },
     {
-      name: "GridLine Setups",
+      name: "jogoDigital",
       logo: "images/sponsors/gridline.png",
       url: "https://example.com",
       tier: "silver"
     },
     {
-      name: "Apex Audio",
+      name: "SimXPro",
       logo: "images/sponsors/apexaudio.png",
       url: "https://example.com",
       tier: "bronze"
     },
     {
-      name: "DriftKing Energy",
+      name: "Simufy",
       logo: "images/sponsors/driftking.png",
       url: "https://example.com",
       tier: "bronze"
