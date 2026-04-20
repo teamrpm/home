@@ -80,29 +80,29 @@ const SITE_DATA = {
      ───────────────────────────────────────────── */
   leagues: [
     {
-      name: "SimGrid",
-      platform: "ACC",
-      description: "Competing in SimGrid's top-tier ACC championships including endurance and sprint series.",
+      name: "EPIC Virtual  Racing",
+      platform: "GT7",
+      description: "O campeonato mais prestigiado de Gran Turismo 7 em Portugal que já conta com 13 edições.",
       logo: "images/leagues/simgrid.png",
-      url: "https://www.thesimgrid.com"
+      url: "https://epiceventos.pt/virtual/"
     },
     {
-      name: "Low Fuel Motorsport",
-      platform: "ACC",
+      name: "Campeonato Portugal GT",
+      platform: "GT7",
       description: "Daily ranked racing and seasonal championships in the LFM ecosystem.",
       logo: "images/leagues/lfm.png",
-      url: "https://lowfuelmotorsport.com"
+      url: "https://discord.com/invite/PWjKcXZpFC"
     },
     {
-      name: "iRacing Official",
-      platform: "iRacing",
+      name: "Liga BPF",
+      platform: "GT7",
       description: "Competing in iRacing's official multi-class and GT series at the highest splits.",
       logo: "images/leagues/iracing.png",
       url: "https://www.iracing.com"
     },
     {
-      name: "Pitskill.io",
-      platform: "ACC",
+      name: "Evolution Series",
+      platform: "GT7",
       description: "Ranked matchmaking and league events through the Pitskill platform.",
       logo: "images/leagues/pitskill.png",
       url: "https://pitskill.io"
