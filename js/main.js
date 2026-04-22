@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearEl = document.getElementById("footer-year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* ══════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════
      MOBILE NAV
-     ══════════════════════════════════════════════════════════════ */
+     ══════════════════════════════════════════════════════════════════ */
   const toggle = document.getElementById("navToggle");
   const links  = document.getElementById("navLinks");
 
@@ -20,7 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
       toggle.classList.toggle("active");
       toggle.setAttribute("aria-expanded", open);
     });
-    // Close on link click
     links.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
         links.classList.remove("open");
@@ -30,24 +29,21 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ══════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════
      STICKY HEADER
-     ══════════════════════════════════════════════════════════════ */
+     ══════════════════════════════════════════════════════════════════ */
   const header = document.getElementById("site-header");
-  let lastScroll = 0;
   window.addEventListener("scroll", () => {
-    const y = window.scrollY;
-    if (y > 80) {
+    if (window.scrollY > 80) {
       header.classList.add("scrolled");
     } else {
       header.classList.remove("scrolled");
     }
-    lastScroll = y;
   }, { passive: true });
 
-  /* ══════════════════════════════════════════════════════════════
-     SCROLL ANIMATIONS  (Intersection Observer)
-     ══════════════════════════════════════════════════════════════ */
+  /* ══════════════════════════════════════════════════════════════════
+     SCROLL ANIMATIONS (Intersection Observer)
+     ══════════════════════════════════════════════════════════════════ */
   const animEls = document.querySelectorAll(
     ".anim-fade-up, .anim-fade-down, .anim-slide-left, .anim-slide-right, .anim-fade-in"
   );
@@ -62,9 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animEls.forEach(el => observer.observe(el));
 
-  /* ══════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════
      COUNTER ANIMATION
-     ══════════════════════════════════════════════════════════════ */
+     ══════════════════════════════════════════════════════════════════ */
   const counters = document.querySelectorAll(".stat-number[data-count]");
   const counterObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -82,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const start = performance.now();
     function step(now) {
       const progress = Math.min((now - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+      const ease = 1 - Math.pow(1 - progress, 3);
       el.textContent = Math.floor(ease * target);
       if (progress < 1) requestAnimationFrame(step);
       else el.textContent = target;
@@ -90,13 +86,25 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(step);
   }
 
-  /* ══════════════════════════════════════════════════════════════
-     RENDER DRIVERS
-     ══════════════════════════════════════════════════════════════ */
+  /* ══════════════════════════════════════════════════════════════════
+     HERO PARALLAX (scroll-driven)
+     ══════════════════════════════════════════════════════════════════ */
+  const heroParallax = document.querySelector(".hero-parallax");
+  if (heroParallax) {
+    window.addEventListener("scroll", () => {
+      const scrolled = window.scrollY;
+      // Move the background image at 40% speed of scroll for parallax
+      heroParallax.style.transform = `translateY(${scrolled * 0.4}px) scale(1.1)`;
+    }, { passive: true });
+  }
+
+  /* ══════════════════════════════════════════════════════════════════
+     RENDER DRIVERS  (4×4 grid)
+     ══════════════════════════════════════════════════════════════════ */
   const driversGrid = document.getElementById("drivers-grid");
   if (driversGrid && SITE_DATA.drivers) {
     driversGrid.innerHTML = SITE_DATA.drivers.map((d, i) => `
-      <article class="driver-card anim-fade-up delay-${Math.min(i % 3, 2)}" aria-label="${d.name}">
+      <article class="driver-card anim-fade-up delay-${Math.min(i % 4, 3)}" aria-label="${d.name}">
         <div class="driver-img-wrap">
           ${d.image
             ? `<img src="${d.image}" alt="Photo of ${d.name}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
@@ -113,13 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
       </article>
     `).join("");
 
-    // Re-observe new animated elements
     driversGrid.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
   }
 
-  /* ══════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════
      RENDER LEAGUES
-     ══════════════════════════════════════════════════════════════ */
+     ══════════════════════════════════════════════════════════════════ */
   const leaguesGrid = document.getElementById("leagues-grid");
   if (leaguesGrid && SITE_DATA.leagues) {
     leaguesGrid.innerHTML = SITE_DATA.leagues.map((l, i) => `
@@ -143,9 +150,9 @@ document.addEventListener("DOMContentLoaded", () => {
     leaguesGrid.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
   }
 
-  /* ══════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════
      RENDER GALLERY
-     ══════════════════════════════════════════════════════════════ */
+     ══════════════════════════════════════════════════════════════════ */
   const galleryGrid = document.getElementById("gallery-grid");
   if (galleryGrid && SITE_DATA.gallery) {
     galleryGrid.innerHTML = SITE_DATA.gallery.map((g, i) => `
@@ -165,36 +172,74 @@ document.addEventListener("DOMContentLoaded", () => {
     galleryGrid.querySelectorAll(".anim-fade-in").forEach(el => observer.observe(el));
   }
 
-  /* ══════════════════════════════════════════════════════════════
-     RENDER SPONSORS
-     ══════════════════════════════════════════════════════════════ */
-  const sponsorsGrid = document.getElementById("sponsors-grid");
-  if (sponsorsGrid && SITE_DATA.sponsors) {
-    // Sort: gold first, then silver, then bronze
-    const tierOrder = { gold: 0, silver: 1, bronze: 2 };
-    const sorted = [...SITE_DATA.sponsors].sort((a, b) => (tierOrder[a.tier] || 3) - (tierOrder[b.tier] || 3));
+  /* ══════════════════════════════════════════════════════════════════
+     RENDER SPONSORS — Separated into Gold / Silver / Bronze rows
+     with different card sizes per tier
+     ══════════════════════════════════════════════════════════════════ */
+  const sponsorsContainer = document.getElementById("sponsors-container");
+  if (sponsorsContainer && SITE_DATA.sponsors) {
+    const tiers = { gold: [], silver: [], bronze: [] };
+    SITE_DATA.sponsors.forEach(s => {
+      if (tiers[s.tier]) tiers[s.tier].push(s);
+    });
 
-    sponsorsGrid.innerHTML = sorted.map((s, i) => `
-      <a href="${s.url}" target="_blank" rel="noopener noreferrer"
-         class="sponsor-card sponsor-${s.tier} anim-fade-up delay-${Math.min(i % 3, 2)}" aria-label="${s.name}">
-        <div class="sponsor-tier-badge">${s.tier}</div>
-        <div class="sponsor-logo-wrap">
-          ${s.logo
-            ? `<img src="${s.logo}" alt="${s.name} logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-               <div class="sponsor-placeholder" style="display:none;"><span>${s.name}</span></div>`
-            : `<div class="sponsor-placeholder"><span>${s.name}</span></div>`
-          }
+    let html = "";
+
+    // Helper to render a single sponsor card
+    function sponsorCard(s, tierClass, i) {
+      return `
+        <a href="${s.url}" target="_blank" rel="noopener noreferrer"
+           class="sponsor-card sponsor-${tierClass} anim-fade-up delay-${Math.min(i % 3, 2)}" aria-label="${s.name}">
+          <div class="sponsor-tier-badge">${tierClass}</div>
+          <div class="sponsor-logo-wrap">
+            ${s.logo
+              ? `<img src="${s.logo}" alt="${s.name} logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+                 <div class="sponsor-placeholder" style="display:none;"><span>${s.name}</span></div>`
+              : `<div class="sponsor-placeholder"><span>${s.name}</span></div>`
+            }
+          </div>
+          <span class="sponsor-name">${s.name}</span>
+        </a>
+      `;
+    }
+
+    // GOLD row (largest cards)
+    if (tiers.gold.length) {
+      html += `<div class="sponsors-tier-section">
+        <h3 class="sponsors-tier-title gold-title anim-fade-up">🥇 Gold Partners</h3>
+        <div class="sponsors-row sponsors-row-gold">
+          ${tiers.gold.map((s, i) => sponsorCard(s, "gold", i)).join("")}
         </div>
-        <span class="sponsor-name">${s.name}</span>
-      </a>
-    `).join("");
+      </div>`;
+    }
 
-    sponsorsGrid.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
+    // SILVER row (medium cards)
+    if (tiers.silver.length) {
+      html += `<div class="sponsors-tier-section">
+        <h3 class="sponsors-tier-title silver-title anim-fade-up">🥈 Silver Partners</h3>
+        <div class="sponsors-row sponsors-row-silver">
+          ${tiers.silver.map((s, i) => sponsorCard(s, "silver", i)).join("")}
+        </div>
+      </div>`;
+    }
+
+    // BRONZE row (smallest cards)
+    if (tiers.bronze.length) {
+      html += `<div class="sponsors-tier-section">
+        <h3 class="sponsors-tier-title bronze-title anim-fade-up">🥉 Bronze Partners</h3>
+        <div class="sponsors-row sponsors-row-bronze">
+          ${tiers.bronze.map((s, i) => sponsorCard(s, "bronze", i)).join("")}
+        </div>
+      </div>`;
+    }
+
+    sponsorsContainer.innerHTML = html;
+    sponsorsContainer.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
   }
 
-  /* ══════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════
      CONTACT FORM (with Formspree + mailto fallback)
-     ══════════════════════════════════════════════════════════════ */
+     ══════════════════════════════════════════════════════════════════ */
   const form = document.getElementById("contact-form");
   if (form) {
     form.addEventListener("submit", async (e) => {
@@ -253,9 +298,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* ══════════════════════════════════════════════════════════════
+  /* ══════════════════════════════════════════════════════════════════
      SMOOTH SCROLL for same-page anchors
-     ══════════════════════════════════════════════════════════════ */
+     ══════════════════════════════════════════════════════════════════ */
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener("click", (e) => {
       const target = document.querySelector(a.getAttribute("href"));
