@@ -239,8 +239,8 @@ const SITE_DATA = {
     },
     {
       name: "jogoDigital",
-      logo: "images/sponsors/gridline.png",
-      url: "https://example.com",
+      logo: "https://www.jogodigital.com/wp-content/uploads/2023/09/jogodigital-logo.svg#3207",
+      url: "https://www.jogodigital.com/",
       tier: "silver"
     },
     {
