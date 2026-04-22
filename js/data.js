@@ -221,20 +221,20 @@ const SITE_DATA = {
   sponsors: [
     {
       name: "RealPolimento",
-      logo: "images/sponsors/simtech.png",
-      url: "https://example.com",
+      logo: "https://www.realpolimento.pt/assets/img/escuro.png",
+      url: "https://www.realpolimento.pt/",
       tier: "gold"
     },
     {
       name: "Cultifusao",
-      logo: "images/sponsors/racewear.png",
-      url: "https://example.com",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvluRaAKFXTe51uTuhVGC1PqArAYGiXj5iFg&s",
+      url: "https://www.cultifusao.pt/",
       tier: "gold"
     },
     {
       name: "Steelnor",
-      logo: "images/sponsors/velocityfx.png",
-      url: "https://example.com",
+      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyX6KXsXXZ4zgG0jUBpIUXt_DwqsYHiazFPA&s",
+      url: "www.steelnor.pt/",
       tier: "gold"
     },
     {
@@ -245,14 +245,14 @@ const SITE_DATA = {
     },
     {
       name: "SimXPro",
-      logo: "images/sponsors/apexaudio.png",
-      url: "https://example.com",
+      logo: "https://simxpro.com/cdn/shop/files/logo_png.png?v=1758741848&width=120",
+      url: "https://simxpro.com/",
       tier: "bronze"
     },
     {
       name: "Simufy",
-      logo: "images/sponsors/driftking.png",
-      url: "https://example.com",
+      logo: "https://simufy.com/cdn/shop/files/Logo_Simufy_edabc560-fe73-4946-ad32-ba72663e1ae3_250x.png?v=1749559810",
+      url: "https://simufy.com/",
       tier: "bronze"
     }
   ]
