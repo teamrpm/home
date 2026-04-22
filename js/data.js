@@ -73,6 +73,80 @@ const SITE_DATA = {
       flag: "🇵🇹"
     }
   ],
+    {
+      name: "Diogo Valente",
+      number: "131",
+      role: "Team Captain",
+      nationality: "Portuguese",
+      series: "Gran turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251482805983647/4ea40e61f16a4768e737e10a3d69f351_body.png",       // Replace with real photo
+      flag: "🇵🇹"
+    },
+    {
+      name: "Pedro Ferreira",
+      number: "95",
+      role: "Endurance Specialist",
+      nationality: "Portugal",
+      series: "Gran turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252360164819932/3a03aaec6c2e6f065d1353ae7e741088_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Miguel Rodrigues",
+      number: "200",
+      role: "Fundador",
+      nationality: "Portugal",
+      series: "Gran Turismo 7 · WRC",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251832737817256/bf14d93d01132ebf0af1857df51cf19e_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "André Pinto",
+      number: "14",
+      role: "Co-fundador",
+      nationality: "Portugal",
+      series: "Gran Turismo 7 · WRC",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251719594519766/fe10eded7b5df1037737741c1ddad8b6_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Bruno da Costa",
+      number: "31",
+      role: "Co-Fundador",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252274147228158/8d92aea1cbe2e7fad505480ce1599ab8_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Daniel Marques",
+      number: "1",
+      role: "",
+      nationality: "Portugal",
+      series: "Gran Turismo 7 · F1 25",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252229996328790/2247d3bf41d0d571dd1d2a49989328e6_body.png",
+      flag: "🇵🇹"
+    }
+  ],
+{
+      name: "Bruno da Costa",
+      number: "31",
+      role: "Co-Fundador",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252274147228158/8d92aea1cbe2e7fad505480ce1599ab8_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Daniel Marques",
+      number: "1",
+      role: "",
+      nationality: "Portugal",
+      series: "Gran Turismo 7 · F1 25",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252229996328790/2247d3bf41d0d571dd1d2a49989328e6_body.png",
+      flag: "🇵🇹"
+    }
+  ],
 
   /* ─────────────────────────────────────────────
      LEAGUES
