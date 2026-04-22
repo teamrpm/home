@@ -1,83 +1,81 @@
 /* =====================================================================
-   GALLERY.JS — Lightbox functionality
+   GALLERY.JS — Lightbox for the gallery section
    ===================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+  const lightbox    = document.getElementById("lightbox");
+  const lbImg       = document.getElementById("lightbox-img");
+  const lbCaption   = document.getElementById("lightbox-caption");
+  const lbClose     = document.querySelector(".lightbox-close");
+  const lbPrev      = document.querySelector(".lightbox-prev");
+  const lbNext      = document.querySelector(".lightbox-next");
 
-  const lightbox     = document.getElementById("lightbox");
-  const lightboxImg  = document.getElementById("lightbox-img");
-  const lightboxCap  = document.getElementById("lightbox-caption");
-  const closeBtn     = document.querySelector(".lightbox-close");
-  const prevBtn      = document.querySelector(".lightbox-prev");
-  const nextBtn      = document.querySelector(".lightbox-next");
-  const galleryGrid  = document.getElementById("gallery-grid");
-
-  if (!lightbox || !galleryGrid) return;
+  if (!lightbox || !SITE_DATA || !SITE_DATA.gallery) return;
 
   let currentIndex = 0;
-  const items = () => SITE_DATA.gallery || [];
 
   function openLightbox(index) {
     currentIndex = index;
-    const item = items()[currentIndex];
-    if (!item) return;
-    lightboxImg.src = item.image || "";
-    lightboxImg.alt = item.caption || "";
-    lightboxCap.textContent = item.caption || "";
-    lightbox.hidden = false;
+    updateLightbox();
+    lightbox.setAttribute("aria-hidden", "false");
     lightbox.classList.add("active");
     document.body.style.overflow = "hidden";
-    // Focus trap
-    closeBtn.focus();
   }
 
   function closeLightbox() {
     lightbox.classList.remove("active");
+    lightbox.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
-    setTimeout(() => {
-      lightbox.hidden = true;
-      lightboxImg.src = "";
-    }, 300);
   }
 
-  function navigate(dir) {
-    const total = items().length;
-    if (total === 0) return;
-    currentIndex = (currentIndex + dir + total) % total;
-    const item = items()[currentIndex];
-    lightboxImg.classList.add("lb-fade");
+  function updateLightbox() {
+    const item = SITE_DATA.gallery[currentIndex];
+    if (!item) return;
+    lbImg.classList.add("lb-fade");
     setTimeout(() => {
-      lightboxImg.src = item.image || "";
-      lightboxImg.alt = item.caption || "";
-      lightboxCap.textContent = item.caption || "";
-      lightboxImg.classList.remove("lb-fade");
-    }, 200);
+      lbImg.src = item.image || "";
+      lbImg.alt = item.caption || "";
+      lbCaption.textContent = item.caption || "";
+      lbImg.classList.remove("lb-fade");
+    }, 150);
   }
 
-  // Delegate click on gallery grid
-  galleryGrid.addEventListener("click", (e) => {
-    const card = e.target.closest(".gallery-item");
-    if (card) {
-      const idx = parseInt(card.getAttribute("data-index"), 10);
-      openLightbox(idx);
-    }
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + SITE_DATA.gallery.length) % SITE_DATA.gallery.length;
+    updateLightbox();
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % SITE_DATA.gallery.length;
+    updateLightbox();
+  }
+
+  // Event delegation for gallery clicks
+  const galleryGrid = document.getElementById("gallery-grid");
+  if (galleryGrid) {
+    galleryGrid.addEventListener("click", (e) => {
+      const item = e.target.closest(".gallery-item");
+      if (item) {
+        const idx = parseInt(item.getAttribute("data-index"), 10);
+        if (!isNaN(idx)) openLightbox(idx);
+      }
+    });
+  }
+
+  if (lbClose) lbClose.addEventListener("click", closeLightbox);
+  if (lbPrev)  lbPrev.addEventListener("click", prevImage);
+  if (lbNext)  lbNext.addEventListener("click", nextImage);
+
+  // Keyboard support
+  document.addEventListener("keydown", (e) => {
+    if (!lightbox.classList.contains("active")) return;
+    if (e.key === "Escape")     closeLightbox();
+    if (e.key === "ArrowLeft")  prevImage();
+    if (e.key === "ArrowRight") nextImage();
   });
-
-  closeBtn.addEventListener("click", closeLightbox);
-  prevBtn.addEventListener("click", () => navigate(-1));
-  nextBtn.addEventListener("click", () => navigate(1));
 
   // Close on backdrop click
   lightbox.addEventListener("click", (e) => {
     if (e.target === lightbox) closeLightbox();
   });
-
-  // Keyboard nav
-  document.addEventListener("keydown", (e) => {
-    if (lightbox.hidden) return;
-    if (e.key === "Escape") closeLightbox();
-    if (e.key === "ArrowLeft") navigate(-1);
-    if (e.key === "ArrowRight") navigate(1);
-  });
-
 });
