@@ -227,7 +227,7 @@ const SITE_DATA = {
     },
     {
       name: "Cultifusao",
-      logo: "images/cultifusao.svg",
+      logo: "images/Sponsors-removebg-preview.png",
       url: "https://www.cultifusao.pt/",
       tier: "gold"
     },
