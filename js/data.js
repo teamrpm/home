@@ -233,7 +233,7 @@ const SITE_DATA = {
     },
     {
       name: "Steelnor",
-      logo: "images/STEELNOR%20PRETO.png",
+      logo: "images/STEELNOR%20BRANCO.png",
       url: "www.steelnor.pt/",
       tier: "gold"
     },
