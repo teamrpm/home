@@ -227,13 +227,13 @@ const SITE_DATA = {
     },
     {
       name: "Cultifusao",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvluRaAKFXTe51uTuhVGC1PqArAYGiXj5iFg&s",
+      logo: "https://github.com/teamrpm/home/blob/4c46bf3a4fba62d0f1800cfb0a710632b13ca22e/images/cultifusao.svg",
       url: "https://www.cultifusao.pt/",
       tier: "gold"
     },
     {
       name: "Steelnor",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyX6KXsXXZ4zgG0jUBpIUXt_DwqsYHiazFPA&s",
+      logo: "https://github.com/teamrpm/home/blob/4c46bf3a4fba62d0f1800cfb0a710632b13ca22e/images/STEELNOR%20PRETO.png",
       url: "www.steelnor.pt/",
       tier: "gold"
     },
