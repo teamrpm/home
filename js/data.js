@@ -21,7 +21,7 @@ const SITE_DATA = {
     {
       name: "Diogo Valente",
       number: "131",
-      role: "Team Captain",
+      role: "Valente_131",
       nationality: "Portuguese",
       series: "Gran turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251482805983647/4ea40e61f16a4768e737e10a3d69f351_body.png",       // Replace with real photo
@@ -30,7 +30,7 @@ const SITE_DATA = {
     {
       name: "Pedro Ferreira",
       number: "95",
-      role: "Endurance Specialist",
+      role: "Pe_Fi_Ma_Fe",
       nationality: "Portugal",
       series: "Gran turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21252360164819932/3a03aaec6c2e6f065d1353ae7e741088_body.png",
@@ -39,7 +39,7 @@ const SITE_DATA = {
     {
       name: "Miguel Rodrigues",
       number: "200",
-      role: "Fundador",
+      role: "M_Rodrigues_02",
       nationality: "Portugal",
       series: "Gran Turismo 7 · WRC",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251832737817256/bf14d93d01132ebf0af1857df51cf19e_body.png",
@@ -48,7 +48,7 @@ const SITE_DATA = {
     {
       name: "André Pinto",
       number: "14",
-      role: "Co-fundador",
+      role: "ADPinto1983",
       nationality: "Portugal",
       series: "Gran Turismo 7 · WRC",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251719594519766/fe10eded7b5df1037737741c1ddad8b6_body.png",
@@ -57,7 +57,7 @@ const SITE_DATA = {
     {
       name: "Bruno da Costa",
       number: "31",
-      role: "Co-Fundador",
+      role: "BrunyDaCosta",
       nationality: "Portugal",
       series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21252274147228158/8d92aea1cbe2e7fad505480ce1599ab8_body.png",
@@ -66,101 +66,101 @@ const SITE_DATA = {
     {
       name: "Daniel Marques",
       number: "1",
-      role: "",
+      role: "DanMarques_1",
       nationality: "Portugal",
       series: "Gran Turismo 7 · F1 25",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21252229996328790/2247d3bf41d0d571dd1d2a49989328e6_body.png",
       flag: "🇵🇹"
     },
      {
-      name: "Erik Johansson",
+      name: "Joao Pedro",
       number: "05",
-      role: "Endurance Driver",
-      nationality: "Sweden",
-      series: "ACC · iRacing",
-      image: "images/drivers/erik.jpg",
-      flag: "🇸🇪"
+      role: "jPedroFM",
+      nationality: "Portugal",
+      series: "Gran Turismo 7 · WRC",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251820185201092/ef6e55c4d03cba44351fc7d3270beb85_body.png",
+      flag: "🇵🇹"
     },
     {
-      name: "Pierre Dubois",
+      name: "Ruben Ferreira",
       number: "16",
-      role: "GT3 Sprint",
-      nationality: "France",
-      series: "ACC · Le Mans Virtual",
-      image: "images/drivers/pierre.jpg",
-      flag: "🇫🇷"
+      role: "Implacavel_3",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251439496157666/6e5cfae0853b71ee9a3704baa19a4f47_body.png",
+      flag: "🇵🇹"
     },
     {
-      name: "Max Bauer",
+      name: "José Vedes",
       number: "42",
-      role: "Prototype Driver",
-      nationality: "Germany",
-      series: "iRacing · rFactor2",
-      image: "images/drivers/max.jpg",
-      flag: "🇩🇪"
+      role: "RPM_Kryptonite_",
+      nationality: "Portugal",
+      series: "Gran  Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251622302630451/41305c29e4148bd7cce0cde59837aad1_body.png",
+      flag: "🇵🇹"
     },
     {
-      name: "Liam O'Connor",
-      number: "77",
-      role: "GT3 Endurance",
-      nationality: "Ireland",
-      series: "ACC · iRacing",
-      image: "images/drivers/liam.jpg",
-      flag: "🇮🇪"
+      name: "Carlos Goncalves",
+      number: "57",
+      role: "SpeedyTuga75",
+      nationality: "Portugal",
+      series: "Gran  Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251699196203397/7d664ec4fcc1d34cf745dfc33e929841_body.png",
+      flag: "🇵🇹"
     },
     {
-      name: "Carlos Mendez",
+      name: "Wilson Barreto",
       number: "10",
-      role: "Sprint Specialist",
-      nationality: "Mexico",
-      series: "ACC · Assetto Corsa",
-      image: "images/drivers/carlos.jpg",
-      flag: "🇲🇽"
+      role: "Wilson_The_First",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252437762849202/aa52fe46f3476c1a1754a7a1f68b2092_body.png",
+      flag: "🇵🇹"
     },
     {
       name: "Niko Papadopoulos",
       number: "99",
-      role: "GT3 Driver",
-      nationality: "Greece",
-      series: "ACC · iRacing",
-      image: "images/drivers/niko.jpg",
-      flag: "🇬🇷"
+      role: "Keijo_PTAO",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251690360566346/4d101bbe8cb723eccb24dcccfb5ed1d1_body.png",
+      flag: "🇵🇹"
     },
     {
       name: "Andrei Volkov",
       number: "55",
-      role: "Endurance / Multi-class",
-      nationality: "Romania",
-      series: "iRacing · rFactor2",
-      image: "images/drivers/andrei.jpg",
-      flag: "🇷🇴"
-    },
-    {
-      name: "Sven Mulder",
-      number: "27",
-      role: "GT3 Sprint",
-      nationality: "Netherlands",
-      series: "ACC · iRacing",
-      image: "images/drivers/sven.jpg",
-      flag: "🇳🇱"
-    },
-    {
-      name: "Rafael Costa",
-      number: "44",
-      role: "Prototype Driver",
+      role: "Faneka4154",
       nationality: "Portugal",
-      series: "Le Mans Virtual · iRacing",
-      image: "images/drivers/rafael.jpg",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252200976801395/ef5b0bc9005712e6954c80a63fb39d20_body.png",
       flag: "🇵🇹"
     },
     {
-      name: "Jan Kowalski",
+      name: "Eduardo",
+      number: "27",
+      role: "cloudtuga",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251684262033119/8b5e55f4a535d6b536e362a54e1f9ab3_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Alexandre",
+      number: "44",
+      role: "reaper-alexandre",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21252027227095050/d8f9cf86e877d47fe3dce53c7e6a1e5d_body.png",
+      flag: "🇵🇹"
+    },
+    {
+      name: "Ismael Cartucho",
       number: "31",
-      role: "GT4 Driver",
-      nationality: "Poland",
-      series: "ACC · Assetto Corsa",
-      image: "images/drivers/jan.jpg",
-      flag: "🇵🇱"
+      role: "IsmaelCartucho-m",
+      nationality: "Portugal",
+      series: "Gran Turismo 7",
+      image: "https://ugc.gt7.game.gran-turismo.com/23/21251402296632961/e02b1b7a5eb1ecb68db1342fb8439f40_body.png",
+      flag: "🇵🇹"
     },
   ],
 
