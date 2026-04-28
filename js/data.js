@@ -38,7 +38,7 @@ const SITE_DATA = {
     },
     {
       name: "Miguel Rodrigues",
-      number: "200",
+      number: "02/200",
       role: "M_Rodrigues_02",
       nationality: "Portugal",
       series: "Gran Turismo 7 · WRC",
@@ -47,7 +47,7 @@ const SITE_DATA = {
     },
     {
       name: "André Pinto",
-      number: "14",
+      number: "830",
       role: "ADPinto1983",
       nationality: "Portugal",
       series: "Gran Turismo 7 · WRC",
@@ -65,7 +65,7 @@ const SITE_DATA = {
     },
     {
       name: "Daniel Marques",
-      number: "1",
+      number: "3/5/65",
       role: "DanMarques_1",
       nationality: "Portugal",
       series: "Gran Turismo 7 · F1 25",
@@ -74,7 +74,7 @@ const SITE_DATA = {
     },
      {
       name: "Joao Pedro",
-      number: "05",
+      number: "23/238",
       role: "jPedroFM",
       nationality: "Portugal",
       series: "Gran Turismo 7 · WRC",
@@ -83,7 +83,7 @@ const SITE_DATA = {
     },
     {
       name: "Ruben Ferreira",
-      number: "16",
+      number: "888",
       role: "Implacavel_3",
       nationality: "Portugal",
       series: "Gran Turismo 7",
@@ -92,7 +92,7 @@ const SITE_DATA = {
     },
     {
       name: "José Vedes",
-      number: "42",
+      number: "32",
       role: "RPM_Kryptonite_",
       nationality: "Portugal",
       series: "Gran  Turismo 7",
@@ -110,7 +110,7 @@ const SITE_DATA = {
     },
     {
       name: "Wilson Barreto",
-      number: "10",
+      number: "777",
       role: "Wilson_The_First",
       nationality: "Portugal",
       series: "Gran Turismo 7",
@@ -118,8 +118,8 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
-      name: "Niko Papadopoulos",
-      number: "99",
+      name: "Fernando Oliveira",
+      number: "000",
       role: "Keijo_PTAO",
       nationality: "Portugal",
       series: "Gran Turismo 7",
@@ -127,8 +127,8 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
-      name: "Andrei Volkov",
-      number: "55",
+      name: "Helder Ferreira",
+      number: "77",
       role: "Faneka4154",
       nationality: "Portugal",
       series: "Gran Turismo 7",
@@ -136,17 +136,17 @@ const SITE_DATA = {
       flag: "🇵🇹"
     },
     {
-      name: "Eduardo",
-      number: "27",
+      name: "Eduardo Vilas-Boas",
+      number: "000",
       role: "cloudtuga",
       nationality: "Portugal",
-      series: "Gran Turismo 7",
+      series: "Gran Turismo 7 · F1 25",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251684262033119/8b5e55f4a535d6b536e362a54e1f9ab3_body.png",
       flag: "🇵🇹"
     },
     {
-      name: "Alexandre",
-      number: "44",
+      name: "Alexandre Sousa",
+      number: "000",
       role: "reaper-alexandre",
       nationality: "Portugal",
       series: "Gran Turismo 7",
@@ -155,7 +155,7 @@ const SITE_DATA = {
     },
     {
       name: "Ismael Cartucho",
-      number: "31",
+      number: "19",
       role: "IsmaelCartucho-m",
       nationality: "Portugal",
       series: "Gran Turismo 7",
