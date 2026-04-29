@@ -1582,7 +1582,7 @@ img {
   position: relative;
   width: 100%;
   /* Maintain ~250:275 aspect ratio */
-  aspect-ratio: 250 / 275;
+  aspect-ratio: 250 / 140;
   overflow: hidden;
   background: var(--gray-700);
 }
