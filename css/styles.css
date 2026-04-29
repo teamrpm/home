@@ -768,7 +768,7 @@ img {
   position: relative;
   border-radius: 10px;
   overflow: hidden;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   cursor: pointer;
   background: var(--gray-800);
 }
