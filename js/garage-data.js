@@ -39,8 +39,8 @@ const GARAGE_DATA = [
     manufacturer: "BMW",
     group: "Gr.3",
     competition: "CPGT",
-    thumbnail: "images/garage/thumbnails/bmw-m4-gt3.jpg",
-    fullsize: "images/garage/fullsize/bmw-m4-gt3.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422400697517041/727e61bc078aacc391d1dfa36a85e1b4_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422400697517041/727e61bc078aacc391d1dfa36a85e1b4_thumb_l_x2.jpg"
   },
   {
     id: "ferrari-296-gt3",
@@ -48,8 +48,8 @@ const GARAGE_DATA = [
     manufacturer: "Ferrari",
     group: "Gr.3",
     competition: "EPIC",
-    thumbnail: "images/garage/thumbnails/ferrari-296-gt3.jpg",
-    fullsize: "images/garage/fullsize/ferrari-296-gt3.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421938913727825/4b6f032bf6d1d6f5592d9fd71946afbc_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421938913727825/4b6f032bf6d1d6f5592d9fd71946afbc_thumb_l_x2.jpg"
   },
   {
     id: "toyota-gr010",
@@ -57,8 +57,8 @@ const GARAGE_DATA = [
     manufacturer: "Toyota",
     group: "Gr.1",
     competition: "Toyota WWW",
-    thumbnail: "images/garage/thumbnails/toyota-gr010.jpg",
-    fullsize: "images/garage/fullsize/toyota-gr010.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422323588234221/195c62fa83d5308760f51425e32d6620_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422323588234221/195c62fa83d5308760f51425e32d6620_thumb_l_x2.jpg"
   },
   {
     id: "porsche-963",
@@ -66,8 +66,8 @@ const GARAGE_DATA = [
     manufacturer: "Porsche",
     group: "Gr.1",
     competition: "EPIC",
-    thumbnail: "images/garage/thumbnails/porsche-963.jpg",
-    fullsize: "images/garage/fullsize/porsche-963.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422823998160903/e5fd42473ad2302142504121c371d4fd_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422823998160903/e5fd42473ad2302142504121c371d4fd_thumb_l_x2.jpg"
   },
   {
     id: "lamborghini-huracan-gt3",
@@ -84,8 +84,8 @@ const GARAGE_DATA = [
     manufacturer: "McLaren",
     group: "Gr.3",
     competition: "BPF",
-    thumbnail: "images/garage/thumbnails/mclaren-720s-gt3.jpg",
-    fullsize: "images/garage/fullsize/mclaren-720s-gt3.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422486047255274/7f06b0efa621b129be8d7d13a6df3b20_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422486047255274/7f06b0efa621b129be8d7d13a6df3b20_thumb_l_x2.jpg"
   },
   {
     id: "aston-martin-vantage-gt3",
@@ -93,8 +93,8 @@ const GARAGE_DATA = [
     manufacturer: "Aston Martin",
     group: "Gr.3",
     competition: "EPIC",
-    thumbnail: "images/garage/thumbnails/aston-martin-vantage-gt3.jpg",
-    fullsize: "images/garage/fullsize/aston-martin-vantage-gt3.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422102282455399/5b04e0ab70b47c010e2974eb5eff6f2c_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422102282455399/5b04e0ab70b47c010e2974eb5eff6f2c_thumb_l_x2.jpg"
   },
   {
     id: "mercedes-amg-gt3",
@@ -102,8 +102,8 @@ const GARAGE_DATA = [
     manufacturer: "Mercedes",
     group: "Gr.3",
     competition: "CPGT",
-    thumbnail: "images/garage/thumbnails/mercedes-amg-gt3.jpg",
-    fullsize: "images/garage/fullsize/mercedes-amg-gt3.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421844789858475/ba0429f1d661ee6d539458fff8c19f5d_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421844789858475/ba0429f1d661ee6d539458fff8c19f5d_thumb_l_x2.jpg"
   },
   {
     id: "audi-r8-gt4",
@@ -111,8 +111,8 @@ const GARAGE_DATA = [
     manufacturer: "Audi",
     group: "Gr.4",
     competition: "BPF",
-    thumbnail: "images/garage/thumbnails/audi-r8-gt4.jpg",
-    fullsize: "images/garage/fullsize/audi-r8-gt4.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422227668869179/de34bc5989971f284c4533985941b9cf_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422227668869179/de34bc5989971f284c4533985941b9cf_thumb_l_x2.jpg"
   },
   {
     id: "toyota-gr86",
@@ -120,8 +120,8 @@ const GARAGE_DATA = [
     manufacturer: "Toyota",
     group: "Gr.4",
     competition: "Toyota WWW",
-    thumbnail: "images/garage/thumbnails/toyota-gr86.jpg",
-    fullsize: "images/garage/fullsize/toyota-gr86.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422089991814679/ff602b01c4e00005d2da16c70f8bf392_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422089991814679/ff602b01c4e00005d2da16c70f8bf392_thumb_l_x2.jpg"
   },
   {
     id: "lancia-037",
@@ -129,8 +129,8 @@ const GARAGE_DATA = [
     manufacturer: "Lancia",
     group: "Gr.B",
     competition: "Other",
-    thumbnail: "images/garage/thumbnails/lancia-037.jpg",
-    fullsize: "images/garage/fullsize/lancia-037.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422697344311297/55402c6d764477705920228a0d9e1b41_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422697344311297/55402c6d764477705920228a0d9e1b41_thumb_l_x2.jpg"
   },
   {
     id: "audi-sport-quattro",
@@ -138,8 +138,8 @@ const GARAGE_DATA = [
     manufacturer: "Audi",
     group: "Gr.B",
     competition: "Other",
-    thumbnail: "images/garage/thumbnails/audi-sport-quattro.jpg",
-    fullsize: "images/garage/fullsize/audi-sport-quattro.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422186378742202/70e3da162411e7e7d217ec7a4927928a_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422186378742202/70e3da162411e7e7d217ec7a4927928a_thumb_l_x2.jpg"
   },
   {
     id: "nissan-gt-r-nismo",
@@ -147,8 +147,8 @@ const GARAGE_DATA = [
     manufacturer: "Nissan",
     group: "Road Car",
     competition: "Other",
-    thumbnail: "images/garage/thumbnails/nissan-gt-r-nismo.jpg",
-    fullsize: "images/garage/fullsize/nissan-gt-r-nismo.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421929529981999/4fbcfac45268a29a9bfa1221cbe8c616_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421929529981999/4fbcfac45268a29a9bfa1221cbe8c616_thumb_l_x2.jpg"
   },
   {
     id: "porsche-911-turbo-s",
@@ -156,8 +156,8 @@ const GARAGE_DATA = [
     manufacturer: "Porsche",
     group: "Road Car",
     competition: "Other",
-    thumbnail: "images/garage/thumbnails/porsche-911-turbo-s.jpg",
-    fullsize: "images/garage/fullsize/porsche-911-turbo-s.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422576021804149/53a224c9a3cd2ddf898934b3e50e071d_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422576021804149/53a224c9a3cd2ddf898934b3e50e071d_thumb_l_x2.jpg"
   },
   {
     id: "ferrari-488-gt3",
@@ -165,8 +165,8 @@ const GARAGE_DATA = [
     manufacturer: "Ferrari",
     group: "Gr.3",
     competition: "BPF",
-    thumbnail: "images/garage/thumbnails/ferrari-488-gt3.jpg",
-    fullsize: "images/garage/fullsize/ferrari-488-gt3.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422275751240970/4b72aee2de674ad39446d78a37258c1b_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422275751240970/4b72aee2de674ad39446d78a37258c1b_thumb_l_x2.jpg"
   },
   {
     id: "toyota-supra-a90",
@@ -174,8 +174,8 @@ const GARAGE_DATA = [
     manufacturer: "Toyota",
     group: "Gr.2",
     competition: "Toyota WWW",
-    thumbnail: "images/garage/thumbnails/toyota-supra-a90.jpg",
-    fullsize: "images/garage/fullsize/toyota-supra-a90.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422607608256898/c5d807bf90a3745cc3ec31cbea1feadd_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422607608256898/c5d807bf90a3745cc3ec31cbea1feadd_thumb_l_x2.jpg"
   },
   {
     id: "cadillac-v-series-r",
@@ -183,8 +183,8 @@ const GARAGE_DATA = [
     manufacturer: "Cadillac",
     group: "Gr.1",
     competition: "EPIC",
-    thumbnail: "images/garage/thumbnails/cadillac-v-series-r.jpg",
-    fullsize: "images/garage/fullsize/cadillac-v-series-r.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422501554994651/20668a8878bb997a541ca133680f2d81_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422501554994651/20668a8878bb997a541ca133680f2d81_thumb_l_x2.jpg"
   },
   {
     id: "bmw-m2-cs",
@@ -192,8 +192,116 @@ const GARAGE_DATA = [
     manufacturer: "BMW",
     group: "Gr.4",
     competition: "BPF",
-    thumbnail: "images/garage/thumbnails/bmw-m2-cs.jpg",
-    fullsize: "images/garage/fullsize/bmw-m2-cs.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421840596611338/3c077df615a612575890ecaaa4610f9a_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421840596611338/3c077df615a612575890ecaaa4610f9a_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422417033003480/c6830b1552cd2aa7a774b9ea02de846e_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422417033003480/c6830b1552cd2aa7a774b9ea02de846e_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422283113503956/f541bb0cce4a0017828e406a597cde31_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422283113503956/f541bb0cce4a0017828e406a597cde31_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421804457039704/5e14c96e39c65fbda4cd3ed28f8d18b3_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421804457039704/5e14c96e39c65fbda4cd3ed28f8d18b3_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421850171504453/27eb23edcb4548101a6f00efb5419910_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421850171504453/27eb23edcb4548101a6f00efb5419910_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422399947356103/6a4a5dc3acd172c7f9a1164664c8f9a2_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422399947356103/6a4a5dc3acd172c7f9a1164664c8f9a2_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422678986407419/918435a151780ac2e4ece2969508d56f_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422678986407419/918435a151780ac2e4ece2969508d56f_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422329715948407/36a5c98a30a7e9deae1d907341b6a067_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422329715948407/36a5c98a30a7e9deae1d907341b6a067_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422369605418289/27dd2443faba28ba7e8c99562b86d5ee_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422369605418289/27dd2443faba28ba7e8c99562b86d5ee_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422831866783893/c6dba061b9135f8aee3021d8dd55426e_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422831866783893/c6dba061b9135f8aee3021d8dd55426e_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422643027256527/14cc94ff500f8ca161efb7be4754e70b_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422643027256527/14cc94ff500f8ca161efb7be4754e70b_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422454831902153/63b50a97d776c8010b5331d74b34c0a0_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422454831902153/63b50a97d776c8010b5331d74b34c0a0_thumb_l_x2.jpg"
+  },
+   {
+    id: "bmw-m2-cs",
+    name: "BMW M2 CS Racing",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "BPF",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422366411657785/cfedbbfc65f42db142b64261af01bb0b_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422366411657785/cfedbbfc65f42db142b64261af01bb0b_thumb_l_x2.jpg"
   },
   {
     id: "ford-gt-lm",
@@ -201,7 +309,7 @@ const GARAGE_DATA = [
     manufacturer: "Ford",
     group: "Gr.2",
     competition: "Other",
-    thumbnail: "images/garage/thumbnails/ford-gt-lm.jpg",
-    fullsize: "images/garage/fullsize/ford-gt-lm.jpg"
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421785535347419/5cce639f1422f68e324f5ecbb41d99d1_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421785535347419/5cce639f1422f68e324f5ecbb41d99d1_thumb_l_x2.jpg"
   }
 ];
