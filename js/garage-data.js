@@ -36,9 +36,9 @@ const GARAGE_DATA = [
   {
     id: "bmw-m4-gt3",
     name: "BMW M4 GT3",
-    manufacturer: "BMW",
-    group: "Gr.3",
-    competition: "CPGT",
+    manufacturer: "Nissan",
+    group: "Gr.4",
+    competition: "Other",
     thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422400697517041/727e61bc078aacc391d1dfa36a85e1b4_thumb_l_x2.jpg",
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422400697517041/727e61bc078aacc391d1dfa36a85e1b4_thumb_l_x2.jpg"
   },
@@ -46,37 +46,37 @@ const GARAGE_DATA = [
     id: "ferrari-296-gt3",
     name: "Ferrari 296 GT3",
     manufacturer: "Ferrari",
-    group: "Gr.3",
-    competition: "EPIC",
+    group: "Gr.4",
+    competition: "Other",
     thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421938913727825/4b6f032bf6d1d6f5592d9fd71946afbc_thumb_l_x2.jpg",
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421938913727825/4b6f032bf6d1d6f5592d9fd71946afbc_thumb_l_x2.jpg"
   },
   {
     id: "toyota-gr010",
     name: "Toyota GR010 Hybrid",
-    manufacturer: "Toyota",
-    group: "Gr.1",
-    competition: "Toyota WWW",
+    manufacturer: "BMW",
+    group: "Gr.4",
+    competition: "Other",
     thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422323588234221/195c62fa83d5308760f51425e32d6620_thumb_l_x2.jpg",
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422323588234221/195c62fa83d5308760f51425e32d6620_thumb_l_x2.jpg"
   },
   {
     id: "porsche-963",
     name: "Porsche 963 LMDh",
-    manufacturer: "Porsche",
-    group: "Gr.1",
-    competition: "EPIC",
+    manufacturer: "Aston Martin",
+    group: "Gr.3",
+    competition: "Other",
     thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422823998160903/e5fd42473ad2302142504121c371d4fd_thumb_l_x2.jpg",
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422823998160903/e5fd42473ad2302142504121c371d4fd_thumb_l_x2.jpg"
   },
   {
     id: "lamborghini-huracan-gt3",
     name: "Lamborghini Huracán GT3 EVO2",
-    manufacturer: "Lamborghini",
-    group: "Gr.3",
-    competition: "CPGT",
-    thumbnail: "images/garage/thumbnails/lamborghini-huracan-gt3.jpg",
-    fullsize: "images/garage/fullsize/lamborghini-huracan-gt3.jpg"
+    manufacturer: "Jaguar",
+    group: "Gr.4",
+    competition: "Other",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422486047255274/e91d59029ae0fe1c7330eb00eaaa35e4_thumb_s.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422486047255274/7f06b0efa621b129be8d7d13a6df3b20_thumb_l_x2.jpg"
   },
   {
     id: "mclaren-720s-gt3",
