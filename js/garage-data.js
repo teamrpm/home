@@ -25,13 +25,13 @@
 const GARAGE_DATA = [
   // ─── EXAMPLE CARS (replace with your real data) ───
   {
-    id: "porsche-911-gt3-r",
-    name: "Porsche 911 GT3 R",
-    manufacturer: "Porsche",
-    group: "Gr.3",
-    competition: "EPIC",
-    thumbnail: "images/garage/thumbnails/porsche-911-gt3-r.jpg",
-    fullsize: "images/garage/fullsize/porsche-911-gt3-r.jpg"
+    id: "alfa-romeo-155-gt4",
+    name: "155 2.5 V6 TI '93",
+    manufacturer: "Alfa Romeo",
+    group: "Gr.4",
+    competition: "Other",
+    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422614354456186/0dd94374e8440ead3d53c9d7049c55e9_thumb_l_x2.jpg",
+    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422614354456186/0dd94374e8440ead3d53c9d7049c55e9_thumb_l_x2.jpg"
   },
   {
     id: "bmw-m4-gt3",
