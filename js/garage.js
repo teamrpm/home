@@ -1,5 +1,5 @@
 /* =====================================================================
-   GARAGE.JS — Garage page: filtering, rendering, lightbox
+   GARAGE.JS — Garage page: filtering, rendering, lightbox, filter toggle
    ===================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -16,6 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const compBtns          = document.querySelectorAll(".filter-btn[data-comp]");
   const mfgInput          = document.getElementById("filter-manufacturer");
   const clearBtn          = document.getElementById("filter-clear");
+  const filtersBar        = document.getElementById("garageFiltersBar");
+  const filterToggle      = document.getElementById("garageFilterToggle");
+  const filterSection     = document.getElementById("garageFiltersSection");
+  const activeCountBadge  = document.getElementById("activeFilterCount");
 
   if (!grid || typeof GARAGE_DATA === "undefined") return;
 
@@ -23,6 +27,71 @@ document.addEventListener("DOMContentLoaded", () => {
   let activeGroup = "All";
   let activeComp  = "All";
   let mfgQuery    = "";
+  let filtersOpen = false; // collapsed by default on mobile
+
+  /* ── Filter Toggle (show/hide) ── */
+  function updateToggleState() {
+    if (!filterToggle || !filtersBar) return;
+
+    const isMobile = window.innerWidth <= 900;
+
+    if (isMobile) {
+      filterToggle.style.display = "flex";
+      if (filtersOpen) {
+        filtersBar.classList.add("filters-visible");
+        filtersBar.classList.remove("filters-hidden");
+        filterToggle.setAttribute("aria-expanded", "true");
+        filterToggle.querySelector(".garage-filter-toggle-text").textContent = "Hide Filters";
+        filterToggle.classList.add("toggle-active");
+      } else {
+        filtersBar.classList.remove("filters-visible");
+        filtersBar.classList.add("filters-hidden");
+        filterToggle.setAttribute("aria-expanded", "false");
+        filterToggle.querySelector(".garage-filter-toggle-text").textContent = "Show Filters";
+        filterToggle.classList.remove("toggle-active");
+      }
+    } else {
+      // Desktop: always show filters, hide toggle button
+      filterToggle.style.display = "none";
+      filtersBar.classList.remove("filters-hidden");
+      filtersBar.classList.add("filters-visible");
+    }
+
+    // Update active filter count badge
+    updateActiveFilterBadge();
+  }
+
+  function updateActiveFilterBadge() {
+    if (!activeCountBadge) return;
+    let count = 0;
+    if (activeGroup !== "All") count++;
+    if (activeComp !== "All") count++;
+    if (mfgQuery !== "") count++;
+
+    if (count > 0) {
+      activeCountBadge.textContent = count;
+      activeCountBadge.style.display = "inline-flex";
+    } else {
+      activeCountBadge.style.display = "none";
+    }
+  }
+
+  if (filterToggle) {
+    filterToggle.addEventListener("click", () => {
+      filtersOpen = !filtersOpen;
+      updateToggleState();
+    });
+  }
+
+  // On resize, re-evaluate toggle state
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(updateToggleState, 150);
+  }, { passive: true });
+
+  // Initialize toggle state
+  updateToggleState();
 
   /* ── Render grid ── */
   function renderGrid() {
@@ -99,6 +168,9 @@ document.addEventListener("DOMContentLoaded", () => {
         garageObserver.observe(el);
       });
     });
+
+    // Update badge
+    updateActiveFilterBadge();
   }
 
   /* ── Intersection Observer for card animations ── */
