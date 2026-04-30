@@ -288,6 +288,8 @@ img {
 .hero-parallax {
   position: absolute;
   inset: -20%; /* oversized for parallax movement */
+  width: 140%;
+  height: 140%; 
   background-image: url("images/rpm-hero.jpg");
   background-size: cover;
   background-position: center center;
