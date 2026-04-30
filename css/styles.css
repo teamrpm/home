@@ -288,7 +288,7 @@ img {
 .hero-parallax {
   position: absolute;
   inset: -20%; /* oversized for parallax movement */
-  background-image: url("images/rpm-hero.jpg");
+  background-image: url("https://github.com/teamrpm/home/blob/4e6ecc8b536fe1ef66551e4af37016526e9d9d1e/images/rpm-hero.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
