@@ -173,28 +173,28 @@ const SITE_DATA = {
       name: "EPIC Virtual  Racing",
       platform: "GT7",
       description: "O campeonato mais prestigiado de Gran Turismo 7 em Portugal que já conta com 13 edições",
-      logo: "images/leagues/pitskill.png",
+      logo: "images/epic.png",
       url: "https://epiceventos.pt/virtual/"
     },
     {
       name: "Campeonato Portugal GT",
       platform: "GT7",
       description: "Um dos mais recentes campeonatos de Gran Turismo 7 com 5 divisões e 140 pilotos",
-      logo: "images/leagues/pitskill.png",
+      logo: "images/cpgt.png",
       url: "https://www.facebook.com/p/CPGT-Campeonato-Portugal-de-GT7-61563295261372/"
     },
     {
       name: "Liga BPF",
       platform: "GT7",
       description: "A maior liga de GT7 em Portugal com campeonatos que variam entre 140 e 200 pilotos",
-      logo: "images/leagues/pitskill.png",
+      logo: "images/ligabpg.png",
       url: "https://www.bpftr.com/eventos"
     },
     {
       name: "Evolution Series",
       platform: "GT7",
       description: "Uma comunidade de campeonatos temáticos especializados em provas de endurance por equipas",
-      logo: "images/leagues/pitskill.png",
+      logo: "images/evolutions.jpg",
       url: "https://www.youtube.com/@evolutionchampionshipserie7726"
     }
   ],
