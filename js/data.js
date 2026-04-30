@@ -23,7 +23,7 @@ const SITE_DATA = {
       number: "131",
       role: "Valente_131",
       nationality: "Portuguese",
-      series: "Gran turismo 7",
+      series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21251482805983647/4ea40e61f16a4768e737e10a3d69f351_body.png",       // Replace with real photo
       flag: "🇵🇹"
     },
@@ -32,7 +32,7 @@ const SITE_DATA = {
       number: "95",
       role: "Pe_Fi_Ma_Fe",
       nationality: "Portugal",
-      series: "Gran turismo 7",
+      series: "Gran Turismo 7",
       image: "https://ugc.gt7.game.gran-turismo.com/23/21252360164819932/3a03aaec6c2e6f065d1353ae7e741088_body.png",
       flag: "🇵🇹"
     },
@@ -172,14 +172,14 @@ const SITE_DATA = {
     {
       name: "EPIC Virtual  Racing",
       platform: "GT7",
-      description: "O campeonato mais prestigiado de Gran Turismo 7 em Portugal que já conta com 13 edições.",
+      description: "O campeonato mais prestigiado de Gran Turismo 7 em Portugal que já conta com 13 edições",
       logo: "images/leagues/pitskill.png",
       url: "https://epiceventos.pt/virtual/"
     },
     {
       name: "Campeonato Portugal GT",
       platform: "GT7",
-      description: "Um dos mais recentes campeonatos de Gran Turismo 7 com 5 divisões e 140 pilotos.",
+      description: "Um dos mais recentes campeonatos de Gran Turismo 7 com 5 divisões e 140 pilotos",
       logo: "images/leagues/pitskill.png",
       url: "https://www.facebook.com/p/CPGT-Campeonato-Portugal-de-GT7-61563295261372/"
     },
@@ -193,7 +193,7 @@ const SITE_DATA = {
     {
       name: "Evolution Series",
       platform: "GT7",
-      description: "Uma comunidade de campeonatos temáticos especializados em provas de endurance por equipas.",
+      description: "Uma comunidade de campeonatos temáticos especializados em provas de endurance por equipas",
       logo: "images/leagues/pitskill.png",
       url: "https://www.youtube.com/@evolutionchampionshipserie7726"
     }
