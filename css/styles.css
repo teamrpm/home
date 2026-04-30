@@ -1656,11 +1656,11 @@ img {
   outline-offset: 2px;
 }
 
-/* ── Thumbnail wrapper: fixed 250×275 proportions ── */
+/* ── Thumbnail wrapper: fixed 250×140 proportions ── */
 .garage-thumb-wrap {
   position: relative;
   width: 100%;
-  aspect-ratio: 250 / 275;
+  aspect-ratio: 250 / 140;
   overflow: hidden;
   background: var(--gray-700);
 }
