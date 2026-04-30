@@ -312,6 +312,10 @@ img {
   right: -10%;
   width: 40%;
   height: 200%;
+  background-image: url("https://github.com/teamrpm/home/blob/4e6ecc8b536fe1ef66551e4af37016526e9d9d1e/images/rpm-hero.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   background: repeating-linear-gradient(
     -45deg,
     transparent,
