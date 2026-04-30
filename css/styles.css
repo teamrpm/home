@@ -288,7 +288,7 @@ img {
 .hero-parallax {
   position: absolute;
   inset: -20%; /* oversized for parallax movement */
-  background-image: url("https://lh3.googleusercontent.com/sitesv/AA5AbUAlZK3QC_CVkfu5jY7Gn8SE-uORw0oTWDFYnpSl7E_MQnH7VhxutM8yVgNoXbA5VFCSzWcfTrOJbvvAr7LmU3HMgX4Rk3gAg0K4PR8ozXok_-E65NSZGcilB1TlVl-pHaVYYDHMD9z0KPo1bZh7KLqmTAmxtRNVYkKbjXXUTdHyN8zkktk0kCM0=w16383");
+  background-image: url("images/rpm-hero.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
