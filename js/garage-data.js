@@ -12,7 +12,7 @@
    • name        — display name shown under the thumbnail
    • manufacturer— car manufacturer (used in the Manufacturer text filter)
    • group       — one of: "Gr.1", "Gr.2", "Gr.3", "Gr.4", "Gr.B", "Road Car"
-   • competition — one of: "EPIC", "CPGT", "BPF", "Toyota WWW", "Other"
+   • competition — one of: "Original", "EPIC", "CPGT", "BPF", "Toyota WWW", "Other"
    • thumbnail   — path to 250×275px thumbnail in images/garage/thumbnails/
    • fullsize    — path to 1280×720px (16:9) image in images/garage/fullsize/
    
