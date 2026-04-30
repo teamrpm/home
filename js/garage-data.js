@@ -232,8 +232,8 @@ const GARAGE_DATA = [
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421850171504453/27eb23edcb4548101a6f00efb5419910_thumb_l_x2.jpg"
   },
    {
-    id: "bmw-m2-cs",
-    name: "BMW M2 CS Racing",
+    id: "nissan-gtr-nismo-gt2",
+    name: "GT-R NISMO GT500 '16",
     manufacturer: "Nissan",
     group: "Gr.2",
     competition: "BPF",
@@ -241,8 +241,8 @@ const GARAGE_DATA = [
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422399947356103/6a4a5dc3acd172c7f9a1164664c8f9a2_thumb_l_x2.jpg"
   },
    {
-    id: "bmw-m2-cs",
-    name: "BMW M2 CS Racing",
+    id: "audi-rs5-gt2",
+    name: "RS 5 Turbo DTM '19",
     manufacturer: "Audi",
     group: "Gr.2",
     competition: "BPF",
@@ -250,8 +250,8 @@ const GARAGE_DATA = [
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422678986407419/918435a151780ac2e4ece2969508d56f_thumb_l_x2.jpg"
   },
    {
-    id: "bmw-m2-cs",
-    name: "BMW M2 CS Racing",
+    id: "lexus-rc-f-gt2",
+    name: "RC F GT500 '16",
     manufacturer: "Lexus",
     group: "Gr.2",
     competition: "BPF",
@@ -259,8 +259,8 @@ const GARAGE_DATA = [
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422329715948407/36a5c98a30a7e9deae1d907341b6a067_thumb_l_x2.jpg"
   },
    {
-    id: "bmw-m2-cs",
-    name: "BMW M2 CS Racing",
+    id: "honda-nsx-concept-gt2",
+    name: "NSX Concept-GT '16",
     manufacturer: "Honda",
     group: "Gr.2",
     competition: "Generic",
@@ -268,8 +268,8 @@ const GARAGE_DATA = [
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422369605418289/27dd2443faba28ba7e8c99562b86d5ee_thumb_l_x2.jpg"
   },
    {
-    id: "bmw-m2-cs",
-    name: "BMW M2 CS Racing",
+    id: "nissan-gtr-gt2",
+    name: "GT-R GT500 '08",
     manufacturer: "Nissan",
     group: "Gr.2",
     competition: "CPGT",
@@ -277,8 +277,8 @@ const GARAGE_DATA = [
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422831866783893/c6dba061b9135f8aee3021d8dd55426e_thumb_l_x2.jpg"
   },
    {
-    id: "bmw-m2-cs",
-    name: "BMW M2 CS Racing",
+    id: "honda-nsx-gt2",
+    name: "NSX GT500 '08",
     manufacturer: "Honda",
     group: "Gr.2",
     competition: "CPGT",
@@ -286,8 +286,8 @@ const GARAGE_DATA = [
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422643027256527/14cc94ff500f8ca161efb7be4754e70b_thumb_l_x2.jpg"
   },
    {
-    id: "bmw-m2-cs",
-    name: "BMW M2 CS Racing",
+    id: "lexus-sc430-gt2",
+    name: "SC430 GT500 '08",
     manufacturer: "Lexus",
     group: "Gr.2",
     competition: "CPGT",
@@ -295,21 +295,12 @@ const GARAGE_DATA = [
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422454831902153/63b50a97d776c8010b5331d74b34c0a0_thumb_l_x2.jpg"
   },
    {
-    id: "bmw-m2-cs",
-    name: "BMW M2 CS Racing",
+    id: "toyota-gt-one-gt2",
+    name: "GT-One (TS020) '99",
     manufacturer: "Toyota",
     group: "Gr.2",
-    competition: "BPF",
+    competition: "Generic",
     thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19422454831902153/97eaadd396cc7ad73edf7506253b13c2_thumb_s.jpg",
     fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19422366411657785/cfedbbfc65f42db142b64261af01bb0b_thumb_l_x2.jpg"
-  },
-  {
-    id: "ford-gt-lm",
-    name: "Ford GT LM GTE",
-    manufacturer: "Ford",
-    group: "Gr.2",
-    competition: "Other",
-    thumbnail: "https://ugc.gt7.game.gran-turismo.com/10/19421785535347419/5cce639f1422f68e324f5ecbb41d99d1_thumb_l_x2.jpg",
-    fullsize: "https://ugc.gt7.game.gran-turismo.com/10/19421785535347419/5cce639f1422f68e324f5ecbb41d99d1_thumb_l_x2.jpg"
   }
 ];
