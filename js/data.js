@@ -187,14 +187,14 @@ const SITE_DATA = {
       name: "Liga BPF",
       platform: "GT7",
       description: "A maior liga de GT7 em Portugal com campeonatos que variam entre 140 e 200 pilotos.",
-      logo: "images/leagues (4).png",
+      logo: "images/leagues.png",
       url: "https://www.bpftr.com/eventos"
     },
     {
       name: "Evolution Series",
       platform: "GT7",
       description: "Uma comunidade de campeonatos temáticos especializados em provas de endurance por equipas.",
-      logo: "images/evolutions.jpg",
+      logo: "images/leagues (4).png",
       url: "https://www.youtube.com/@evolutionchampionshipserie7726"
     }
   ],
