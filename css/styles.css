@@ -678,6 +678,16 @@ img {
   width: 100%;
   position: relative;
 }
+
+.leagues-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
 .league-card {
   display: flex;
   flex-direction: column;
