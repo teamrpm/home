@@ -246,13 +246,13 @@ const SITE_DATA = {
     {
       name: "SimXPro",
       logo: "https://simxpro.com/cdn/shop/files/logo_png.png?v=1758741848&width=120",
-      url: "https://simxpro.com/",
+      url: "https://simufy.com/?ref=rpm",
       tier: "bronze"
     },
     {
       name: "Simufy",
       logo: "https://simufy.com/cdn/shop/files/Logo_Simufy_edabc560-fe73-4946-ad32-ba72663e1ae3_250x.png?v=1749559810",
-      url: "https://simufy.com/",
+      url: "https://simufy.com/?ref=rpm",
       tier: "bronze"
     }
   ]
