@@ -246,7 +246,7 @@ const SITE_DATA = {
     {
       name: "SimXPro",
       logo: "https://simxpro.com/cdn/shop/files/logo_png.png?v=1758741848&width=120",
-      url: "https://simufy.com/?ref=rpm",
+      url: "https://simxpro.com/rpm",
       tier: "bronze"
     },
     {
