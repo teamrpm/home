@@ -228,6 +228,40 @@ img {
   }
 }
 
+
+/* ─── Language Toggle Button ─── */
+.lang-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.lang-toggle:hover {
+  background: rgba(255, 214, 0, 0.15);
+  border-color: var(--accent, #ffd600);
+  color: var(--accent, #ffd600);
+}
+
+/* Mobile nav adjustments */
+@media (max-width: 768px) {
+  .nav-links .lang-toggle {
+    margin: 0.5rem auto;
+    width: fit-content;
+  }
+}
+
 /* ══════════════════════════════════════════════════════════════════
    BUTTONS
    ══════════════════════════════════════════════════════════════════ */
