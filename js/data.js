@@ -197,27 +197,27 @@ const SITE_DATA = {
       logo: "images/leagues (4).png",
       url: "https://www.youtube.com/@evolutionchampionshipserie7726"
     },
-   {
-      name: "YOUR 5TH LEAGUE",
+     {
+      name: "Campeonato Portugal GT",
       platform: "GT7",
-      description: "Description here.",
-      logo: "images/leagues/league5.png",
-      url: "https://example.com"
+      description: "Um dos mais recentes campeonatos de Gran Turismo 7 com 5 divisões e 140 pilotos.",
+      logo: "images/leagues (1).png",
+      url: "https://www.facebook.com/p/CPGT-Campeonato-Portugal-de-GT7-61563295261372/"
     },
     {
-      name: "YOUR 6TH LEAGUE",
+      name: "Liga BPF",
       platform: "GT7",
-      description: "Description here.",
-      logo: "images/leagues/league6.png",
-      url: "https://example.com"
+      description: "A maior liga de GT7 em Portugal com campeonatos que variam entre 140 e 200 pilotos.",
+      logo: "images/leagues.png",
+      url: "https://www.bpftr.com/eventos"
     },
     {
-      name: "YOUR 7TH LEAGUE",
+      name: "Evolution Series",
       platform: "GT7",
-      description: "Description here.",
-      logo: "images/leagues/league7.png",
-      url: "https://example.com"
-    }
+      description: "Uma comunidade de campeonatos temáticos especializados em provas de endurance por equipas.",
+      logo: "images/leagues (4).png",
+      url: "https://www.youtube.com/@evolutionchampionshipserie7726"
+    }   
   ],
 
   /* ─────────────────────────────────────────────
