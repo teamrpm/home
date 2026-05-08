@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Racing Project Motorsport Garage — Browse our collection of race and road cars." />
+  <meta name="description" content="Racing Project Motorsport — Our Garage. Browse all our race and road cars by group, competition, or manufacturer." />
   <title>Garage — Racing Project Motorsport</title>
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -16,117 +16,135 @@
   <header id="site-header">
     <nav class="nav-container" aria-label="Main navigation">
       <a href="index.html" class="nav-logo" aria-label="Racing Project Motorsport Home">
-        <img src="https://teamrpm.github.io/home/images/RPM%20LETRAS%20BRANCO.svg" alt="Racing Project Logo" class="logo-img" />
+        <img src="images/logo.png" alt="Racing Project Logo" class="logo-img" />
+        <span class="logo-text">Racing Project</span>
       </a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
         <span class="hamburger"></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-        <li><a href="index.html#drivers-section" data-i18n="nav.drivers">Drivers</a></li>
-        <li><a href="index.html#sponsors-section" data-i18n="nav.sponsors">Sponsors</a></li>
-        <li><a href="garage.html" class="active" data-i18n="nav.garage">Garage</a></li>
-        <li><a href="calendar.html" data-i18n="nav.calendar">Calendar</a></li>
-        <li><a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact Us</a></li>
-        <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">🇵🇹 PT</button></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#drivers-section">Drivers</a></li>
+        <li><a href="index.html#leagues-section">Leagues</a></li>
+        <li><a href="garage.html" class="active">Garage</a></li>
+        <li><a href="calendar.html">Calendar</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ==================== HERO ==================== -->
-  <section class="page-hero garage-hero">
+  <!-- ==================== PAGE HERO ==================== -->
+  <section class="page-hero">
     <div class="page-hero-overlay"></div>
-    <div class="page-hero-content">
-      <h1 class="page-hero-title"><span data-i18n="garage.hero.title1">Our</span> <span class="text-yellow" data-i18n="garage.hero.title2">Garage</span></h1>
-      <p class="page-hero-desc" data-i18n="garage.hero.desc">Browse our full collection of race machines and road cars. Filter by group, competition, or search by manufacturer.</p>
+    <div class="container">
+      <h1 class="page-hero-title anim-fade-down">Our <span class="text-yellow">Garage</span></h1>
+      <p class="page-hero-sub anim-fade-up">Browse our full collection of race machines and road cars. Filter by group, competition, or search by manufacturer.</p>
     </div>
   </section>
 
-  <!-- ==================== GARAGE FILTERS + GRID ==================== -->
-  <section class="section garage-section">
+  <!-- ==================== FILTERS ==================== -->
+  <section class="garage-filters-section" id="garageFiltersSection">
     <div class="container">
 
-      <div class="garage-toolbar">
-        <input type="text" id="garage-search" class="garage-search" data-i18n="garage.filters.mfr" data-i18n-attr="placeholder" placeholder="Search manufacturer..." aria-label="Search by manufacturer" />
-        <button class="garage-filter-toggle" id="filter-toggle">
-          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
-          </svg>
-          <span data-i18n="garage.filters.show">Show Filters</span>
-        </button>
-      </div>
+      <!-- Toggle button — visible on mobile, controls filter visibility -->
+      <button class="garage-filter-toggle" id="garageFilterToggle" aria-expanded="false" aria-controls="garageFiltersBar">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <path d="M10 18h4v-2h-4v2ZM3 6v2h18V6H3Zm3 7h12v-2H6v2Z"/>
+        </svg>
+        <span class="garage-filter-toggle-text">Show Filters</span>
+        <span class="garage-filter-toggle-count" id="activeFilterCount"></span>
+        <svg class="garage-filter-toggle-chevron" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M7.41 8.59 12 13.17l4.59-4.58L18 10l-6 6-6-6z"/>
+        </svg>
+      </button>
 
-      <div class="garage-filters" id="garage-filters">
+      <div class="garage-filters-bar" id="garageFiltersBar">
 
-        <div class="filter-group">
-          <label data-i18n="garage.filters.group">Group</label>
-          <div class="filter-pills" id="filter-group">
-            <button class="filter-pill active" data-value="all" data-i18n="garage.filters.all">All</button>
-            <button class="filter-pill" data-value="Gr.1">Gr.1</button>
-            <button class="filter-pill" data-value="Gr.2">Gr.2</button>
-            <button class="filter-pill" data-value="Gr.3">Gr.3</button>
-            <button class="filter-pill" data-value="Gr.4">Gr.4</button>
-            <button class="filter-pill" data-value="Gr.B">Gr.B</button>
-            <button class="filter-pill" data-value="Road Car" data-i18n="garage.filters.roadcar">Road Car</button>
+        <!-- Group filter -->
+        <div class="filter-row">
+          <span class="filter-label">Group</span>
+          <div class="filter-btn-group" role="group" aria-label="Filter by car group">
+            <button class="filter-btn active" data-group="All">All</button>
+            <button class="filter-btn" data-group="Gr.1">Gr.1</button>
+            <button class="filter-btn" data-group="Gr.2">Gr.2</button>
+            <button class="filter-btn" data-group="Gr.3">Gr.3</button>
+            <button class="filter-btn" data-group="Gr.4">Gr.4</button>
+            <button class="filter-btn" data-group="Gr.B">Gr.B</button>
+            <button class="filter-btn" data-group="Road Car">Road Car</button>
           </div>
         </div>
 
-        <div class="filter-group">
-          <label data-i18n="garage.filters.comp">Competition</label>
-          <div class="filter-pills" id="filter-comp">
-            <button class="filter-pill active" data-value="all" data-i18n="garage.filters.all">All</button>
-            <button class="filter-pill" data-value="Original">Original</button>
-            <button class="filter-pill" data-value="EPIC">EPIC</button>
-            <button class="filter-pill" data-value="CPGT">CPGT</button>
-            <button class="filter-pill" data-value="BPF">BPF</button>
-            <button class="filter-pill" data-value="Toyota WWW">Toyota WWW</button>
-            <button class="filter-pill" data-value="Other">Other</button>
+        <!-- Competition filter -->
+        <div class="filter-row">
+          <span class="filter-label">Competition</span>
+          <div class="filter-btn-group" role="group" aria-label="Filter by competition">
+            <button class="filter-btn active" data-comp="All">All</button>
+            <button class="filter-btn" data-comp="EPIC">EPIC</button>
+            <button class="filter-btn" data-comp="CPGT">CPGT</button>
+            <button class="filter-btn" data-comp="BPF">BPF</button>
+            <button class="filter-btn" data-comp="Toyota WWW">Toyota WWW</button>
+            <button class="filter-btn" data-comp="Other">Other</button>
           </div>
         </div>
 
-        <div class="filter-group">
-          <label data-i18n="garage.filters.mfr">Manufacturer</label>
-          <div class="filter-pills" id="filter-manufacturer">
-            <button class="filter-pill active" data-value="all" data-i18n="garage.filters.all">All</button>
-            <!-- Dynamically populated -->
-          </div>
-        </div>
-
-        <div class="filter-meta">
-          <button class="filter-clear" id="clear-filters">
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line>
+        <!-- Manufacturer text search -->
+        <div class="filter-row">
+          <span class="filter-label">Manufacturer</span>
+          <div class="filter-input-wrap">
+            <svg class="filter-search-icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+              <path d="M15.5 14h-.79l-.28-.27A6.47 6.47 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5Zm-6 0A4.5 4.5 0 1 1 14 9.5 4.49 4.49 0 0 1 9.5 14Z"/>
             </svg>
-            <span data-i18n="garage.filters.clear">Clear Filters</span>
+            <input
+              type="text"
+              id="filter-manufacturer"
+              class="filter-input"
+              placeholder="Type manufacturer name…"
+              autocomplete="off"
+              spellcheck="false"
+            />
+          </div>
+        </div>
+
+        <!-- Actions row -->
+        <div class="filter-row filter-row-actions">
+          <button class="filter-clear-btn" id="filter-clear">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+              <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12Z"/>
+            </svg>
+            Clear Filters
           </button>
-          <span class="filter-count" id="filter-count">
-            <span data-i18n="garage.filters.showing">Showing</span> <strong>0</strong> <span data-i18n="garage.filters.cars">cars</span>
+          <span class="garage-results-count">
+            Showing <strong id="garage-count">0</strong> cars
           </span>
         </div>
 
-      </div>
+      </div><!-- /.garage-filters-bar -->
     </div>
   </section>
 
   <!-- ==================== GARAGE GRID ==================== -->
-  <section class="section garage-grid-section">
+  <section class="section garage-section">
     <div class="container">
       <div class="garage-grid" id="garage-grid"></div>
-      <div class="garage-empty" id="garage-empty" style="display:none;">
-        🔍
-        <h3 data-i18n="garage.empty.title">No cars found</h3>
-        <p data-i18n="garage.empty.desc">Try adjusting your filters or search term.</p>
+      <div class="garage-no-results" id="garage-no-results" style="display:none;">
+        <div class="no-results-icon">🔍</div>
+        <h3>No cars found</h3>
+        <p>Try adjusting your filters or search term.</p>
       </div>
     </div>
   </section>
 
-  <!-- ==================== CAR MODAL ==================== -->
-  <div class="car-modal" id="car-modal" role="dialog" aria-hidden="true">
-    <div class="car-modal-overlay"></div>
-    <div class="car-modal-content">
-      <button class="car-modal-close" aria-label="Close">&times;</button>
-      <div class="car-modal-img" id="car-modal-img"></div>
-      <div class="car-modal-info" id="car-modal-info"></div>
+  <!-- ==================== LIGHTBOX ==================== -->
+  <div class="garage-lightbox" id="garage-lightbox" role="dialog" aria-hidden="true" aria-label="Car image viewer">
+    <div class="garage-lb-backdrop"></div>
+    <div class="garage-lb-content">
+      <button class="garage-lb-close" id="garage-lb-close" aria-label="Close image viewer">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="32" height="32">
+          <path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12Z"/>
+        </svg>
+      </button>
+      <img class="garage-lb-img" id="garage-lb-img" src="" alt="" />
+      <p class="garage-lb-caption" id="garage-lb-caption"></p>
     </div>
   </div>
 
@@ -135,46 +153,84 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo" aria-label="Racing Project Motorsport Home">
-            <span class="logo-text">Racing Project Motorsport</span>
+          <a href="index.html" class="footer-logo" aria-label="Racing Project Home">
+            <img src="images/logo.png" alt="Racing Project Logo" class="logo-img footer-logo-img" />
+            <span class="logo-text">Racing Project</span>
           </a>
-          <p class="footer-desc" data-i18n="footer.desc">A competitive sim racing team dedicated to pushing the boundaries of virtual motorsport across multiple platforms worldwide.</p>
+          <p class="footer-tagline">Precision. Passion. Performance.</p>
         </div>
         <div class="footer-nav">
-          <h4 data-i18n="footer.links">Quick Links</h4>
+          <h4>Pages</h4>
           <ul>
-            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-            <li><a href="index.html#drivers-section" data-i18n="nav.drivers">Drivers</a></li>
-            <li><a href="calendar.html" data-i18n="nav.calendar">Calendar</a></li>
-            <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="garage.html">Garage</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <h4>Team</h4>
+          <ul>
+            <li><a href="index.html#drivers-section">Drivers</a></li>
+            <li><a href="index.html#leagues-section">Leagues</a></li>
+            <li><a href="index.html#sponsors-section">Sponsors</a></li>
           </ul>
         </div>
         <div class="footer-social">
-          <h4 data-i18n="footer.follow">Follow Us</h4>
-          <div class="social-links">
-            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5Zm4.25 3.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5Zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5Zm5.5-.75a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://instagram.com/YOUR_HANDLE" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3Z"/></svg>
             </a>
-            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.54 7.2a2.74 2.74 0 0 0-1.94-1.93C17.88 4.8 12 4.8 12 4.8s-5.88 0-7.6.47A2.74 2.74 0 0 0 2.46 7.2 28.7 28.7 0 0 0 2 12a28.7 28.7 0 0 0 .46 4.8 2.74 2.74 0 0 0 1.94 1.93c1.72.47 7.6.47 7.6.47s5.88 0 7.6-.47a2.74 2.74 0 0 0 1.94-1.93A28.7 28.7 0 0 0 22 12a28.7 28.7 0 0 0-.46-4.8ZM9.75 15.02V8.98L15.5 12l-5.75 3.02Z"/></svg>
+            <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73Z"/></svg>
             </a>
-            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Facebook">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.13 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99C18.34 21.13 22 16.99 22 12Z"/></svg>
+            <a href="https://facebook.com/YOUR_PAGE" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z"/></svg>
             </a>
-            <a href="mailto:racingprojectmotorsport@gmail.com" class="social-icon" aria-label="Email">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 2-8 5-8-5h16Zm0 12H4V8l8 5 8-5v10Z"/></svg>
+            <a href="mailto:racingprojectmotorsport@gmail.com" aria-label="Email" class="social-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20 8l-8 5-8-5V6l8 5 8-5m0-2H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Z"/></svg>
             </a>
           </div>
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="footer-year"></span> <span data-i18n="footer.copy">Racing Project Motorsport. All rights reserved.</span></p>
+        <p>&copy; <span id="footerYear"></span> Racing Project Motorsport. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/lang.js"></script>
+  <!-- ==================== SCRIPTS ==================== -->
+  <script src="js/garage-data.js"></script>
   <script src="js/garage.js"></script>
+  <script>
+    /* ── Shared nav logic (hamburger + scroll header) ── */
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("navToggle");
+      const links  = document.getElementById("navLinks");
+      if (toggle && links) {
+        toggle.addEventListener("click", () => {
+          const open = links.classList.toggle("open");
+          toggle.classList.toggle("active", open);
+          toggle.setAttribute("aria-expanded", open);
+        });
+        links.querySelectorAll("a").forEach(a => {
+          a.addEventListener("click", () => {
+            links.classList.remove("open");
+            toggle.classList.remove("active");
+            toggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+      const header = document.getElementById("site-header");
+      if (header) {
+        window.addEventListener("scroll", () => {
+          header.classList.toggle("scrolled", window.scrollY > 40);
+        }, { passive: true });
+      }
+      const fy = document.getElementById("footerYear");
+      if (fy) fy.textContent = new Date().getFullYear();
+    });
+  </script>
 </body>
 </html>
