@@ -22,12 +22,13 @@
         <span class="hamburger"></span>
       </button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="#drivers-section">Drivers</a></li>
-        <li><a href="garage.html">Garage</a></li>
-        <li><a href="calendar.html">Calendar</a></li>
-        <li><a href="#sponsors-section">Sponsors</a></li>
-        <li><a href="contact.html" class="nav-cta">Contact Us</a></li>
+        <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
+        <li><a href="#drivers-section" data-i18n="nav.drivers">Drivers</a></li>
+        <li><a href="garage.html" data-i18n="nav.garage">Garage</a></li>
+        <li><a href="calendar.html" data-i18n="nav.calendar">Calendar</a></li>
+        <li><a href="#sponsors-section" data-i18n="nav.sponsors">Sponsors</a></li>
+        <li><a href="contact.html" class="nav-cta" data-i18n="nav.contact">Contact Us</a></li>
+        <li><button id="lang-toggle" class="lang-toggle" aria-label="Switch language">🇵🇹 PT</button></li>
       </ul>
     </nav>
   </header>
@@ -37,14 +38,14 @@
     <div class="hero-parallax"></div>
     <div class="hero-content">
       <h1 class="hero-title anim-fade-down">
-        <span class="hero-title-line1">Racing</span>
-        <span class="hero-title-line2">Project</span>
-        <span class="hero-title-line3">Motorsport</span>
+        <span class="hero-title-line1" data-i18n="hero.line1">Racing</span>
+        <span class="hero-title-line2" data-i18n="hero.line2">Project</span>
+        <span class="hero-title-line3" data-i18n="hero.line3">Motorsport</span>
       </h1>
-      <p class="hero-tagline anim-fade-up">Precision. Speed. Victory.</p>
+      <p class="hero-tagline anim-fade-up" data-i18n="hero.subtitle">Precision. Speed. Victory.</p>
       <div class="hero-buttons anim-fade-up delay-2">
-        <a href="#about-section" class="btn btn-primary">Discover More</a>
-        <a href="contact.html" class="btn btn-outline">Join the Team</a>
+        <a href="#about-section" class="btn btn-primary" data-i18n="hero.cta1">Discover More</a>
+        <a href="contact.html" class="btn btn-outline" data-i18n="hero.cta2">Join the Team</a>
       </div>
     </div>
     <div class="hero-scroll-indicator" aria-hidden="true">
@@ -56,31 +57,31 @@
   <section id="about-section" class="section about-section">
     <div class="container">
       <div class="section-header anim-slide-left">
-        <span class="section-tag">Who We Are</span>
-        <h2 class="section-title">Born to Race.<br/><span class="text-yellow">Built to Win.</span></h2>
+        <span class="section-tag" data-i18n="about.tag">Who We Are</span>
+        <h2 class="section-title"><span data-i18n="about.title1">Born to Race.</span><br/><span class="text-yellow" data-i18n="about.title2">Built to Win.</span></h2>
       </div>
       <div class="about-grid">
         <div class="about-text anim-slide-left">
-          <p class="about-lead">Racing Project Motorsport is a competitive sim racing team dedicated to pushing the boundaries of virtual motorsport. Founded by passionate racers, we compete across multiple platforms and series worldwide.</p>
-          <p>Our team combines cutting-edge setups, relentless practice, and pure racing instinct to deliver results on every track. From endurance events to sprint championships, we race with one goal — <strong>victory</strong>.</p>
-          <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;">Get In Touch</a>
+          <p class="about-lead" data-i18n="about.p1">Racing Project Motorsport is a competitive sim racing team dedicated to pushing the boundaries of virtual motorsport. Founded by passionate racers, we compete across multiple platforms and series worldwide.</p>
+          <p><span data-i18n="about.p2_prefix">Our team combines cutting-edge setups, relentless practice, and pure racing instinct to deliver results on every track. From endurance events to sprint championships, we race with one goal —</span> <strong data-i18n="about.p2_bold">victory</strong>.</p>
+          <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;" data-i18n="about.cta">Get In Touch</a>
         </div>
         <div class="about-stats anim-slide-right">
           <div class="stat-card">
             <span class="stat-number" data-count="2024">0</span>
-            <span class="stat-label">Founded</span>
+            <span class="stat-label" data-i18n="about.stat.founded">Founded</span>
           </div>
           <div class="stat-card">
             <span class="stat-number" data-count="16">0</span>
-            <span class="stat-label">Drivers</span>
+            <span class="stat-label" data-i18n="about.stat.drivers">Drivers</span>
           </div>
           <div class="stat-card">
             <span class="stat-number" data-count="16">0</span>
-            <span class="stat-label">Individual Titles</span>
+            <span class="stat-label" data-i18n="about.stat.individual">Individual Titles</span>
           </div>
           <div class="stat-card">
             <span class="stat-number" data-count="3">0</span>
-            <span class="stat-label">Team Tiles</span>
+            <span class="stat-label" data-i18n="about.stat.team">Team Titles</span>
           </div>
         </div>
       </div>
@@ -91,8 +92,8 @@
   <section id="video-section" class="section video-section">
     <div class="container">
       <div class="section-header anim-fade-up" style="text-align:center;">
-        <span class="section-tag">Watch Us Race</span>
-        <h2 class="section-title">Feel the <span class="text-yellow">Speed</span></h2>
+        <span class="section-tag" data-i18n="video.tag">Watch Us Race</span>
+        <h2 class="section-title"><span data-i18n="video.title1">Feel the</span> <span class="text-yellow" data-i18n="video.title2">Speed</span></h2>
       </div>
       <div class="video-container anim-fade-up delay-1">
         <iframe
@@ -111,8 +112,8 @@
   <section id="drivers-section" class="section drivers-section">
     <div class="container">
       <div class="section-header anim-slide-left">
-        <span class="section-tag">The Squad</span>
-        <h2 class="section-title">Our <span class="text-yellow">Drivers</span></h2>
+        <span class="section-tag" data-i18n="drivers.tag">The Squad</span>
+        <h2 class="section-title"><span data-i18n="drivers.title1">Our</span> <span class="text-yellow" data-i18n="drivers.title2">Drivers</span></h2>
       </div>
       <div class="drivers-grid" id="drivers-grid">
         <!-- Rendered by main.js from data.js -->
@@ -124,8 +125,8 @@
   <section id="leagues-section" class="section leagues-section">
     <div class="container">
       <div class="section-header anim-slide-left">
-        <span class="section-tag">Where We Compete</span>
-        <h2 class="section-title">Our <span class="text-yellow">Leagues</span></h2>
+        <span class="section-tag" data-i18n="leagues.tag">Where We Compete</span>
+        <h2 class="section-title"><span data-i18n="leagues.title1">Our</span> <span class="text-yellow" data-i18n="leagues.title2">Leagues</span></h2>
       </div>
       <div class="leagues-grid" id="leagues-grid">
         <!-- Rendered by main.js from data.js -->
@@ -137,8 +138,8 @@
   <section id="gallery-section" class="section gallery-section">
     <div class="container">
       <div class="section-header anim-slide-left">
-        <span class="section-tag">Moments on Track</span>
-        <h2 class="section-title">Race <span class="text-yellow">Gallery</span></h2>
+        <span class="section-tag" data-i18n="gallery.tag">Moments on Track</span>
+        <h2 class="section-title"><span data-i18n="gallery.title1">Race</span> <span class="text-yellow" data-i18n="gallery.title2">Gallery</span></h2>
       </div>
       <div class="gallery-grid" id="gallery-grid">
         <!-- Rendered by main.js from data.js -->
@@ -150,15 +151,15 @@
   <section id="sponsors-section" class="section sponsors-section">
     <div class="container">
       <div class="section-header anim-slide-left" style="text-align:center;">
-        <span class="section-tag">Our Partners</span>
-        <h2 class="section-title">Proudly <span class="text-yellow">Supported By</span></h2>
+        <span class="section-tag" data-i18n="sponsors.tag">Our Partners</span>
+        <h2 class="section-title"><span data-i18n="sponsors.title1">Proudly</span> <span class="text-yellow" data-i18n="sponsors.title2">Supported By</span></h2>
       </div>
       <div id="sponsors-container">
         <!-- Rendered by main.js from data.js — gold/silver/bronze rows -->
       </div>
       <div class="sponsors-cta anim-fade-up" style="margin-top:3rem;">
-        <p>Interested in partnering with us?</p>
-        <a href="contact.html" class="btn btn-primary">Become a Sponsor</a>
+        <p data-i18n="sponsors.cta_text">Interested in partnering with us?</p>
+        <a href="contact.html" class="btn btn-primary" data-i18n="sponsors.cta_btn">Become a Sponsor</a>
       </div>
     </div>
   </section>
@@ -171,19 +172,19 @@
           <a href="index.html" class="nav-logo" aria-label="Racing Project Motorsport Home">
             <span class="logo-text">Racing Project Motorsport</span>
           </a>
-          <p class="footer-desc">A competitive sim racing team dedicated to pushing the boundaries of virtual motorsport across multiple platforms worldwide.</p>
+          <p class="footer-desc" data-i18n="footer.desc">A competitive sim racing team dedicated to pushing the boundaries of virtual motorsport across multiple platforms worldwide.</p>
         </div>
         <div class="footer-nav">
-          <h4>Quick Links</h4>
+          <h4 data-i18n="footer.links">Quick Links</h4>
           <ul>
-            <li><a href="garage.html">Garage</a></li>
-            <li><a href="#drivers-section">Drivers</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="garage.html" data-i18n="nav.garage">Garage</a></li>
+            <li><a href="#drivers-section" data-i18n="nav.drivers">Drivers</a></li>
+            <li><a href="calendar.html" data-i18n="nav.calendar">Calendar</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact Us</a></li>
           </ul>
         </div>
         <div class="footer-social">
-          <h4>Follow Us</h4>
+          <h4 data-i18n="footer.follow">Follow Us</h4>
           <div class="social-links">
             <!-- Instagram -->
             <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
@@ -205,7 +206,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; <span id="footer-year"></span> Racing Project Motorsport. All rights reserved.</p>
+        <p>&copy; <span id="footer-year"></span> <span data-i18n="footer.copy">Racing Project Motorsport. All rights reserved.</span></p>
       </div>
     </div>
   </footer>
@@ -220,6 +221,7 @@
   </div>
 
   <script src="js/data.js"></script>
+  <script src="js/lang.js"></script>
   <script src="js/main.js"></script>
   <script src="js/gallery.js"></script>
 </body>
