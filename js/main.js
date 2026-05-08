@@ -295,6 +295,8 @@ document.addEventListener("DOMContentLoaded", () => {
   startAutoplay();
 }
 
+   renderLeagues();
+
   /* ══════════════════════════════════════════════════════════════════
      RENDER GALLERY
      ══════════════════════════════════════════════════════════════════ */
