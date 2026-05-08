@@ -196,6 +196,27 @@ const SITE_DATA = {
       description: "Uma comunidade de campeonatos temáticos especializados em provas de endurance por equipas.",
       logo: "images/leagues (4).png",
       url: "https://www.youtube.com/@evolutionchampionshipserie7726"
+    },
+   {
+      name: "YOUR 5TH LEAGUE",
+      platform: "GT7",
+      description: "Description here.",
+      logo: "images/leagues/league5.png",
+      url: "https://example.com"
+    },
+    {
+      name: "YOUR 6TH LEAGUE",
+      platform: "GT7",
+      description: "Description here.",
+      logo: "images/leagues/league6.png",
+      url: "https://example.com"
+    },
+    {
+      name: "YOUR 7TH LEAGUE",
+      platform: "GT7",
+      description: "Description here.",
+      logo: "images/leagues/league7.png",
+      url: "https://example.com"
     }
   ],
 
