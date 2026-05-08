@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
      RENDER LEAGUES
      ══════════════════════════════════════════════════════════════════ */
   function renderLeagues() {
-  const container = document.querySelector('.leagues-grid');
+  const container = document.getElementById('leagues-grid');
   if (!container || !SITE_DATA.leagues) return;
 
   // Build the slider HTML
