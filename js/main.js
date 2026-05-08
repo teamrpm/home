@@ -127,28 +127,173 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ══════════════════════════════════════════════════════════════════
      RENDER LEAGUES
      ══════════════════════════════════════════════════════════════════ */
-  const leaguesGrid = document.getElementById("leagues-grid");
-  if (leaguesGrid && SITE_DATA.leagues) {
-    leaguesGrid.innerHTML = SITE_DATA.leagues.map((l, i) => `
-      <a href="${l.url}" target="_blank" rel="noopener noreferrer"
-         class="league-card anim-fade-up delay-${Math.min(i % 3, 2)}" aria-label="${l.name}">
-        <div class="league-logo-wrap">
-          ${l.logo
-            ? `<img src="${l.logo}" alt="${l.name} logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
-               <div class="league-placeholder" style="display:none;"><span>${l.name.charAt(0)}</span></div>`
-            : `<div class="league-placeholder"><span>${l.name.charAt(0)}</span></div>`
-          }
-        </div>
-        <div class="league-info">
-          <h3>${l.name}</h3>
-          <span class="league-platform">${l.platform}</span>
-          <p>${l.description}</p>
-        </div>
-      </a>
-    `).join("");
+  function renderLeagues() {
+  const container = document.getElementById('leagues-container');
+  if (!container || !SITE_DATA.leagues) return;
 
-    leaguesGrid.querySelectorAll(".anim-fade-up").forEach(el => observer.observe(el));
+  // Build the slider HTML
+  let html = `
+    <div class="leagues-slider-wrapper">
+      <button class="leagues-arrow leagues-arrow-left" aria-label="Previous leagues">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+      <div class="leagues-slider-track">
+  `;
+
+  SITE_DATA.leagues.forEach((league, index) => {
+    html += `
+      <div class="league-slide" data-index="${index}">
+        <a href="${league.url}" target="_blank" rel="noopener" class="league-card">
+          <div class="league-logo-wrapper">
+            <img src="${league.logo}" alt="${league.name}" class="league-logo"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="league-logo-fallback" style="display:none;">🏁</div>
+          </div>
+          <h3>${league.name}</h3>
+          <span class="league-platform">${league.platform}</span>
+          <p>${league.description}</p>
+        </a>
+      </div>
+    `;
+  });
+
+  html += `
+      </div>
+      <button class="leagues-arrow leagues-arrow-right" aria-label="Next leagues">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+    <div class="leagues-dots"></div>
+  `;
+
+  container.innerHTML = html;
+
+  // Slider logic
+  const track = container.querySelector('.leagues-slider-track');
+  const slides = container.querySelectorAll('.league-slide');
+  const leftArrow = container.querySelector('.leagues-arrow-left');
+  const rightArrow = container.querySelector('.leagues-arrow-right');
+  const dotsContainer = container.querySelector('.leagues-dots');
+  const totalSlides = slides.length;
+
+  let currentIndex = 0;
+  let visibleCount = 4;
+  let autoplayInterval;
+
+  function getVisibleCount() {
+    const width = window.innerWidth;
+    if (width <= 600) return 1;
+    if (width <= 900) return 2;
+    if (width <= 1100) return 3;
+    return 4;
   }
+
+  function buildDots() {
+    const maxIndex = totalSlides - visibleCount;
+    dotsContainer.innerHTML = '';
+    for (let i = 0; i <= maxIndex; i++) {
+      const dot = document.createElement('button');
+      dot.className = 'leagues-dot' + (i === currentIndex ? ' active' : '');
+      dot.setAttribute('aria-label', 'Go to slide group ' + (i + 1));
+      dot.addEventListener('click', () => {
+        currentIndex = i;
+        updateSlider();
+        resetAutoplay();
+      });
+      dotsContainer.appendChild(dot);
+    }
+  }
+
+  function updateSlider() {
+    visibleCount = getVisibleCount();
+    const maxIndex = totalSlides - visibleCount;
+    if (currentIndex > maxIndex) currentIndex = maxIndex;
+    if (currentIndex < 0) currentIndex = 0;
+
+    const slideWidth = 100 / visibleCount;
+    slides.forEach(s => s.style.flex = `0 0 ${slideWidth}%`);
+
+    const offset = -(currentIndex * slideWidth);
+    track.style.transform = `translateX(${offset}%)`;
+
+    // Update dots
+    const dots = dotsContainer.querySelectorAll('.leagues-dot');
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+
+    // Update arrows
+    leftArrow.style.opacity = currentIndex === 0 ? '0.3' : '1';
+    leftArrow.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+    rightArrow.style.opacity = currentIndex >= maxIndex ? '0.3' : '1';
+    rightArrow.style.pointerEvents = currentIndex >= maxIndex ? 'none' : 'auto';
+
+    buildDots();
+  }
+
+  function nextSlide() {
+    const maxIndex = totalSlides - visibleCount;
+    if (currentIndex < maxIndex) {
+      currentIndex++;
+    } else {
+      currentIndex = 0; // Loop back to start
+    }
+    updateSlider();
+  }
+
+  function prevSlide() {
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = totalSlides - visibleCount; // Loop to end
+    }
+    updateSlider();
+  }
+
+  function startAutoplay() {
+    autoplayInterval = setInterval(nextSlide, 4000); // Rotate every 4 seconds
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayInterval);
+    startAutoplay();
+  }
+
+  // Event listeners
+  leftArrow.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+  rightArrow.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+
+  // Pause autoplay on hover
+  container.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+  container.addEventListener('mouseleave', () => startAutoplay());
+
+  // Touch/swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+  track.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  track.addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) nextSlide();
+      else prevSlide();
+      resetAutoplay();
+    }
+  }, { passive: true });
+
+  // Handle resize
+  window.addEventListener('resize', () => {
+    visibleCount = getVisibleCount();
+    updateSlider();
+  });
+
+  // Initialize
+  visibleCount = getVisibleCount();
+  updateSlider();
+  startAutoplay();
+}
 
   /* ══════════════════════════════════════════════════════════════════
      RENDER GALLERY
