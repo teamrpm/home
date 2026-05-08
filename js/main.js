@@ -193,14 +193,17 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function buildDots() {
-    const maxIndex = totalSlides - visibleCount;
     dotsContainer.innerHTML = '';
-    for (let i = 0; i <= maxIndex; i++) {
+    for (let i = 0; i < totalSlides; i++) {
       const dot = document.createElement('button');
       dot.className = 'leagues-dot' + (i === currentIndex ? ' active' : '');
-      dot.setAttribute('aria-label', 'Go to slide group ' + (i + 1));
+      dot.setAttribute('aria-label', 'Go to card ' + (i + 1));
       dot.addEventListener('click', () => {
         currentIndex = i;
+        // Clamp so we don't scroll past the end
+        const maxIndex = totalSlides - visibleCount;
+        if (currentIndex > maxIndex) currentIndex = maxIndex;
+        if (currentIndex < 0) currentIndex = 0;
         updateSlider();
         resetAutoplay();
       });
@@ -220,9 +223,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const offset = -(currentIndex * slideWidth);
     track.style.transform = `translateX(${offset}%)`;
 
-    // Update dots
+    // Update dots — highlight the "range" of visible cards
     const dots = dotsContainer.querySelectorAll('.leagues-dot');
-    dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+    dots.forEach((d, i) => {
+      const inView = i >= currentIndex && i < currentIndex + visibleCount;
+      d.classList.toggle('active', inView);
+    });
 
     // Update arrows
     leftArrow.style.opacity = currentIndex === 0 ? '0.3' : '1';
@@ -238,22 +244,25 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentIndex < maxIndex) {
       currentIndex++;
     } else {
-      currentIndex = 0; // Loop back to start
+      currentIndex = 0;
     }
     updateSlider();
   }
 
   function prevSlide() {
+    const maxIndex = totalSlides - visibleCount;
     if (currentIndex > 0) {
       currentIndex--;
     } else {
-      currentIndex = totalSlides - visibleCount; // Loop to end
+      currentIndex = maxIndex;
     }
     updateSlider();
   }
 
   function startAutoplay() {
-    autoplayInterval = setInterval(nextSlide, 4000); // Rotate every 4 seconds
+    // Guard: clear any existing interval before starting a new one
+    clearInterval(autoplayInterval);
+    autoplayInterval = setInterval(nextSlide, 5000);
   }
 
   function resetAutoplay() {
