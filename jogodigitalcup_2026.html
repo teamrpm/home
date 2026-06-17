@@ -1,0 +1,3710 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="I JogoDigital Cup — Calendário, Resultados, Classificação e Pilotos do Campeonato Interno de Verão no Gran Turismo 7">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>I JogoDigital Cup — Campeonato</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================
+       DESIGN SYSTEM — CSS Custom Properties
+       (Shared with regulation page)
+       ============================================ */
+    :root {
+      --font-display: 'Rajdhani', 'Inter', Arial, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+      --bg-primary: #0a0a0f;
+      --bg-surface: #141419;
+      --bg-surface-alt: #1c1c24;
+      --bg-elevated: #24242e;
+
+      --border: rgba(255,255,255,0.08);
+      --border-accent: rgba(255,255,255,0.15);
+
+      --text-primary: #ffffff;
+      --text-body: rgba(255,255,255,0.88);
+      --text-muted: rgba(255,255,255,0.55);
+      --text-faint: rgba(255,255,255,0.35);
+
+      --accent-blue: #00b0f0;
+      --accent-gold: #ffc000;
+      --accent-blue-glow: rgba(0,176,240,0.15);
+      --accent-gold-glow: rgba(255,192,0,0.12);
+
+      --severity-racing: #00b0f0;
+      --severity-warning: #8a8a8a;
+      --severity-light: #00c853;
+      --severity-medium: #00b0f0;
+      --severity-grave: #ffab00;
+      --severity-very-grave: #ff1744;
+      --severity-aggravation: #d50000;
+      --severity-fairplay: #00b0f0;
+
+      --section-padding: 48px;
+      --card-padding: 20px;
+      --card-radius: 10px;
+
+      --fs-display: 32px;
+      --fs-h1: 22px;
+      --fs-h2: 18px;
+      --fs-h3: 16px;
+      --fs-body: 15px;
+      --fs-small: 12px;
+      --fs-table-head: 12px;
+      --fs-table-cell: 13px;
+
+      --lh-tight: 1.2;
+      --lh-normal: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      :root {
+        --section-padding: 72px;
+        --card-padding: 28px;
+        --fs-display: 48px;
+        --fs-h1: 28px;
+        --fs-h2: 22px;
+        --fs-h3: 18px;
+        --fs-body: 16px;
+        --fs-small: 13px;
+        --fs-table-head: 13px;
+        --fs-table-cell: 14px;
+      }
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+      scroll-padding-top: 56px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: var(--lh-normal);
+      color: var(--text-body);
+      background: var(--bg-primary);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    a:hover { color: var(--accent-gold); }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    strong, b { font-weight: 600; color: var(--text-primary); }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    @media (min-width: 600px) {
+      .container { padding: 0 24px; }
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); border: 0;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--bg-primary);
+      background: var(--accent-gold);
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+
+    .alt-bg { background: var(--bg-surface-alt); }
+
+    /* ============================================
+       HERO — Championship variant
+       ============================================ */
+    .hero {
+      text-align: center;
+      padding: 32px 16px 24px;
+      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-primary) 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+      filter: blur(2px);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__logo { max-width: 100px; margin: 0 auto 12px; }
+    .hero__subtitle {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+    }
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-display);
+      font-weight: 700;
+      line-height: var(--lh-tight);
+      letter-spacing: 2px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .hero__tagline {
+      font-size: var(--fs-small);
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .hero__stats {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .hero__stat {
+      text-align: center;
+    }
+    .hero__stat-num {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1;
+    }
+    .hero__stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding: 48px 24px 36px; }
+      .hero__logo { max-width: 120px; }
+      .hero__stat-num { font-size: 36px; }
+    }
+
+    /* ============================================
+       CHAMPIONSHIP COMPONENTS (Step 7)
+       ============================================ */
+/* ============================================================
+   CHAMPIONSHIP PAGE — Component Styles
+   Extends the existing regulation page design system.
+   All styles consume :root tokens from the base system.
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   1. TAB NAVIGATION BAR
+   Replaces the collapsible TOC with a horizontal tab switcher.
+   Sticky, glass-morphism backdrop, gold active indicator.
+   ──────────────────────────────────────────────────────────── */
+
+.tab-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-bar__tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;            /* Firefox */
+}
+
+.tab-bar__tabs::-webkit-scrollbar {
+  display: none;                    /* Chrome/Safari */
+}
+
+.tab-bar__tab {
+  flex: 0 0 auto;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.tab-bar__tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 1px;
+  transition: width 0.25s ease;
+}
+
+.tab-bar__tab:hover {
+  color: var(--accent-blue);
+}
+
+.tab-bar__tab[aria-selected="true"] {
+  color: var(--text-primary);
+}
+
+.tab-bar__tab[aria-selected="true"]::after {
+  width: 100%;
+}
+
+.tab-bar__tab:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+/* Equal-width tabs on wider screens */
+@media (min-width: 600px) {
+  .tab-bar__tab {
+    flex: 1;
+    padding: 16px 24px;
+    font-size: 14px;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   2. PANEL CONTAINER — Show/Hide Mechanics
+   Only the active panel is visible; others are display:none.
+   ──────────────────────────────────────────────────────────── */
+
+.panel {
+  display: none;
+}
+
+.panel.panel--active {
+  display: block;
+}
+
+.panel__header {
+  padding-top: var(--section-padding);
+  padding-bottom: 24px;
+}
+
+.panel__header .section-badge {
+  margin-bottom: 12px;
+}
+
+.panel__header h1 {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent-blue);
+}
+
+.panel__subtitle {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   3. EVENT CARDS (Calendário Panel)
+   Chronological race weekend cards with status badges.
+   ──────────────────────────────────────────────────────────── */
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: var(--section-padding);
+}
+
+.event-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Status variants */
+.event-card--completed {
+  opacity: 0.75;
+}
+
+.event-card--completed:hover {
+  opacity: 1;
+}
+
+.event-card--next {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 1px var(--accent-gold), 0 4px 16px rgba(255, 192, 0, 0.1);
+  opacity: 1;
+}
+
+.event-card--upcoming {
+  /* Default styling — no overrides needed */
+}
+
+/* Event card inner layout */
+.event-card__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .event-card__inner {
+    flex-direction: row;
+  }
+}
+
+/* Track image area */
+.event-card__image {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-surface-alt);
+}
+
+@media (min-width: 600px) {
+  .event-card__image {
+    width: 200px;
+    aspect-ratio: auto;
+    min-height: 140px;
+  }
+}
+
+@media (min-width: 900px) {
+  .event-card__image {
+    width: 260px;
+  }
+}
+
+.event-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-card__image img {
+  transform: scale(1.05);
+}
+
+/* Status badge (overlaid on image) */
+.event-card__status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.event-card__status--completed {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+}
+
+.event-card__status--next {
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+}
+
+.event-card__status--upcoming {
+  background: var(--accent-blue-glow);
+  color: var(--accent-blue);
+  border: 1px solid rgba(0, 176, 240, 0.3);
+}
+
+/* Event card body */
+.event-card__body {
+  flex: 1;
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-card__round {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.event-card__date {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.event-card__circuit {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: var(--lh-tight);
+}
+
+.event-card__layout {
+  font-size: 13px;
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.event-card__car {
+  font-size: 13px;
+  color: var(--text-body);
+  margin-top: 4px;
+}
+
+.event-card__car strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Results link on completed cards */
+.event-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease, gap 0.15s ease;
+}
+
+.event-card__link:hover {
+  color: var(--accent-blue);
+  gap: 10px;
+}
+
+.event-card__link::after {
+  content: '→';
+  font-size: 16px;
+  transition: transform 0.15s ease;
+}
+
+.event-card__link:hover::after {
+  transform: translateX(3px);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   4. ROUND SELECTOR PILLS (Results Panel)
+   Horizontal scrollable row of round buttons.
+   ──────────────────────────────────────────────────────────── */
+
+.round-selector {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 16px 0;
+  margin-bottom: 8px;
+}
+
+.round-selector::-webkit-scrollbar {
+  display: none;
+}
+
+.round-pill {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.round-pill:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.round-pill--active {
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+  border-color: var(--accent-gold);
+}
+
+.round-pill--active:hover {
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+}
+
+.round-pill--disabled {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   5. SESSION SUB-TABS (within Results)
+   Qualifying / Race toggle — blue underline (secondary level).
+   ──────────────────────────────────────────────────────────── */
+
+.session-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.session-tab {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.session-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.session-tab:hover {
+  color: var(--accent-blue);
+}
+
+.session-tab--active {
+  color: var(--accent-blue);
+}
+
+.session-tab--active::after {
+  background: var(--accent-blue);
+}
+
+.session-tab:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   6. PODIUM STRIP — Top-3 Highlight
+   Three-card row above the full results table.
+   ──────────────────────────────────────────────────────────── */
+
+.podium-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.podium-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.podium-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Podium gradient overlays — reuses regulation page pattern */
+.podium-card--p1 {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.14), var(--bg-surface));
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.podium-card--p2 {
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.1), var(--bg-surface));
+  border-color: rgba(192, 192, 192, 0.25);
+}
+
+.podium-card--p3 {
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.1), var(--bg-surface));
+  border-color: rgba(205, 127, 50, 0.25);
+}
+
+.podium-card__pos {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.podium-card--p1 .podium-card__pos { color: #ffd700; }
+.podium-card--p2 .podium-card__pos { color: #c0c0c0; }
+.podium-card--p3 .podium-card__pos { color: #cd7f32; }
+
+.podium-card__name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.podium-card__time {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.podium-card__pts {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+@media (max-width: 599px) {
+  .podium-card {
+    padding: 12px 8px;
+  }
+  .podium-card__pos {
+    font-size: 22px;
+  }
+  .podium-card__name {
+    font-size: 12px;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   7. RESULTS TABLE — Responsive Data Table
+   Full race/qualifying results with position styling.
+   ──────────────────────────────────────────────────────────── */
+
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 24px;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.data-table th {
+  font-family: var(--font-display);
+  font-size: var(--fs-table-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  background: var(--bg-surface-alt);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.data-table td {
+  font-size: var(--fs-table-cell);
+  color: var(--text-body);
+}
+
+.data-table tbody tr {
+  transition: background 0.1s ease;
+}
+
+.data-table tbody tr:hover {
+  background: var(--bg-elevated);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Position cell */
+.data-table__pos {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  width: 48px;
+  text-align: center;
+}
+
+/* Podium position colors */
+.pos--1 { color: #ffd700; }
+.pos--2 { color: #c0c0c0; }
+.pos--3 { color: #cd7f32; }
+
+/* Podium row subtle highlight */
+.data-table .row--p1 { background: rgba(255, 215, 0, 0.04); }
+.data-table .row--p2 { background: rgba(192, 192, 192, 0.03); }
+.data-table .row--p3 { background: rgba(205, 127, 50, 0.03); }
+
+/* Driver name in table */
+.driver-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.driver-name__first {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* Car column */
+.data-table__car {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Time / gap column */
+.data-table__time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Points column */
+.data-table__pts {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--accent-gold);
+  text-align: center;
+  width: 48px;
+}
+
+/* Fastest lap indicator */
+.fastest-lap {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b266ff;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.fastest-lap-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.fastest-lap-legend__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b266ff;
+}
+
+/* Pole position indicator */
+.pole-indicator {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent-gold);
+  background: var(--accent-gold-glow);
+  border: 1px solid rgba(255, 192, 0, 0.3);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+/* DNF / DSQ rows */
+.row--dnf {
+  background: rgba(255, 23, 68, 0.04);
+}
+
+.row--dnf .data-table__time,
+.row--dnf .data-table__pos {
+  color: var(--severity-very-grave);
+}
+
+.row--dsq {
+  background: rgba(255, 23, 68, 0.06);
+}
+
+.row--dsq .data-table__time {
+  color: var(--severity-very-grave);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.row--dsq td {
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 23, 68, 0.4);
+}
+
+.row--dsq .data-table__pos,
+.row--dsq .data-table__time {
+  text-decoration: none;
+}
+
+/* Penalty annotation */
+.penalty-note {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--severity-grave);
+  background: rgba(255, 171, 0, 0.1);
+  border: 1px solid rgba(255, 171, 0, 0.25);
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+  cursor: help;
+}
+
+/* Hide car column on narrow viewports */
+@media (max-width: 599px) {
+  .data-table .col-car {
+    display: none;
+  }
+  .data-table th,
+  .data-table td {
+    padding: 8px 8px;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   8. STANDINGS TABLE — Championship Leaderboard
+   Full table with per-round columns and expandable mobile rows.
+   ──────────────────────────────────────────────────────────── */
+
+/* Standings table inherits .data-table base styling above */
+
+.standings-table .data-table__total {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--accent-gold);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Per-round columns */
+.standings-table .round-col {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  min-width: 40px;
+  font-size: 13px;
+}
+
+.standings-table .round-col--header {
+  font-size: 11px;
+  letter-spacing: 0;
+  color: var(--text-faint);
+}
+
+/* Dropped score (strikethrough + faint) */
+.score--dropped {
+  text-decoration: line-through;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* DNS / did-not-start placeholder */
+.score--dns {
+  color: var(--text-faint);
+}
+
+/* Bonus points indicator (pole, fastest lap) */
+.score--bonus {
+  position: relative;
+}
+
+.score--bonus::after {
+  content: '*';
+  color: var(--accent-gold);
+  font-size: 10px;
+  position: absolute;
+  top: -2px;
+  right: -6px;
+}
+
+/* Position change arrows */
+.pos-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.pos-change--up {
+  color: var(--severity-light);
+}
+
+.pos-change--down {
+  color: var(--severity-very-grave);
+}
+
+.pos-change--same {
+  color: var(--text-faint);
+}
+
+/* Hide per-round columns on mobile; show expandable row instead */
+@media (max-width: 767px) {
+  .standings-table .round-col,
+  .standings-table .round-col--header {
+    display: none;
+  }
+}
+
+/* ── Expandable mobile row for round-by-round breakdown ── */
+
+.standings-expand-btn {
+  display: none;          /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 2px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 767px) {
+  .standings-expand-btn {
+    display: inline-block;
+  }
+}
+
+.standings-expand-row {
+  display: none;
+}
+
+.standings-expand-row.open {
+  display: table-row;
+}
+
+.standings-expand-row td {
+  padding: 0 12px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.expand-rounds {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.expand-round {
+  background: var(--bg-surface-alt);
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+}
+
+.expand-round__label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-faint);
+  margin-bottom: 2px;
+}
+
+.expand-round__pts {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (min-width: 400px) {
+  .expand-rounds {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   9. LEADER HIGHLIGHT CARD
+   Championship leader callout above the standings table.
+   ──────────────────────────────────────────────────────────── */
+
+.leader-card {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), var(--bg-surface));
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.leader-card__icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.leader-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.leader-card__label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 4px;
+}
+
+.leader-card__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leader-card__details {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.leader-card__points {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.leader-card__pts-value {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.leader-card__pts-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+@media (max-width: 599px) {
+  .leader-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .leader-card__name {
+    font-size: 18px;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   10. DRIVER CARDS (Pilotos Panel)
+   Profile card grid with avatar, number, name, car, PSN ID.
+   ──────────────────────────────────────────────────────────── */
+
+.driver-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding-bottom: var(--section-padding);
+}
+
+@media (min-width: 600px) {
+  .driver-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .driver-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.driver-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.driver-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Avatar area */
+.driver-card__avatar {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.driver-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initials fallback (when no photo) */
+.driver-card__initials {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.12);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Car number badge — overlaid top-right of avatar */
+.driver-card__number {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+/* Driver card body */
+.driver-card__body {
+  padding: var(--card-padding);
+}
+
+.driver-card__name {
+  margin-bottom: 8px;
+}
+
+.driver-card__firstname {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  line-height: 1.2;
+}
+
+.driver-card__surname {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  line-height: 1.2;
+}
+
+/* Metadata rows below the name */
+.driver-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.driver-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.driver-card__meta-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+}
+
+.driver-card__meta-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.driver-card__meta-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.driver-card__meta-value {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Standing position badge on driver card */
+.driver-card__standing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+.driver-card__standing--p1 {
+  background: rgba(255, 215, 0, 0.12);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+}
+
+.driver-card__standing--p2 {
+  background: rgba(192, 192, 192, 0.08);
+  color: #c0c0c0;
+  border: 1px solid rgba(192, 192, 192, 0.2);
+}
+
+.driver-card__standing--p3 {
+  background: rgba(205, 127, 50, 0.08);
+  color: #cd7f32;
+  border: 1px solid rgba(205, 127, 50, 0.2);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   11. SHARED UTILITIES
+   Position badges, no-data states, section spacing, footnotes.
+   ──────────────────────────────────────────────────────────── */
+
+/* Generic position badge (used in multiple contexts) */
+.pos-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  background: var(--bg-surface-alt);
+  color: var(--text-muted);
+}
+
+.pos-badge--1 {
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  color: #1a1a00;
+}
+
+.pos-badge--2 {
+  background: linear-gradient(135deg, #c0c0c0, #808080);
+  color: #1a1a1a;
+}
+
+.pos-badge--3 {
+  background: linear-gradient(135deg, #cd7f32, #8b4513);
+  color: #ffffff;
+}
+
+/* Empty/no-data state */
+.empty-state {
+  text-align: center;
+  padding: 48px var(--card-padding);
+  color: var(--text-muted);
+}
+
+.empty-state__icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state__text {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Footnotes / legend area below tables */
+.table-footnotes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.table-footnote {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Divider between sections within a panel */
+.panel-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+/* Results summary bar (round header within results) */
+.results-round-header {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 16px var(--card-padding);
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.results-round-header__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.results-round-header__meta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.results-round-header__circuit {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* General purpose alternating background for panel sections */
+.panel-section {
+  padding: var(--section-padding) 0;
+}
+
+.panel-section.alt-bg {
+  background: var(--bg-surface-alt);
+}
+
+/* Standings footnote for drop-score rule */
+.standings-footnote {
+  background: var(--bg-surface);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 0 var(--card-radius) var(--card-radius) 0;
+  padding: 12px var(--card-padding);
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.standings-footnote strong {
+  color: var(--accent-gold);
+}
+
+/* Badge for "after round X" subtitle */
+.round-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  background: var(--accent-blue-glow);
+  border: 1px solid rgba(0, 176, 240, 0.25);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .page-footer {
+      text-align: center;
+      padding: 40px 16px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-surface);
+    }
+    .page-footer__org {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .page-footer__links {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .page-footer__links a {
+      font-size: 13px;
+      color: var(--text-faint);
+      transition: color 0.15s;
+    }
+    .page-footer__links a:hover { color: var(--accent-blue); }
+
+    /* Ronda pill reuse from regulation page */
+    .ronda-pill {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid;
+      display: inline-block;
+    }
+    .ronda-pill--tire {
+      color: var(--accent-gold);
+      border-color: rgba(255,192,0,0.3);
+      background: var(--accent-gold-glow);
+    }
+    .ronda-pill--fuel {
+      color: var(--accent-blue);
+      border-color: rgba(0,176,240,0.3);
+      background: var(--accent-blue-glow);
+    }
+
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- ============================================
+       HERO — Championship Header
+       ============================================ -->
+  <header class="hero">
+    <div class="hero__bg">
+      <img src="images/image9.png" alt="" aria-hidden="true" loading="eager">
+    </div>
+    <div class="hero__content">
+      <img src="images/image11.png" alt="I JogoDigital Cup" class="hero__logo" loading="eager">
+      <p class="hero__subtitle">Campeonato Interno de Verão</p>
+      <h1 class="hero__title">I JogoDigital Cup</h1>
+      <p class="hero__tagline">Gran Turismo 7 · PS4/PS5 · 7 Rondas · Junho a Setembro 2026</p>
+      <div class="hero__stats">
+        <div class="hero__stat">
+          <div class="hero__stat-num">7</div>
+          <div class="hero__stat-label">Rondas</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">16</div>
+          <div class="hero__stat-label">Pilotos</div>
+        </div>
+        <div class="hero__stat">
+          <div class="hero__stat-num">2</div>
+          <div class="hero__stat-label">Concluídas</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================
+       TAB NAVIGATION BAR
+       ============================================ -->
+  <nav class="tab-bar" role="tablist" aria-label="Secções do campeonato">
+    <div class="container">
+      <div class="tab-bar__tabs">
+        <button class="tab-bar__tab tab-bar__tab--active" id="tab-events" role="tab" aria-selected="true" aria-controls="events" onclick="switchPanel('events')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Calendário</span>
+        </button>
+        <button class="tab-bar__tab" id="tab-results" role="tab" aria-selected="false" aria-controls="results" onclick="switchPanel('results')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+          <span>Resultados</span>
+        </button>
+        <button class="tab-bar__tab" id="tab-standings" role="tab" aria-selected="false" aria-controls="standings" onclick="switchPanel('standings')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 010-5H6"/><path d="M18 9h1.5a2.5 2.5 0 000-5H18"/><path d="M4 22h16"/><path d="M10 22V2h4v20"/></svg>
+          <span>Classificação</span>
+        </button>
+        <button class="tab-bar__tab" id="tab-drivers" role="tab" aria-selected="false" aria-controls="drivers" onclick="switchPanel('drivers')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          <span>Pilotos</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       MAIN CONTENT — Four Panels
+       ============================================ -->
+  <main>
+
+<!-- ============================================================ -->
+    <!-- PANEL 1: CALENDÁRIO (Events)                                  -->
+    <!-- Chronological event cards with status badges                  -->
+    <!-- Architecture: Step 6 §5                                       -->
+    <!-- Styling: Step 7 §3 (Event Cards)                              -->
+    <!-- ============================================================ -->
+    <div class="panel panel--active" id="events" role="tabpanel" aria-labelledby="tab-events">
+      <div class="container">
+        <div class="panel__header">
+          <span class="section-badge">Calendário 2026</span>
+          <h1 class="panel__title">Calendário do Campeonato</h1>
+          <p class="panel__subtitle">7 rondas · Junho a Setembro · Gran Turismo 7</p>
+        </div>
+
+        <div class="event-list">
+
+          <!-- ─────────────────────────────────────────── -->
+          <!-- RONDA 1 — COMPLETED                         -->
+          <!-- ─────────────────────────────────────────── -->
+          <article class="event-card event-card--completed" data-round="1">
+            <div class="event-card__image">
+              <img src="images/image21.png" alt="Circuit de Barcelona-Catalunya" loading="lazy">
+              <span class="event-status event-status--completed">Concluído ✓</span>
+            </div>
+            <div class="event-card__body">
+              <div class="event-card__header">
+                <span class="event-card__badge">Ronda 1</span>
+                <time class="event-card__date" datetime="2026-06-25">25 de Junho de 2026</time>
+              </div>
+              <h2 class="event-card__circuit">Circuit de Barcelona-Catalunya</h2>
+              <p class="event-card__layout">Catalunya (GP Layout)</p>
+
+              <div class="event-card__meta">
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span>Peugeot RCZ Gr.4</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Qualificação 5 min · Corrida 50 min</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M5.6 5.6l.7.7m11.4 11.4l.7.7M5.6 18.4l.7-.7m11.4-11.4l.7-.7"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span>Tarde · Tempo 2x</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <div class="event-card__pills">
+                    <span class="ronda-pill ronda-pill--tire">Pneu 5x</span>
+                    <span class="ronda-pill ronda-pill--fuel">Combustível 3x</span>
+                  </div>
+                </div>
+              </div>
+
+              <button class="event-card__cta" onclick="switchToResults(1)" type="button">
+                Ver Resultados
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- ─────────────────────────────────────────── -->
+          <!-- RONDA 2 — COMPLETED                         -->
+          <!-- ─────────────────────────────────────────── -->
+          <article class="event-card event-card--completed" data-round="2">
+            <div class="event-card__image">
+              <img src="images/image13.png" alt="Brands Hatch Grand Prix Circuit" loading="lazy">
+              <span class="event-status event-status--completed">Concluído ✓</span>
+            </div>
+            <div class="event-card__body">
+              <div class="event-card__header">
+                <span class="event-card__badge">Ronda 2</span>
+                <time class="event-card__date" datetime="2026-07-09">09 de Julho de 2026</time>
+              </div>
+              <h2 class="event-card__circuit">Brands Hatch</h2>
+              <p class="event-card__layout">Grand Prix Circuit</p>
+
+              <div class="event-card__meta">
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span>Dodge Viper SRT GT3-R</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Qualificação 5 min · Corrida 50 min</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M5.6 5.6l.7.7m11.4 11.4l.7.7M5.6 18.4l.7-.7m11.4-11.4l.7-.7"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span>Final da Manhã · Tempo 3x</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <div class="event-card__pills">
+                    <span class="ronda-pill ronda-pill--tire">Pneu 4x</span>
+                    <span class="ronda-pill ronda-pill--fuel">Combustível 5x</span>
+                  </div>
+                </div>
+              </div>
+
+              <button class="event-card__cta" onclick="switchToResults(2)" type="button">
+                Ver Resultados
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- ─────────────────────────────────────────── -->
+          <!-- RONDA 3 — NEXT (highlighted with gold)      -->
+          <!-- ─────────────────────────────────────────── -->
+          <article class="event-card event-card--next" data-round="3">
+            <div class="event-card__image">
+              <img src="images/image15.png" alt="Autódromo de Interlagos" loading="lazy">
+              <span class="event-status event-status--next">Próximo</span>
+            </div>
+            <div class="event-card__body">
+              <div class="event-card__header">
+                <span class="event-card__badge">Ronda 3</span>
+                <time class="event-card__date" datetime="2026-07-23">23 de Julho de 2026</time>
+              </div>
+              <h2 class="event-card__circuit">Autódromo de Interlagos</h2>
+              <p class="event-card__layout">Full Course</p>
+
+              <div class="event-card__meta">
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span>Subaru WRX Gr.4</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Qualificação 5 min · Corrida 50 min</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M5.6 5.6l.7.7m11.4 11.4l.7.7M5.6 18.4l.7-.7m11.4-11.4l.7-.7"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span>Final da Manhã · Tempo 3x</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <div class="event-card__pills">
+                    <span class="ronda-pill ronda-pill--tire">Pneu 5x</span>
+                    <span class="ronda-pill ronda-pill--fuel">Combustível 3x</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="event-card__countdown">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <span>Próxima corrida — 23 Jul 2026 às 22:00h</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- ─────────────────────────────────────────── -->
+          <!-- RONDA 4 — UPCOMING                          -->
+          <!-- ─────────────────────────────────────────── -->
+          <article class="event-card event-card--upcoming" data-round="4">
+            <div class="event-card__image">
+              <img src="images/image22.png" alt="WeatherTech Raceway Laguna Seca" loading="lazy">
+              <span class="event-status event-status--upcoming">Em Breve</span>
+            </div>
+            <div class="event-card__body">
+              <div class="event-card__header">
+                <span class="event-card__badge">Ronda 4</span>
+                <time class="event-card__date" datetime="2026-08-06">06 de Agosto de 2026</time>
+              </div>
+              <h2 class="event-card__circuit">WeatherTech Raceway Laguna Seca</h2>
+              <p class="event-card__layout">Full Course</p>
+
+              <div class="event-card__meta">
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span>Aston Martin V12 Vantage GT3</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Qualificação 5 min · Corrida 50 min</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M5.6 5.6l.7.7m11.4 11.4l.7.7M5.6 18.4l.7-.7m11.4-11.4l.7-.7"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span>Tarde · Tempo 2x</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <div class="event-card__pills">
+                    <span class="ronda-pill ronda-pill--tire">Pneu 4x</span>
+                    <span class="ronda-pill ronda-pill--fuel">Combustível 4x</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ─────────────────────────────────────────── -->
+          <!-- RONDA 5 — UPCOMING                          -->
+          <!-- ─────────────────────────────────────────── -->
+          <article class="event-card event-card--upcoming" data-round="5">
+            <div class="event-card__image">
+              <img src="images/image6.png" alt="Grand Valley Highway 1" loading="lazy">
+              <span class="event-status event-status--upcoming">Em Breve</span>
+            </div>
+            <div class="event-card__body">
+              <div class="event-card__header">
+                <span class="event-card__badge">Ronda 5</span>
+                <time class="event-card__date" datetime="2026-08-20">20 de Agosto de 2026</time>
+              </div>
+              <h2 class="event-card__circuit">Grand Valley</h2>
+              <p class="event-card__layout">Highway 1</p>
+
+              <div class="event-card__meta">
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span>Volkswagen Beetle Gr.3</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Qualificação 5 min · Corrida 50 min</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M5.6 5.6l.7.7m11.4 11.4l.7.7M5.6 18.4l.7-.7m11.4-11.4l.7-.7"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span>Final da Tarde · Tempo 1x</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <div class="event-card__pills">
+                    <span class="ronda-pill ronda-pill--tire">Pneu 4x</span>
+                    <span class="ronda-pill ronda-pill--fuel">Combustível 3x</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ─────────────────────────────────────────── -->
+          <!-- RONDA 6 — UPCOMING                          -->
+          <!-- ─────────────────────────────────────────── -->
+          <article class="event-card event-card--upcoming" data-round="6">
+            <div class="event-card__image">
+              <img src="images/image12.png" alt="Michelin Raceway Road Atlanta" loading="lazy">
+              <span class="event-status event-status--upcoming">Em Breve</span>
+            </div>
+            <div class="event-card__body">
+              <div class="event-card__header">
+                <span class="event-card__badge">Ronda 6</span>
+                <time class="event-card__date" datetime="2026-09-03">03 de Setembro de 2026</time>
+              </div>
+              <h2 class="event-card__circuit">Michelin Raceway Road Atlanta</h2>
+              <p class="event-card__layout">Full Course</p>
+
+              <div class="event-card__meta">
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span>Chevrolet Corvette C7 Gr.4</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Qualificação 5 min · Corrida 50 min</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M5.6 5.6l.7.7m11.4 11.4l.7.7M5.6 18.4l.7-.7m11.4-11.4l.7-.7"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span>Nascer do Sol · Tempo 4x</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <div class="event-card__pills">
+                    <span class="ronda-pill ronda-pill--tire">Pneu 4x</span>
+                    <span class="ronda-pill ronda-pill--fuel">Combustível 3x</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- ─────────────────────────────────────────── -->
+          <!-- RONDA 7 — UPCOMING (FINAL ROUND)            -->
+          <!-- ─────────────────────────────────────────── -->
+          <article class="event-card event-card--upcoming" data-round="7">
+            <div class="event-card__image">
+              <img src="images/image16.png" alt="Willow Springs Big Willow" loading="lazy">
+              <span class="event-status event-status--upcoming">Em Breve</span>
+            </div>
+            <div class="event-card__body">
+              <div class="event-card__header">
+                <span class="event-card__badge">Ronda 7 · Final</span>
+                <time class="event-card__date" datetime="2026-09-17">17 de Setembro de 2026</time>
+              </div>
+              <h2 class="event-card__circuit">Willow Springs</h2>
+              <p class="event-card__layout">Big Willow</p>
+
+              <div class="event-card__meta">
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span>Jaguar F-Type Gr.3</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  <span>Qualificação 5 min · Corrida 50 min</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v1m0 16v1m-8-9H3m18 0h-1M5.6 5.6l.7.7m11.4 11.4l.7.7M5.6 18.4l.7-.7m11.4-11.4l.7-.7"/><circle cx="12" cy="12" r="4"/></svg>
+                  <span>Início da Manhã · Tempo 3x</span>
+                </div>
+                <div class="event-card__meta-item">
+                  <div class="event-card__pills">
+                    <span class="ronda-pill ronda-pill--tire">Pneu 5x</span>
+                    <span class="ronda-pill ronda-pill--fuel">Combustível 5x</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.event-list -->
+      </div><!-- /.container -->
+    </div><!-- /#events -->
+
+<!-- ============================================================
+     PANEL 2: RESULTADOS (Results)
+     Architecture: Step 6 §6 — Three-tier filtering hierarchy
+     CSS: Step 7 §4-7 — Round selector, session tabs, podium, data table
+     ============================================================ -->
+<section class="panel" id="results" role="tabpanel" aria-labelledby="tab-results">
+  <div class="container">
+
+    <!-- Panel Header -->
+    <div class="panel__header">
+      <span class="section-badge">Resultados</span>
+      <h1>Resultados das Corridas</h1>
+      <p class="panel__subtitle">Seleciona uma ronda e sessão para ver os resultados detalhados.</p>
+    </div>
+
+    <!-- ── TIER 1: Round Selector (7 round pills) ── -->
+    <div class="round-selector" role="group" aria-label="Selecionar ronda">
+      <button class="round-pill round-pill--active" data-round="1" aria-pressed="true">
+        <span class="round-pill__num">R1</span>
+        <span class="round-pill__track">Barcelona</span>
+      </button>
+      <button class="round-pill" data-round="2" aria-pressed="false">
+        <span class="round-pill__num">R2</span>
+        <span class="round-pill__track">Brands Hatch</span>
+      </button>
+      <button class="round-pill" data-round="3" aria-pressed="false">
+        <span class="round-pill__num">R3</span>
+        <span class="round-pill__track">Interlagos</span>
+      </button>
+      <button class="round-pill round-pill--disabled" data-round="4" aria-pressed="false" disabled>
+        <span class="round-pill__num">R4</span>
+        <span class="round-pill__track">Laguna Seca</span>
+      </button>
+      <button class="round-pill round-pill--disabled" data-round="5" aria-pressed="false" disabled>
+        <span class="round-pill__num">R5</span>
+        <span class="round-pill__track">Grand Valley</span>
+      </button>
+      <button class="round-pill round-pill--disabled" data-round="6" aria-pressed="false" disabled>
+        <span class="round-pill__num">R6</span>
+        <span class="round-pill__track">Road Atlanta</span>
+      </button>
+      <button class="round-pill round-pill--disabled" data-round="7" aria-pressed="false" disabled>
+        <span class="round-pill__num">R7</span>
+        <span class="round-pill__track">Willow Springs</span>
+      </button>
+    </div>
+
+    <!-- ── Round Context Banner ── -->
+    <div class="round-context" id="roundContext">
+      <div class="round-context__info">
+        <span class="round-context__badge">Ronda 1</span>
+        <span class="round-context__detail">25 de Junho de 2026 · Circuit de Barcelona-Catalunya (GP Layout)</span>
+      </div>
+      <div class="round-context__car">Peugeot RCZ Gr.4</div>
+    </div>
+
+    <!-- ── TIER 2: Session Sub-Tabs (Qualifying / Race) ── -->
+    <div class="session-tabs" role="tablist" aria-label="Tipo de sessão">
+      <button class="session-tab" role="tab" aria-selected="true" data-session="qualifying" id="session-tab-qual">
+        Qualificação
+      </button>
+      <button class="session-tab session-tab--active" role="tab" aria-selected="false" data-session="race" id="session-tab-race">
+        Corrida
+      </button>
+    </div>
+
+    <!-- ── TIER 3: Results Content Area ── -->
+    <div class="results-content" id="resultsContent">
+
+      <!-- ════════════════════════════════════════════
+           QUALIFYING RESULTS (shown when Qualificação tab active)
+           ════════════════════════════════════════════ -->
+      <div class="results-session" id="session-qualifying" role="tabpanel" aria-labelledby="session-tab-qual" style="display:none;">
+
+        <!-- Podium Strip — Top 3 Qualifying -->
+        <div class="podium-strip">
+          <div class="podium-card podium-card--p1">
+            <div class="podium-card__pos">1</div>
+            <div class="podium-card__driver">
+              <span class="podium-card__firstname">Miguel</span>
+              <span class="podium-card__surname">Santos</span>
+            </div>
+            <div class="podium-card__time">1:52.345</div>
+            <span class="podium-card__badge podium-card__badge--pole">Pole</span>
+          </div>
+          <div class="podium-card podium-card--p2">
+            <div class="podium-card__pos">2</div>
+            <div class="podium-card__driver">
+              <span class="podium-card__firstname">Ricardo</span>
+              <span class="podium-card__surname">Ferreira</span>
+            </div>
+            <div class="podium-card__time">+0.234</div>
+          </div>
+          <div class="podium-card podium-card--p3">
+            <div class="podium-card__pos">3</div>
+            <div class="podium-card__driver">
+              <span class="podium-card__firstname">André</span>
+              <span class="podium-card__surname">Costa</span>
+            </div>
+            <div class="podium-card__time">+0.567</div>
+          </div>
+        </div>
+
+        <!-- Full Qualifying Table -->
+        <div class="table-wrap">
+          <table class="data-table" aria-label="Resultados da Qualificação — Ronda 1">
+            <thead>
+              <tr>
+                <th class="data-table__pos" scope="col">Pos</th>
+                <th class="data-table__driver" scope="col">Piloto</th>
+                <th class="data-table__car" scope="col">Viatura</th>
+                <th class="data-table__time" scope="col">Tempo</th>
+                <th class="data-table__gap" scope="col">Gap</th>
+              </tr>
+            </thead>
+            <tbody id="qualifyingTableBody">
+              <!-- Row: P1 — Pole position -->
+              <tr class="data-table__row data-table__row--p1">
+                <td class="data-table__pos">
+                  <span class="pos-badge pos-badge--p1">1</span>
+                </td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Miguel</span>
+                    <span class="driver-name__last">Santos</span>
+                  </span>
+                  <span class="badge-pole" title="Pole Position">P</span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:52.345</td>
+                <td class="data-table__gap">—</td>
+              </tr>
+              <!-- Row: P2 -->
+              <tr class="data-table__row data-table__row--p2">
+                <td class="data-table__pos">
+                  <span class="pos-badge pos-badge--p2">2</span>
+                </td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Ricardo</span>
+                    <span class="driver-name__last">Ferreira</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:52.579</td>
+                <td class="data-table__gap">+0.234</td>
+              </tr>
+              <!-- Row: P3 -->
+              <tr class="data-table__row data-table__row--p3">
+                <td class="data-table__pos">
+                  <span class="pos-badge pos-badge--p3">3</span>
+                </td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">André</span>
+                    <span class="driver-name__last">Costa</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:52.912</td>
+                <td class="data-table__gap">+0.567</td>
+              </tr>
+              <!-- Row: P4 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">4</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Tiago</span>
+                    <span class="driver-name__last">Oliveira</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:53.101</td>
+                <td class="data-table__gap">+0.756</td>
+              </tr>
+              <!-- Row: P5 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">5</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Bruno</span>
+                    <span class="driver-name__last">Mendes</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:53.288</td>
+                <td class="data-table__gap">+0.943</td>
+              </tr>
+              <!-- Row: P6 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">6</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">João</span>
+                    <span class="driver-name__last">Silva</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:53.456</td>
+                <td class="data-table__gap">+1.111</td>
+              </tr>
+              <!-- Row: P7 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">7</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Pedro</span>
+                    <span class="driver-name__last">Rocha</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:53.612</td>
+                <td class="data-table__gap">+1.267</td>
+              </tr>
+              <!-- Row: P8 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">8</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Diogo</span>
+                    <span class="driver-name__last">Martins</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:53.789</td>
+                <td class="data-table__gap">+1.444</td>
+              </tr>
+              <!-- Row: P9 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">9</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Hugo</span>
+                    <span class="driver-name__last">Almeida</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:54.012</td>
+                <td class="data-table__gap">+1.667</td>
+              </tr>
+              <!-- Row: P10 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">10</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Nuno</span>
+                    <span class="driver-name__last">Carvalho</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:54.234</td>
+                <td class="data-table__gap">+1.889</td>
+              </tr>
+              <!-- Row: P11 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">11</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Rui</span>
+                    <span class="driver-name__last">Pereira</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:54.501</td>
+                <td class="data-table__gap">+2.156</td>
+              </tr>
+              <!-- Row: P12 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">12</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Carlos</span>
+                    <span class="driver-name__last">Ribeiro</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:54.789</td>
+                <td class="data-table__gap">+2.444</td>
+              </tr>
+              <!-- Row: P13 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">13</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Gonçalo</span>
+                    <span class="driver-name__last">Lopes</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:55.012</td>
+                <td class="data-table__gap">+2.667</td>
+              </tr>
+              <!-- Row: P14 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">14</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Filipe</span>
+                    <span class="driver-name__last">Sousa</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">1:55.345</td>
+                <td class="data-table__gap">+3.000</td>
+              </tr>
+              <!-- Row: P15 — No qualifying time set -->
+              <tr class="data-table__row data-table__row--dnf">
+                <td class="data-table__pos"><span class="pos-badge">15</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Marco</span>
+                    <span class="driver-name__last">Fernandes</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">Sem Tempo</td>
+                <td class="data-table__gap">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /session-qualifying -->
+
+      <!-- ════════════════════════════════════════════
+           RACE RESULTS (shown when Corrida tab active)
+           ════════════════════════════════════════════ -->
+      <div class="results-session results-session--active" id="session-race" role="tabpanel" aria-labelledby="session-tab-race">
+
+        <!-- Podium Strip — Top 3 Race -->
+        <div class="podium-strip">
+          <div class="podium-card podium-card--p1">
+            <div class="podium-card__pos">1</div>
+            <div class="podium-card__driver">
+              <span class="podium-card__firstname">Miguel</span>
+              <span class="podium-card__surname">Santos</span>
+            </div>
+            <div class="podium-card__time">52:30.123</div>
+            <span class="podium-card__badge podium-card__badge--fl" title="Volta Mais Rápida">VR</span>
+          </div>
+          <div class="podium-card podium-card--p2">
+            <div class="podium-card__pos">2</div>
+            <div class="podium-card__driver">
+              <span class="podium-card__firstname">André</span>
+              <span class="podium-card__surname">Costa</span>
+            </div>
+            <div class="podium-card__time">+2.345</div>
+          </div>
+          <div class="podium-card podium-card--p3">
+            <div class="podium-card__pos">3</div>
+            <div class="podium-card__driver">
+              <span class="podium-card__firstname">Ricardo</span>
+              <span class="podium-card__surname">Ferreira</span>
+            </div>
+            <div class="podium-card__time">+5.678</div>
+          </div>
+        </div>
+
+        <!-- Race Statistics Summary -->
+        <div class="race-stats">
+          <div class="race-stat">
+            <span class="race-stat__label">Voltas Completas</span>
+            <span class="race-stat__value">27</span>
+          </div>
+          <div class="race-stat">
+            <span class="race-stat__label">Paragens nas Boxes</span>
+            <span class="race-stat__value">2 — 3</span>
+          </div>
+          <div class="race-stat">
+            <span class="race-stat__label">Volta Mais Rápida</span>
+            <span class="race-stat__value race-stat__value--fl">1:51.234 — M. Santos</span>
+          </div>
+        </div>
+
+        <!-- Full Race Results Table -->
+        <div class="table-wrap">
+          <table class="data-table data-table--race" aria-label="Resultados da Corrida — Ronda 1">
+            <thead>
+              <tr>
+                <th class="data-table__pos" scope="col" aria-label="Posição">Pos</th>
+                <th class="data-table__driver" scope="col">Piloto</th>
+                <th class="data-table__car" scope="col">Viatura</th>
+                <th class="data-table__time" scope="col">Tempo / Gap</th>
+                <th class="data-table__pits" scope="col" aria-label="Paragens">Boxes</th>
+                <th class="data-table__pts" scope="col" aria-label="Pontos">Pts</th>
+              </tr>
+            </thead>
+            <tbody id="raceTableBody">
+              <!-- Row: P1 — Winner + Fastest Lap + Pole -->
+              <tr class="data-table__row data-table__row--p1">
+                <td class="data-table__pos">
+                  <span class="pos-badge pos-badge--p1">1</span>
+                </td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Miguel</span>
+                    <span class="driver-name__last">Santos</span>
+                  </span>
+                  <span class="badge-pole" title="Pole Position">P</span>
+                  <span class="badge-fl" title="Volta Mais Rápida">VR</span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">52:30.123</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts">
+                  <span class="pts-value">24</span>
+                  <span class="pts-bonus" title="+1 Pole, +1 Volta Rápida">*</span>
+                </td>
+              </tr>
+              <!-- Row: P2 -->
+              <tr class="data-table__row data-table__row--p2">
+                <td class="data-table__pos">
+                  <span class="pos-badge pos-badge--p2">2</span>
+                </td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">André</span>
+                    <span class="driver-name__last">Costa</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+2.345</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts"><span class="pts-value">20</span></td>
+              </tr>
+              <!-- Row: P3 -->
+              <tr class="data-table__row data-table__row--p3">
+                <td class="data-table__pos">
+                  <span class="pos-badge pos-badge--p3">3</span>
+                </td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Ricardo</span>
+                    <span class="driver-name__last">Ferreira</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+5.678</td>
+                <td class="data-table__pits">3</td>
+                <td class="data-table__pts"><span class="pts-value">18</span></td>
+              </tr>
+              <!-- Row: P4 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">4</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Tiago</span>
+                    <span class="driver-name__last">Oliveira</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+8.901</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts"><span class="pts-value">16</span></td>
+              </tr>
+              <!-- Row: P5 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">5</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">João</span>
+                    <span class="driver-name__last">Silva</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+12.234</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts"><span class="pts-value">14</span></td>
+              </tr>
+              <!-- Row: P6 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">6</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Bruno</span>
+                    <span class="driver-name__last">Mendes</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+15.567</td>
+                <td class="data-table__pits">3</td>
+                <td class="data-table__pts"><span class="pts-value">12</span></td>
+              </tr>
+              <!-- Row: P7 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">7</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Pedro</span>
+                    <span class="driver-name__last">Rocha</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+18.901</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts"><span class="pts-value">10</span></td>
+              </tr>
+              <!-- Row: P8 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">8</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Diogo</span>
+                    <span class="driver-name__last">Martins</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+22.345</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts"><span class="pts-value">9</span></td>
+              </tr>
+              <!-- Row: P9 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">9</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Hugo</span>
+                    <span class="driver-name__last">Almeida</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+25.678</td>
+                <td class="data-table__pits">3</td>
+                <td class="data-table__pts"><span class="pts-value">8</span></td>
+              </tr>
+              <!-- Row: P10 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">10</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Nuno</span>
+                    <span class="driver-name__last">Carvalho</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+30.012</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts"><span class="pts-value">7</span></td>
+              </tr>
+              <!-- Row: P11 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">11</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Rui</span>
+                    <span class="driver-name__last">Pereira</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+35.345</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts"><span class="pts-value">6</span></td>
+              </tr>
+              <!-- Row: P12 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">12</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Carlos</span>
+                    <span class="driver-name__last">Ribeiro</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+40.678</td>
+                <td class="data-table__pits">3</td>
+                <td class="data-table__pts"><span class="pts-value">5</span></td>
+              </tr>
+              <!-- Row: P13 — Penalidade applied -->
+              <tr class="data-table__row data-table__row--penalty">
+                <td class="data-table__pos"><span class="pos-badge">13</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Gonçalo</span>
+                    <span class="driver-name__last">Lopes</span>
+                  </span>
+                  <span class="badge-penalty" title="Penalização: −3 pontos (Infração §6)">−3</span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+45.012</td>
+                <td class="data-table__pits">2</td>
+                <td class="data-table__pts">
+                  <span class="pts-value">4</span>
+                  <span class="pts-penalty" title="−3 pontos de penalização">→ 1</span>
+                </td>
+              </tr>
+              <!-- Row: P14 -->
+              <tr class="data-table__row">
+                <td class="data-table__pos"><span class="pos-badge">14</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Filipe</span>
+                    <span class="driver-name__last">Sousa</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time">+1 Volta</td>
+                <td class="data-table__pits">3</td>
+                <td class="data-table__pts"><span class="pts-value">3</span></td>
+              </tr>
+              <!-- Row: DNF — Did Not Finish -->
+              <tr class="data-table__row data-table__row--dnf">
+                <td class="data-table__pos"><span class="pos-badge pos-badge--dnf">DNF</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Marco</span>
+                    <span class="driver-name__last">Fernandes</span>
+                  </span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time data-table__time--dnf">DNF</td>
+                <td class="data-table__pits">1</td>
+                <td class="data-table__pts"><span class="pts-value pts-value--zero">1</span></td>
+              </tr>
+              <!-- Row: DSQ — Disqualified -->
+              <tr class="data-table__row data-table__row--dsq">
+                <td class="data-table__pos"><span class="pos-badge pos-badge--dsq">DSQ</span></td>
+                <td class="data-table__driver">
+                  <span class="driver-name">
+                    <span class="driver-name__first">Francisco</span>
+                    <span class="driver-name__last">Gomes</span>
+                  </span>
+                  <span class="badge-dsq" title="Desqualificado: Infração §22 — Compostos diferentes nos eixos">DSQ</span>
+                </td>
+                <td class="data-table__car">Peugeot RCZ Gr.4</td>
+                <td class="data-table__time data-table__time--dsq">DSQ</td>
+                <td class="data-table__pits">—</td>
+                <td class="data-table__pts"><span class="pts-value pts-value--zero">0</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Race Footnotes -->
+        <div class="race-footnotes">
+          <p><span class="badge-pole">P</span> Pole Position (+1 ponto)</p>
+          <p><span class="badge-fl">VR</span> Volta Mais Rápida (+1 ponto, apenas Top 10)</p>
+          <p><span class="badge-penalty">−3</span> Penalização do Colégio de Comissários</p>
+          <p><strong>Regra dos 80%:</strong> Pilotos que não cumpram 80% da distância do vencedor recebem apenas 1 ponto de presença.</p>
+        </div>
+
+      </div><!-- /session-race -->
+
+      <!-- ════════════════════════════════════════════
+           EMPTY STATE (for rounds without results yet)
+           ════════════════════════════════════════════ -->
+      <div class="empty-state" id="resultsEmpty" style="display:none;">
+        <div class="empty-state__icon" aria-hidden="true">
+          <svg width="64" height="64" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <h3 class="empty-state__title">Resultados em breve</h3>
+        <p class="empty-state__desc">Os resultados desta ronda serão publicados após a corrida.</p>
+      </div>
+
+    </div><!-- /resultsContent -->
+
+  </div><!-- /container -->
+</section>
+
+
+<!-- ============================================================
+     PANEL 3: CLASSIFICAÇÃO (Standings)
+     Architecture: Step 6 §7 — Championship leaderboard
+     CSS: Step 7 §8-9 — Standings table, leader card, expandable rows
+     ============================================================ -->
+
+<section class="panel" id="standings" role="tabpanel" aria-labelledby="tab-standings">
+  <div class="container">
+
+    <!-- Panel Header -->
+    <div class="panel__header">
+      <span class="section-badge">Classificação</span>
+      <h1>Classificação Geral</h1>
+      <p class="panel__subtitle">
+        Após <span class="round-badge">Ronda 2</span> de 7
+        · Melhor 6 de 7 resultados contam
+      </p>
+    </div>
+
+    <!-- ── Championship Leader Highlight Card ── -->
+    <div class="leader-card" aria-label="Líder do campeonato">
+      <div class="leader-card__icon" aria-hidden="true">🏆</div>
+      <div class="leader-card__info">
+        <div class="leader-card__label">Líder do Campeonato</div>
+        <div class="leader-card__name">
+          <span class="leader-card__firstname">Miguel</span>
+          <span class="leader-card__surname">Santos</span>
+        </div>
+        <div class="leader-card__meta">Peugeot RCZ Gr.4 · Dodge Viper SRT GT3-R</div>
+        <div class="leader-card__stats">
+          2 vitórias · 2 poles · 2 voltas rápidas
+        </div>
+      </div>
+      <div class="leader-card__points">
+        <span class="leader-card__pts-num">46</span>
+        <span class="leader-card__pts-label">pontos</span>
+      </div>
+    </div>
+
+    <!-- ── Full Championship Standings Table ── -->
+    <div class="table-wrap">
+      <table class="data-table standings-table" aria-label="Classificação Geral do Campeonato">
+        <thead>
+          <tr>
+            <th class="standings-table__pos" scope="col" aria-label="Posição">Pos</th>
+            <th class="standings-table__change" scope="col" aria-label="Variação">+/−</th>
+            <th class="standings-table__driver" scope="col">Piloto</th>
+            <!-- Per-round columns: hidden below 768px, replaced by expandable rows -->
+            <th class="standings-table__round" scope="col" aria-label="Ronda 1">R1</th>
+            <th class="standings-table__round" scope="col" aria-label="Ronda 2">R2</th>
+            <th class="standings-table__round standings-table__round--future" scope="col" aria-label="Ronda 3">R3</th>
+            <th class="standings-table__round standings-table__round--future" scope="col" aria-label="Ronda 4">R4</th>
+            <th class="standings-table__round standings-table__round--future" scope="col" aria-label="Ronda 5">R5</th>
+            <th class="standings-table__round standings-table__round--future" scope="col" aria-label="Ronda 6">R6</th>
+            <th class="standings-table__round standings-table__round--future" scope="col" aria-label="Ronda 7">R7</th>
+            <th class="standings-table__total" scope="col">Total</th>
+            <!-- Mobile expand toggle column -->
+            <th class="standings-table__expand-col" scope="col" aria-label="Expandir"><span class="sr-only">Detalhes</span></th>
+          </tr>
+        </thead>
+        <tbody id="standingsTableBody">
+
+          <!-- ── ROW: P1 — Championship Leader ── -->
+          <tr class="data-table__row data-table__row--p1 standings-row" data-driver="santos">
+            <td class="standings-table__pos">
+              <span class="pos-badge pos-badge--p1">1</span>
+            </td>
+            <td class="standings-table__change">
+              <span class="change-badge change-badge--same" aria-label="Mesma posição">—</span>
+            </td>
+            <td class="standings-table__driver">
+              <span class="driver-name">
+                <span class="driver-name__first">Miguel</span>
+                <span class="driver-name__last">Santos</span>
+              </span>
+            </td>
+            <td class="standings-table__round">
+              <span class="round-pts">24</span>
+              <span class="round-pts__bonus" title="+1 Pole, +1 VR">*</span>
+            </td>
+            <td class="standings-table__round">
+              <span class="round-pts">22</span>
+              <span class="round-pts__bonus" title="+1 Pole, +1 VR">*</span>
+            </td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total">
+              <span class="total-pts">46</span>
+            </td>
+            <td class="standings-table__expand-col">
+              <button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Miguel Santos">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </td>
+          </tr>
+          <!-- Expandable sub-row (hidden by default, shown on mobile) -->
+          <tr class="standings-expand" data-driver="santos" style="display:none;">
+            <td colspan="12">
+              <div class="expand-rounds">
+                <div class="expand-round">
+                  <span class="expand-round__label">R1</span>
+                  <span class="expand-round__circuit">Barcelona</span>
+                  <span class="expand-round__pts">24*</span>
+                </div>
+                <div class="expand-round">
+                  <span class="expand-round__label">R2</span>
+                  <span class="expand-round__circuit">Brands Hatch</span>
+                  <span class="expand-round__pts">22*</span>
+                </div>
+                <div class="expand-round expand-round--future">
+                  <span class="expand-round__label">R3</span>
+                  <span class="expand-round__circuit">Interlagos</span>
+                  <span class="expand-round__pts">—</span>
+                </div>
+                <div class="expand-round expand-round--future">
+                  <span class="expand-round__label">R4</span>
+                  <span class="expand-round__circuit">Laguna Seca</span>
+                  <span class="expand-round__pts">—</span>
+                </div>
+                <div class="expand-round expand-round--future">
+                  <span class="expand-round__label">R5</span>
+                  <span class="expand-round__circuit">Grand Valley</span>
+                  <span class="expand-round__pts">—</span>
+                </div>
+                <div class="expand-round expand-round--future">
+                  <span class="expand-round__label">R6</span>
+                  <span class="expand-round__circuit">Road Atlanta</span>
+                  <span class="expand-round__pts">—</span>
+                </div>
+                <div class="expand-round expand-round--future">
+                  <span class="expand-round__label">R7</span>
+                  <span class="expand-round__circuit">Willow Springs</span>
+                  <span class="expand-round__pts">—</span>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- ── ROW: P2 ── -->
+          <tr class="data-table__row data-table__row--p2 standings-row" data-driver="costa">
+            <td class="standings-table__pos">
+              <span class="pos-badge pos-badge--p2">2</span>
+            </td>
+            <td class="standings-table__change">
+              <span class="change-badge change-badge--up" aria-label="Subiu 1 posição">▲ 1</span>
+            </td>
+            <td class="standings-table__driver">
+              <span class="driver-name">
+                <span class="driver-name__first">André</span>
+                <span class="driver-name__last">Costa</span>
+              </span>
+            </td>
+            <td class="standings-table__round"><span class="round-pts">20</span></td>
+            <td class="standings-table__round"><span class="round-pts">20</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">40</span></td>
+            <td class="standings-table__expand-col">
+              <button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de André Costa">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="standings-expand" data-driver="costa" style="display:none;">
+            <td colspan="12">
+              <div class="expand-rounds">
+                <div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">20</span></div>
+                <div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">20</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- ── ROW: P3 ── -->
+          <tr class="data-table__row data-table__row--p3 standings-row" data-driver="ferreira">
+            <td class="standings-table__pos">
+              <span class="pos-badge pos-badge--p3">3</span>
+            </td>
+            <td class="standings-table__change">
+              <span class="change-badge change-badge--down" aria-label="Desceu 1 posição">▼ 1</span>
+            </td>
+            <td class="standings-table__driver">
+              <span class="driver-name">
+                <span class="driver-name__first">Ricardo</span>
+                <span class="driver-name__last">Ferreira</span>
+              </span>
+            </td>
+            <td class="standings-table__round"><span class="round-pts">18</span></td>
+            <td class="standings-table__round"><span class="round-pts">18</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">36</span></td>
+            <td class="standings-table__expand-col">
+              <button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Ricardo Ferreira">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="standings-expand" data-driver="ferreira" style="display:none;">
+            <td colspan="12">
+              <div class="expand-rounds">
+                <div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">18</span></div>
+                <div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">18</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div>
+                <div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- ── ROW: P4 ── -->
+          <tr class="data-table__row standings-row" data-driver="oliveira">
+            <td class="standings-table__pos"><span class="pos-badge">4</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--same">—</span></td>
+            <td class="standings-table__driver"><span class="driver-name"><span class="driver-name__first">Tiago</span> <span class="driver-name__last">Oliveira</span></span></td>
+            <td class="standings-table__round"><span class="round-pts">16</span></td>
+            <td class="standings-table__round"><span class="round-pts">16</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">32</span></td>
+            <td class="standings-table__expand-col">
+              <button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Tiago Oliveira"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+          </tr>
+          <tr class="standings-expand" data-driver="oliveira" style="display:none;">
+            <td colspan="12"><div class="expand-rounds">
+              <div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">16</span></div>
+              <div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">16</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div>
+            </div></td>
+          </tr>
+
+          <!-- ── ROW: P5 ── -->
+          <tr class="data-table__row standings-row" data-driver="silva">
+            <td class="standings-table__pos"><span class="pos-badge">5</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--up">▲ 2</span></td>
+            <td class="standings-table__driver"><span class="driver-name"><span class="driver-name__first">João</span> <span class="driver-name__last">Silva</span></span></td>
+            <td class="standings-table__round"><span class="round-pts">14</span></td>
+            <td class="standings-table__round"><span class="round-pts">14</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">28</span></td>
+            <td class="standings-table__expand-col">
+              <button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de João Silva"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+          </tr>
+          <tr class="standings-expand" data-driver="silva" style="display:none;">
+            <td colspan="12"><div class="expand-rounds">
+              <div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">14</span></div>
+              <div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">14</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div>
+            </div></td>
+          </tr>
+
+          <!-- ── ROW: P6 ── -->
+          <tr class="data-table__row standings-row" data-driver="mendes">
+            <td class="standings-table__pos"><span class="pos-badge">6</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--down">▼ 1</span></td>
+            <td class="standings-table__driver"><span class="driver-name"><span class="driver-name__first">Bruno</span> <span class="driver-name__last">Mendes</span></span></td>
+            <td class="standings-table__round"><span class="round-pts">12</span></td>
+            <td class="standings-table__round"><span class="round-pts">12</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">24</span></td>
+            <td class="standings-table__expand-col">
+              <button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Bruno Mendes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+            </td>
+          </tr>
+          <tr class="standings-expand" data-driver="mendes" style="display:none;">
+            <td colspan="12"><div class="expand-rounds">
+              <div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">12</span></div>
+              <div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">12</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div>
+              <div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div>
+            </div></td>
+          </tr>
+
+          <!-- ── ROW: P7 through P14 (compact pattern for remaining drivers) ── -->
+          <tr class="data-table__row standings-row" data-driver="rocha">
+            <td class="standings-table__pos"><span class="pos-badge">7</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--same">—</span></td>
+            <td class="standings-table__driver"><span class="driver-name"><span class="driver-name__first">Pedro</span> <span class="driver-name__last">Rocha</span></span></td>
+            <td class="standings-table__round"><span class="round-pts">10</span></td>
+            <td class="standings-table__round"><span class="round-pts">10</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">20</span></td>
+            <td class="standings-table__expand-col"><button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Pedro Rocha"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></td>
+          </tr>
+          <tr class="standings-expand" data-driver="rocha" style="display:none;"><td colspan="12"><div class="expand-rounds"><div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">10</span></div><div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">10</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div></div></td></tr>
+
+          <tr class="data-table__row standings-row" data-driver="martins">
+            <td class="standings-table__pos"><span class="pos-badge">8</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--same">—</span></td>
+            <td class="standings-table__driver"><span class="driver-name"><span class="driver-name__first">Diogo</span> <span class="driver-name__last">Martins</span></span></td>
+            <td class="standings-table__round"><span class="round-pts">9</span></td>
+            <td class="standings-table__round"><span class="round-pts">9</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">18</span></td>
+            <td class="standings-table__expand-col"><button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Diogo Martins"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></td>
+          </tr>
+          <tr class="standings-expand" data-driver="martins" style="display:none;"><td colspan="12"><div class="expand-rounds"><div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">9</span></div><div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">9</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div></div></td></tr>
+
+          <tr class="data-table__row standings-row" data-driver="almeida">
+            <td class="standings-table__pos"><span class="pos-badge">9</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--same">—</span></td>
+            <td class="standings-table__driver"><span class="driver-name"><span class="driver-name__first">Hugo</span> <span class="driver-name__last">Almeida</span></span></td>
+            <td class="standings-table__round"><span class="round-pts">8</span></td>
+            <td class="standings-table__round"><span class="round-pts">8</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">16</span></td>
+            <td class="standings-table__expand-col"><button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Hugo Almeida"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></td>
+          </tr>
+          <tr class="standings-expand" data-driver="almeida" style="display:none;"><td colspan="12"><div class="expand-rounds"><div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">8</span></div><div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">8</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div></div></td></tr>
+
+          <tr class="data-table__row standings-row" data-driver="carvalho">
+            <td class="standings-table__pos"><span class="pos-badge">10</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--same">—</span></td>
+            <td class="standings-table__driver"><span class="driver-name"><span class="driver-name__first">Nuno</span> <span class="driver-name__last">Carvalho</span></span></td>
+            <td class="standings-table__round"><span class="round-pts">7</span></td>
+            <td class="standings-table__round"><span class="round-pts">7</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">14</span></td>
+            <td class="standings-table__expand-col"><button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Nuno Carvalho"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></td>
+          </tr>
+          <tr class="standings-expand" data-driver="carvalho" style="display:none;"><td colspan="12"><div class="expand-rounds"><div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts">7</span></div><div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">7</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div></div></td></tr>
+
+          <!-- ── ROW: P11 — with penalty applied ── -->
+          <tr class="data-table__row standings-row" data-driver="lopes">
+            <td class="standings-table__pos"><span class="pos-badge">11</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--down">▼ 3</span></td>
+            <td class="standings-table__driver">
+              <span class="driver-name"><span class="driver-name__first">Gonçalo</span> <span class="driver-name__last">Lopes</span></span>
+              <span class="badge-penalty" title="R1: −3 pontos penalização">−3</span>
+            </td>
+            <td class="standings-table__round">
+              <span class="round-pts round-pts--penalized">1</span>
+            </td>
+            <td class="standings-table__round"><span class="round-pts">6</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">7</span></td>
+            <td class="standings-table__expand-col"><button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Gonçalo Lopes"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></td>
+          </tr>
+          <tr class="standings-expand" data-driver="lopes" style="display:none;"><td colspan="12"><div class="expand-rounds"><div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts" style="color:var(--severity-very-grave);">1 (4−3)</span></div><div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">6</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div></div></td></tr>
+
+          <!-- ── ROW: P12 — DNS Round 1, only R2 result ── -->
+          <tr class="data-table__row standings-row" data-driver="pereira">
+            <td class="standings-table__pos"><span class="pos-badge">12</span></td>
+            <td class="standings-table__change"><span class="change-badge change-badge--new" aria-label="Novo">NEW</span></td>
+            <td class="standings-table__driver"><span class="driver-name"><span class="driver-name__first">Rui</span> <span class="driver-name__last">Pereira</span></span></td>
+            <td class="standings-table__round"><span class="round-pts round-pts--dns">DNS</span></td>
+            <td class="standings-table__round"><span class="round-pts">5</span></td>
+            <td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td><td class="standings-table__round standings-table__round--future">—</td>
+            <td class="standings-table__total"><span class="total-pts">5</span></td>
+            <td class="standings-table__expand-col"><button class="expand-btn" aria-expanded="false" aria-label="Ver detalhes de Rui Pereira"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button></td>
+          </tr>
+          <tr class="standings-expand" data-driver="pereira" style="display:none;"><td colspan="12"><div class="expand-rounds"><div class="expand-round"><span class="expand-round__label">R1</span><span class="expand-round__circuit">Barcelona</span><span class="expand-round__pts" style="color:var(--text-faint);">DNS</span></div><div class="expand-round"><span class="expand-round__label">R2</span><span class="expand-round__circuit">Brands Hatch</span><span class="expand-round__pts">5</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R3</span><span class="expand-round__circuit">Interlagos</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R4</span><span class="expand-round__circuit">Laguna Seca</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R5</span><span class="expand-round__circuit">Grand Valley</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R6</span><span class="expand-round__circuit">Road Atlanta</span><span class="expand-round__pts">—</span></div><div class="expand-round expand-round--future"><span class="expand-round__label">R7</span><span class="expand-round__circuit">Willow Springs</span><span class="expand-round__pts">—</span></div></div></td></tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Standings Footnotes -->
+    <div class="standings-footnotes">
+      <div class="standings-footnote">
+        <span class="round-pts__bonus">*</span> Inclui pontos bónus (Pole: +1 / Volta Rápida no Top 10: +1)
+      </div>
+      <div class="standings-footnote">
+        <span class="round-pts--penalized" style="display:inline; text-decoration:line-through; color:var(--severity-very-grave);">X</span> Resultado com penalização aplicada pelo Colégio de Comissários
+      </div>
+      <div class="standings-footnote">
+        <span class="round-pts--dns" style="display:inline; color:var(--text-faint);">DNS</span> Piloto não participou nesta ronda
+      </div>
+      <div class="standings-footnote standings-footnote--rule">
+        <strong>Regra 7.3:</strong> Apenas os 6 melhores resultados de 7 rondas contam para a classificação final.
+        O pior resultado será eliminado no final da época.
+      </div>
+      <div class="standings-footnote standings-footnote--rule">
+        <strong>Desempate:</strong> Em caso de igualdade pontual, decide o resultado em pista na Ronda 7 (Willow Springs).
+      </div>
+    </div>
+
+  </div><!-- /container -->
+</section>
+
+<!-- ============================================================ -->
+    <!-- PANEL 4: PILOTOS (Drivers)                                    -->
+    <!-- Driver profile card grid                                      -->
+    <!-- Architecture: Step 6 §8                                       -->
+    <!-- Styling: Step 7 §10 (Driver Cards)                            -->
+    <!-- ============================================================ -->
+    <div class="panel" id="drivers" role="tabpanel" aria-labelledby="tab-drivers">
+      <div class="container">
+        <div class="panel__header">
+          <span class="section-badge">Pilotos</span>
+          <h1 class="panel__title">Pilotos Inscritos</h1>
+          <p class="panel__subtitle">16 pilotos · 7 rondas · Gran Turismo 7 (PS4/PS5)</p>
+        </div>
+
+        <div class="driver-grid">
+
+          <!-- DRIVER 1 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #1a3a5c, #0d1f33);">
+              <span class="driver-card__initials">RS</span>
+              <span class="driver-card__number">#01</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Ricardo</span>
+                <span class="driver-card__last">Silva</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Peugeot RCZ Gr.4</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">RicSilva_GT7</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge pos-badge--1">1º</span>
+                <span class="driver-card__points">42 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 2 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #3a1a5c, #1f0d33);">
+              <span class="driver-card__initials">MC</span>
+              <span class="driver-card__number">#07</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Miguel</span>
+                <span class="driver-card__last">Costa</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Dodge Viper SRT GT3-R</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">xMiguelCosta</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge pos-badge--2">2º</span>
+                <span class="driver-card__points">38 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 3 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #5c3a1a, #33200d);">
+              <span class="driver-card__initials">TF</span>
+              <span class="driver-card__number">#12</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Tiago</span>
+                <span class="driver-card__last">Fernandes</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Subaru WRX Gr.4</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">TFernandes_99</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge pos-badge--3">3º</span>
+                <span class="driver-card__points">34 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 4 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #1a5c3a, #0d3320);">
+              <span class="driver-card__initials">DA</span>
+              <span class="driver-card__number">#03</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Diogo</span>
+                <span class="driver-card__last">Almeida</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Aston Martin V12 Vantage GT3</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">DiogoAlm_PT</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">4º</span>
+                <span class="driver-card__points">30 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 5 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #5c1a3a, #330d1f);">
+              <span class="driver-card__initials">PR</span>
+              <span class="driver-card__number">#21</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Pedro</span>
+                <span class="driver-card__last">Rodrigues</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Volkswagen Beetle Gr.3</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">PedroRod_21</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">5º</span>
+                <span class="driver-card__points">28 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 6 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #2a3d5c, #151e33);">
+              <span class="driver-card__initials">BM</span>
+              <span class="driver-card__number">#33</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Bruno</span>
+                <span class="driver-card__last">Martins</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Chevrolet Corvette C7 Gr.4</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">BrunoM_Racing</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">6º</span>
+                <span class="driver-card__points">26 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 7 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #3d5c2a, #1e3315);">
+              <span class="driver-card__initials">AS</span>
+              <span class="driver-card__number">#44</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">André</span>
+                <span class="driver-card__last">Santos</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Jaguar F-Type Gr.3</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">AndreSantos_PT</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">7º</span>
+                <span class="driver-card__points">24 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 8 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #5c2a3d, #331520);">
+              <span class="driver-card__initials">GL</span>
+              <span class="driver-card__number">#08</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Gonçalo</span>
+                <span class="driver-card__last">Lopes</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Peugeot RCZ Gr.4</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">Goncalo_L08</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">8º</span>
+                <span class="driver-card__points">22 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 9 ──────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #2a5c4d, #153328);">
+              <span class="driver-card__initials">NP</span>
+              <span class="driver-card__number">#15</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Nuno</span>
+                <span class="driver-card__last">Pereira</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Dodge Viper SRT GT3-R</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">NunoP_Speed</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">9º</span>
+                <span class="driver-card__points">20 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 10 ─────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #4d2a5c, #281533);">
+              <span class="driver-card__initials">JO</span>
+              <span class="driver-card__number">#22</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">João</span>
+                <span class="driver-card__last">Oliveira</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Subaru WRX Gr.4</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">JoaoOliv_22</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">10º</span>
+                <span class="driver-card__points">18 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 11 ─────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #5c4d2a, #332815);">
+              <span class="driver-card__initials">RF</span>
+              <span class="driver-card__number">#05</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Rui</span>
+                <span class="driver-card__last">Fonseca</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Aston Martin V12 Vantage GT3</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">RuiFons_05</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">11º</span>
+                <span class="driver-card__points">16 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 12 ─────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #1a4d5c, #0d2833);">
+              <span class="driver-card__initials">HC</span>
+              <span class="driver-card__number">#17</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Hugo</span>
+                <span class="driver-card__last">Carvalho</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Volkswagen Beetle Gr.3</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">HugoCarv_GT</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">12º</span>
+                <span class="driver-card__points">14 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 13 ─────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #3d2a5c, #201533);">
+              <span class="driver-card__initials">FM</span>
+              <span class="driver-card__number">#09</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Filipe</span>
+                <span class="driver-card__last">Mendes</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Chevrolet Corvette C7 Gr.4</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">Filipe_M09</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">13º</span>
+                <span class="driver-card__points">12 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 14 ─────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #5c3d1a, #33200d);">
+              <span class="driver-card__initials">LG</span>
+              <span class="driver-card__number">#26</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Luís</span>
+                <span class="driver-card__last">Gonçalves</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Jaguar F-Type Gr.3</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">LuisG_Racer</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">14º</span>
+                <span class="driver-card__points">10 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 15 ─────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #2a4d3d, #152820);">
+              <span class="driver-card__initials">DT</span>
+              <span class="driver-card__number">#31</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Daniel</span>
+                <span class="driver-card__last">Tavares</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Peugeot RCZ Gr.4</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">DanTav_31</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">15º</span>
+                <span class="driver-card__points">8 pts</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- DRIVER 16 ─────────────────────────── -->
+          <article class="driver-card">
+            <div class="driver-card__avatar" style="background: linear-gradient(135deg, #4d1a3a, #280d1f);">
+              <span class="driver-card__initials">VN</span>
+              <span class="driver-card__number">#42</span>
+            </div>
+            <div class="driver-card__info">
+              <div class="driver-card__name">
+                <span class="driver-card__first">Vasco</span>
+                <span class="driver-card__last">Nascimento</span>
+              </div>
+              <div class="driver-card__meta">
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+                  <span class="driver-card__car">Dodge Viper SRT GT3-R</span>
+                </div>
+                <div class="driver-card__meta-row">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span class="driver-card__psn">VascoN_42</span>
+                </div>
+              </div>
+              <div class="driver-card__standing">
+                <span class="pos-badge">16º</span>
+                <span class="driver-card__points">6 pts</span>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- /.driver-grid -->
+      </div><!-- /.container -->
+    </div><!-- /#drivers -->
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="page-footer">
+    <p class="page-footer__org">I JogoDigital Cup — A Organização</p>
+    <div class="page-footer__links">
+      <a href="i_jogodigital_cup.html">Regulamento</a>
+      <a href="#top">↑ Topo</a>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       JAVASCRIPT — Tab switching, round selector, session tabs, expand rows
+       ============================================ -->
+  <script>
+    /* ── Panel / Tab Switching ── */
+    function switchPanel(panelId) {
+      // Deactivate all tabs
+      document.querySelectorAll('.tab-bar__tab').forEach(function(tab) {
+        tab.classList.remove('tab-bar__tab--active');
+        tab.setAttribute('aria-selected', 'false');
+      });
+      // Activate selected tab
+      var activeTab = document.getElementById('tab-' + panelId);
+      if (activeTab) {
+        activeTab.classList.add('tab-bar__tab--active');
+        activeTab.setAttribute('aria-selected', 'true');
+      }
+      // Hide all panels
+      document.querySelectorAll('.panel').forEach(function(panel) {
+        panel.classList.remove('panel--active');
+        panel.style.display = 'none';
+      });
+      // Show selected panel
+      var activePanel = document.getElementById(panelId);
+      if (activePanel) {
+        activePanel.classList.add('panel--active');
+        activePanel.style.display = 'block';
+      }
+      // Scroll to top of content
+      window.scrollTo({ top: document.querySelector('.tab-bar').offsetTop, behavior: 'smooth' });
+    }
+
+    /* ── Cross-panel navigation: Events → Results ── */
+    function switchToResults(roundNumber) {
+      switchPanel('results');
+      selectRound(roundNumber);
+    }
+
+    /* ── Round Selector (Results panel) ── */
+    function selectRound(roundNum) {
+      document.querySelectorAll('.round-pill').forEach(function(pill) {
+        pill.classList.remove('round-pill--active');
+        if (parseInt(pill.getAttribute('data-round')) === roundNum) {
+          pill.classList.add('round-pill--active');
+        }
+      });
+      // Update context banner
+      var ctx = document.getElementById('roundContext');
+      if (ctx) {
+        var data = ctx.getAttribute('data-r' + roundNum);
+        if (data) {
+          ctx.innerHTML = data;
+        }
+      }
+      // Show/hide empty state vs content
+      var content = document.getElementById('resultsContent');
+      var empty = document.getElementById('resultsEmpty');
+      if (roundNum > 2) {
+        if (content) content.style.display = 'none';
+        if (empty) empty.style.display = 'block';
+      } else {
+        if (content) content.style.display = 'block';
+        if (empty) empty.style.display = 'none';
+      }
+    }
+
+    /* ── Session Sub-Tabs (Qualifying / Race) ── */
+    function switchSession(sessionId) {
+      document.querySelectorAll('.session-tab').forEach(function(tab) {
+        tab.classList.remove('session-tab--active');
+        tab.setAttribute('aria-selected', 'false');
+      });
+      var activeSessionTab = document.getElementById('session-tab-' + (sessionId === 'session-qualifying' ? 'qual' : 'race'));
+      if (activeSessionTab) {
+        activeSessionTab.classList.add('session-tab--active');
+        activeSessionTab.setAttribute('aria-selected', 'true');
+      }
+      document.querySelectorAll('.results-session').forEach(function(session) {
+        session.style.display = 'none';
+        session.classList.remove('results-session--active');
+      });
+      var activeSession = document.getElementById(sessionId);
+      if (activeSession) {
+        activeSession.style.display = 'block';
+        activeSession.classList.add('results-session--active');
+      }
+    }
+
+    /* ── Standings: Expandable rows (mobile) ── */
+    function toggleExpand(driverId) {
+      var expandRow = document.getElementById('expand-' + driverId);
+      var btn = document.querySelector('[data-expand="' + driverId + '"]');
+      if (!expandRow) return;
+      var isOpen = expandRow.style.display === 'table-row';
+      expandRow.style.display = isOpen ? 'none' : 'table-row';
+      if (btn) {
+        btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+        var svg = btn.querySelector('svg');
+        if (svg) {
+          svg.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+      }
+    }
+
+    /* ── Initialize: show only the Events panel on load ── */
+    document.addEventListener('DOMContentLoaded', function() {
+      // Ensure only Events panel is visible
+      document.querySelectorAll('.panel').forEach(function(panel) {
+        if (panel.id === 'events') {
+          panel.classList.add('panel--active');
+          panel.style.display = 'block';
+        } else {
+          panel.classList.remove('panel--active');
+          panel.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
