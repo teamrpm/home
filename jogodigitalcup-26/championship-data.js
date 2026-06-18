@@ -8,142 +8,149 @@ window.CHAMPIONSHIP_DATA = {
         "date": "25 de Junho de 2026",
         "detail": "Circuit de Barcelona-Catalunya (GP Layout)",
         "car": "Peugeot RCZ Gr.4",
-        "hasResults": false,
+        "hasResults": true,
         "raceStats": {
-          "laps": "27",
-          "pits": "2 — 3",
-          "fastestLap": "1:51.234 — M. Santos"
+          "laps": "—",
+          "pits": "—",
+          "fastestLap": "—"
         },
         "qualifying": [
           {
             "pos": "1",
-            "first": "Miguel",
-            "last": "Santos",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:52.345",
+            "first": "Diogo",
+            "last": "Valente",
+            "car": "Valente_131",
+            "time": "00:00.000",
             "gap": "—",
             "pole": true
           },
           {
             "pos": "2",
-            "first": "Ricardo",
+            "first": "Pedro",
             "last": "Ferreira",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:52.579",
-            "gap": "+0.234"
+            "car": "Pe_Fi_Ma_Fe",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "3",
-            "first": "André",
-            "last": "Costa",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:52.912",
-            "gap": "+0.567"
+            "first": "Fernando",
+            "last": "Oliveira",
+            "car": "Keijo_PTAO",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "4",
-            "first": "Tiago",
-            "last": "Oliveira",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:53.101",
-            "gap": "+0.756"
+            "first": "Miguel",
+            "last": "Rodrigues",
+            "car": "M_Rodrigues_02",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "5",
-            "first": "Bruno",
-            "last": "Mendes",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:53.288",
-            "gap": "+0.943"
+            "first": "João",
+            "last": "Pedro",
+            "car": "JPedroFM",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "6",
-            "first": "João",
-            "last": "Silva",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:53.456",
-            "gap": "+1.111"
+            "first": "Ruben",
+            "last": "Ferreira",
+            "car": "Implacavel_3",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "7",
-            "first": "Pedro",
-            "last": "Rocha",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:53.612",
-            "gap": "+1.267"
+            "first": "André",
+            "last": "Pinto",
+            "car": "ADPinto1983",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "8",
-            "first": "Diogo",
-            "last": "Martins",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:53.789",
-            "gap": "+1.444"
+            "first": "José",
+            "last": "Vedes",
+            "car": "RPM_Kryptonite_",
+            "time": "00:00.000",
+            "gap": "+0.000""
           },
           {
             "pos": "9",
-            "first": "Hugo",
-            "last": "Almeida",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:54.012",
-            "gap": "+1.667"
+            "first": "Helder",
+            "last": "Ferreira",
+            "car": "Faneka4154",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "10",
-            "first": "Nuno",
-            "last": "Carvalho",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:54.234",
-            "gap": "+1.889"
+            "first": "Bruno",
+            "last": "da Costa",
+            "car": "BrunydaCosta",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "11",
-            "first": "Rui",
-            "last": "Pereira",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:54.501",
-            "gap": "+2.156"
+            "first": "Eduardo",
+            "last": "Vilas-Boas",
+            "car": "cloudtuga",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "12",
-            "first": "Carlos",
-            "last": "Ribeiro",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:54.789",
-            "gap": "+2.444"
+            "first": "Alexandre",
+            "last": "Sousa",
+            "car": "reaper-alexandre",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "13",
-            "first": "Gonçalo",
-            "last": "Lopes",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:55.012",
-            "gap": "+2.667"
+            "first": "Ismael",
+            "last": "Cartucho",
+            "car": "IsmaelCartucho-m",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "14",
-            "first": "Filipe",
-            "last": "Sousa",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "1:55.345",
-            "gap": "+3.000"
+            "first": "Bruno",
+            "last": "Figueira",
+            "car": "brunommf10",
+            "time": "00:00.000",
+            "gap": "+0.000"
           },
           {
             "pos": "15",
-            "first": "Marco",
-            "last": "Fernandes",
-            "car": "Peugeot RCZ Gr.4",
-            "time": "Sem Tempo",
-            "gap": "—",
-            "status": "dnf"
+            "first": "Carlos",
+            "last": "Gonçalves",
+            "car": "SpeedyTuga75",
+            "time": "00:00.000",
+            "gap": "+0.000"
+          },
+          {
+            "pos": "16",
+            "first": "Gil",
+            "last": "Ferreira",
+            "car": "Ango_Chiggy",
+            "time": "00:00.000",
+            "gap": "+0.000"
           }
         ],
         "race": [
           {
             "pos": "1",
-            "first": "Miguel",
-            "last": "Santos",
-            "car": "Peugeot RCZ Gr.4",
+            "first": "Gil",
+            "last": "Ferreira",
+            "car": "Ango_Chiggy",
             "time": "52:30.123",
             "pits": "2",
             "pts": "24",
