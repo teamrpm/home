@@ -78,7 +78,7 @@ window.CHAMPIONSHIP_DATA = {
             "last": "Vedes",
             "car": "RPM_Kryptonite_",
             "time": "00:00.000",
-            "gap": "+0.000""
+            "gap": "+0.000"
           },
           {
             "pos": "9",
