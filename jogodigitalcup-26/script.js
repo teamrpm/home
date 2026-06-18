@@ -29,7 +29,6 @@
     let activeSession = 'race';
     function draw() {
       root.innerHTML = `
-        <div class="editor-note">Editar apenas o ficheiro <code>championship-data.js</code>. Cada ronda está num bloco próprio em <code>results.rounds[]</code>.</div>
         <div class="round-selector" role="group" aria-label="Selecionar ronda">${rounds.map(r => `<button class="round-pill ${r.round===activeRound.round ? 'round-pill--active' : ''} ${!r.hasResults ? 'round-pill--disabled' : ''}" data-round="${r.round}" ${!r.hasResults ? 'disabled' : ''}>R${r.round} · ${esc(r.shortName)}</button>`).join('')}</div>
         <div class="round-context"><div class="round-context__info"><span class="round-context__badge">${esc(activeRound.badge)}</span><span class="round-context__detail">${esc(activeRound.date)} · ${esc(activeRound.detail)}</span></div><div class="round-context__car">${esc(activeRound.car)}</div></div>
         ${activeRound.hasResults ? `
@@ -48,7 +47,6 @@
     const st = data.standings;
     const roundHeaders = ['R1','R2','R3','R4','R5','R6','R7'];
     root.innerHTML = `
-      <div class="editor-note">Editar apenas o ficheiro <code>championship-data.js</code>. A classificação vive em <code>standings.drivers[]</code> e o destaque do líder em <code>standings.leader</code>.</div>
       <div class="leader-card"><div class="leader-card__icon">🏆</div><div class="leader-card__content"><div class="leader-card__label">Líder do Campeonato</div><div class="leader-card__name">${esc(st.leader.first + ' ' + st.leader.last)}</div><div class="leader-card__details">${esc(st.leader.cars)}</div><div class="leader-card__details">${esc(st.leader.stats)}</div></div><div class="leader-card__points"><div class="leader-card__pts-value">${esc(st.leader.points)}</div><div class="leader-card__pts-label">pontos</div></div></div>
       <div class="table-wrap standings-layout"><table class="data-table standings-table"><thead><tr><th>Pos</th><th>+/−</th><th>Piloto</th>${roundHeaders.map(h => `<th class="round-col">${h}</th>`).join('')}<th>Total</th><th><span class="sr-only">Expandir</span></th></tr></thead><tbody>${st.drivers.map(driver => `
         <tr class="standings-row"><td><span class="${driver.pos===1 ? 'pos-badge pos-badge--1' : driver.pos===2 ? 'pos-badge pos-badge--2' : driver.pos===3 ? 'pos-badge pos-badge--3' : 'pos-badge'}">${esc(driver.pos)}</span></td><td><span class="change-badge change-badge--${esc(driver.changeType)}">${esc(driver.change)}</span></td><td>${driverName(driver)} ${driver.penalty ? `<span class="badge-penalty">${esc(driver.penalty)}</span>` : ''}</td>${driver.rounds.map((pts, idx) => `<td class="round-col ${idx >= st.afterRound ? 'score--dns' : ''}">${esc(pts)}</td>`).join('')}<td class="standings-table__total">${esc(driver.total)}</td><td><button class="expand-btn" data-expand="${esc(driver.driverId)}" aria-expanded="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button></td></tr>
