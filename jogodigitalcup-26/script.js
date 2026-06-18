@@ -29,7 +29,7 @@
     let activeSession = 'race';
     function draw() {
       root.innerHTML = `
-        <div class="round-selector" role="group" aria-label="Selecionar ronda">${rounds.map(r => `<button class="round-pill ${r.round===activeRound.round ? 'round-pill--active' : ''} ${!r.hasResults ? 'round-pill--disabled' : ''}" data-round="${r.round}" ${!r.hasResults ? 'disabled' : ''}>R${r.round} · ${esc(r.shortName)}</button>`).join('')}</div>
+        <div class="round-selector" role="group" aria-label="Selecionar ronda">${rounds.map(r => `<button class="round-pill ${r.round===activeRound.round ? 'round-pill--active' : ''} ${!r.hasResults ? 'round-pill--disabled' : ''}" data-round="${r.round}" ${!r.hasResults ? 'disabled' : ''}>R${r.round}</button>`).join('')}</div>
         <div class="round-context"><div class="round-context__info"><span class="round-context__badge">${esc(activeRound.badge)}</span><span class="round-context__detail">${esc(activeRound.date)} · ${esc(activeRound.detail)}</span></div><div class="round-context__car">${esc(activeRound.car)}</div></div>
         ${activeRound.hasResults ? `
           <div class="session-tabs" role="tablist" aria-label="Tipo de sessão"><button class="session-tab ${activeSession==='qualifying' ? 'session-tab--active' : ''}" data-session="qualifying">Qualificação</button><button class="session-tab ${activeSession==='race' ? 'session-tab--active' : ''}" data-session="race">Corrida</button></div>
