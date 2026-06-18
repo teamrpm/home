@@ -427,18 +427,18 @@ window.CHAMPIONSHIP_DATA = {
         "pos": 2,
         "change": "—",
         "changeType": "same",
-        "first": "André",
-        "last": "Costa",
+        "first": "Pedro",
+        "last": "Ferreira",
         "rounds": [
-          "20",
-          "20",
+          "—",
+          "—",
           "—",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "40"
+        "total": "0"
       },
       {
         "driverId": "implacavel",
