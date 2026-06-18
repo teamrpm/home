@@ -320,7 +320,14 @@ window.CHAMPIONSHIP_DATA = {
         "date": "23 de Julho de 2026",
         "detail": "Autódromo de Interlagos (Full Course)",
         "car": "Subaru WRX Gr.4",
-        "hasResults": false
+        "hasResults": true,
+        "raceStats": {
+          "laps": "A atualizar",
+          "pits": "A atualizar",
+          "fastestLap": "A atualizar"
+        },
+        "qualifying": [],
+        "race": []
       },
       {
         "round": 4,
@@ -329,7 +336,14 @@ window.CHAMPIONSHIP_DATA = {
         "date": "06 de Agosto de 2026",
         "detail": "Laguna Seca (Full Course)",
         "car": "Aston Martin V12 Vantage GT3",
-        "hasResults": false
+        "hasResults": true,
+        "raceStats": {
+          "laps": "A atualizar",
+          "pits": "A atualizar",
+          "fastestLap": "A atualizar"
+        },
+        "qualifying": [],
+        "race": []
       },
       {
         "round": 5,
@@ -338,7 +352,14 @@ window.CHAMPIONSHIP_DATA = {
         "date": "20 de Agosto de 2026",
         "detail": "Grand Valley (Highway 1)",
         "car": "Volkswagen Beetle Gr.3",
-        "hasResults": false
+        "hasResults": true,
+        "raceStats": {
+          "laps": "A atualizar",
+          "pits": "A atualizar",
+          "fastestLap": "A atualizar"
+        },
+        "qualifying": [],
+        "race": []
       },
       {
         "round": 6,
@@ -347,7 +368,14 @@ window.CHAMPIONSHIP_DATA = {
         "date": "03 de Setembro de 2026",
         "detail": "Road Atlanta (Full Course)",
         "car": "Chevrolet Corvette C7 Gr.4",
-        "hasResults": false
+        "hasResults": true,
+        "raceStats": {
+          "laps": "A atualizar",
+          "pits": "A atualizar",
+          "fastestLap": "A atualizar"
+        },
+        "qualifying": [],
+        "race": []
       },
       {
         "round": 7,
@@ -356,7 +384,14 @@ window.CHAMPIONSHIP_DATA = {
         "date": "17 de Setembro de 2026",
         "detail": "Willow Springs (Big Willow)",
         "car": "Jaguar F-Type Gr.3",
-        "hasResults": false
+        "hasResults": true,
+        "raceStats": {
+          "laps": "A atualizar",
+          "pits": "A atualizar",
+          "fastestLap": "A atualizar"
+        },
+        "qualifying": [],
+        "race": []
       }
     ]
   },
