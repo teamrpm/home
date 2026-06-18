@@ -1,0 +1,1717 @@
+
+    /* ============================================
+       DESIGN SYSTEM — CSS Custom Properties
+       (Shared with regulation page)
+       ============================================ */
+    :root {
+      --font-display: 'Rajdhani', 'Inter', Arial, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+
+      --bg-primary: #0a0a0f;
+      --bg-surface: #141419;
+      --bg-surface-alt: #1c1c24;
+      --bg-elevated: #24242e;
+
+      --border: rgba(255,255,255,0.08);
+      --border-accent: rgba(255,255,255,0.15);
+
+      --text-primary: #ffffff;
+      --text-body: rgba(255,255,255,0.88);
+      --text-muted: rgba(255,255,255,0.55);
+      --text-faint: rgba(255,255,255,0.35);
+
+      --accent-blue: #00b0f0;
+      --accent-gold: #ffc000;
+      --accent-blue-glow: rgba(0,176,240,0.15);
+      --accent-gold-glow: rgba(255,192,0,0.12);
+
+      --severity-racing: #00b0f0;
+      --severity-warning: #8a8a8a;
+      --severity-light: #00c853;
+      --severity-medium: #00b0f0;
+      --severity-grave: #ffab00;
+      --severity-very-grave: #ff1744;
+      --severity-aggravation: #d50000;
+      --severity-fairplay: #00b0f0;
+
+      --section-padding: 48px;
+      --card-padding: 20px;
+      --card-radius: 10px;
+
+      --fs-display: 32px;
+      --fs-h1: 22px;
+      --fs-h2: 18px;
+      --fs-h3: 16px;
+      --fs-body: 15px;
+      --fs-small: 12px;
+      --fs-table-head: 12px;
+      --fs-table-cell: 13px;
+
+      --lh-tight: 1.2;
+      --lh-normal: 1.7;
+    }
+
+    @media (min-width: 768px) {
+      :root {
+        --section-padding: 72px;
+        --card-padding: 28px;
+        --fs-display: 48px;
+        --fs-h1: 28px;
+        --fs-h2: 22px;
+        --fs-h3: 18px;
+        --fs-body: 16px;
+        --fs-small: 13px;
+        --fs-table-head: 13px;
+        --fs-table-cell: 14px;
+      }
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+      scroll-padding-top: 56px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      font-size: var(--fs-body);
+      line-height: var(--lh-normal);
+      color: var(--text-body);
+      background: var(--bg-primary);
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    a:hover { color: var(--accent-gold); }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      color: var(--text-primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    strong, b { font-weight: 600; color: var(--text-primary); }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    @media (min-width: 600px) {
+      .container { padding: 0 24px; }
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); border: 0;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--bg-primary);
+      background: var(--accent-gold);
+      padding: 4px 12px;
+      border-radius: 3px;
+      margin-bottom: 12px;
+    }
+
+    .alt-bg { background: var(--bg-surface-alt); }
+
+    /* ============================================
+       HERO — Championship variant
+       ============================================ */
+    .hero {
+      text-align: center;
+      padding: 32px 16px 24px;
+      background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg-primary) 100%);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.25;
+      filter: blur(2px);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero__logo { max-width: 100px; margin: 0 auto 12px; }
+    .hero__subtitle {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent-gold);
+      margin-bottom: 4px;
+    }
+    .hero__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-display);
+      font-weight: 700;
+      line-height: var(--lh-tight);
+      letter-spacing: 2px;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .hero__tagline {
+      font-size: var(--fs-small);
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .hero__stats {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .hero__stat {
+      text-align: center;
+    }
+    .hero__stat-num {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      line-height: 1;
+    }
+    .hero__stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding: 48px 24px 36px; }
+      .hero__logo { max-width: 120px; }
+      .hero__stat-num { font-size: 36px; }
+    }
+
+    /* ============================================
+       CHAMPIONSHIP COMPONENTS (Step 7)
+       ============================================ */
+/* ============================================================
+   CHAMPIONSHIP PAGE — Component Styles
+   Extends the existing regulation page design system.
+   All styles consume :root tokens from the base system.
+   ============================================================ */
+
+
+/* ────────────────────────────────────────────────────────────
+   1. TAB NAVIGATION BAR
+   Replaces the collapsible TOC with a horizontal tab switcher.
+   Sticky, glass-morphism backdrop, gold active indicator.
+   ──────────────────────────────────────────────────────────── */
+
+.tab-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.tab-bar__tabs {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;            /* Firefox */
+}
+
+.tab-bar__tabs::-webkit-scrollbar {
+  display: none;                    /* Chrome/Safari */
+}
+
+.tab-bar__tab {
+  flex: 0 0 auto;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.tab-bar__tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  border-radius: 1px;
+  transition: width 0.25s ease;
+}
+
+.tab-bar__tab:hover {
+  color: var(--accent-blue);
+}
+
+.tab-bar__tab[aria-selected="true"] {
+  color: var(--text-primary);
+}
+
+.tab-bar__tab[aria-selected="true"]::after {
+  width: 100%;
+}
+
+.tab-bar__tab:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+/* Equal-width tabs on wider screens */
+@media (min-width: 600px) {
+  .tab-bar__tab {
+    flex: 1;
+    padding: 16px 24px;
+    font-size: 14px;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   2. PANEL CONTAINER — Show/Hide Mechanics
+   Only the active panel is visible; others are display:none.
+   ──────────────────────────────────────────────────────────── */
+
+.panel {
+  display: none;
+}
+
+.panel.panel--active {
+  display: block;
+}
+
+.panel__header {
+  padding-top: var(--section-padding);
+  padding-bottom: 24px;
+}
+
+.panel__header .section-badge {
+  margin-bottom: 12px;
+}
+
+.panel__header h1 {
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--accent-blue);
+}
+
+.panel__subtitle {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   3. EVENT CARDS (Calendário Panel)
+   Chronological race weekend cards with status badges.
+   ──────────────────────────────────────────────────────────── */
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-bottom: var(--section-padding);
+}
+
+.event-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Status variants */
+.event-card--completed {
+  opacity: 0.75;
+}
+
+.event-card--completed:hover {
+  opacity: 1;
+}
+
+.event-card--next {
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 1px var(--accent-gold), 0 4px 16px rgba(255, 192, 0, 0.1);
+  opacity: 1;
+}
+
+.event-card--upcoming {
+  /* Default styling — no overrides needed */
+}
+
+/* Event card inner layout */
+.event-card__inner {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .event-card__inner {
+    flex-direction: row;
+  }
+}
+
+/* Track image area */
+.event-card__image {
+  position: relative;
+  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--bg-surface-alt);
+}
+
+@media (min-width: 600px) {
+  .event-card__image {
+    width: 200px;
+    aspect-ratio: auto;
+    min-height: 140px;
+  }
+}
+
+@media (min-width: 900px) {
+  .event-card__image {
+    width: 260px;
+  }
+}
+
+.event-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-card__image img {
+  transform: scale(1.05);
+}
+
+/* Status badge (overlaid on image) */
+.event-card__status {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.event-card__status--completed {
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+}
+
+.event-card__status--next {
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+}
+
+.event-card__status--upcoming {
+  background: var(--accent-blue-glow);
+  color: var(--accent-blue);
+  border: 1px solid rgba(0, 176, 240, 0.3);
+}
+
+/* Event card body */
+.event-card__body {
+  flex: 1;
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.event-card__round {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+}
+
+.event-card__date {
+  font-size: var(--fs-small);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.event-card__circuit {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: var(--lh-tight);
+}
+
+.event-card__layout {
+  font-size: 13px;
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.event-card__car {
+  font-size: 13px;
+  color: var(--text-body);
+  margin-top: 4px;
+}
+
+.event-card__car strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Results link on completed cards */
+.event-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease, gap 0.15s ease;
+}
+
+.event-card__link:hover {
+  color: var(--accent-blue);
+  gap: 10px;
+}
+
+.event-card__link::after {
+  content: '→';
+  font-size: 16px;
+  transition: transform 0.15s ease;
+}
+
+.event-card__link:hover::after {
+  transform: translateX(3px);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   4. ROUND SELECTOR PILLS (Results Panel)
+   Horizontal scrollable row of round buttons.
+   ──────────────────────────────────────────────────────────── */
+
+.round-selector {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 16px 0;
+  margin-bottom: 8px;
+}
+
+.round-selector::-webkit-scrollbar {
+  display: none;
+}
+
+.round-pill {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.round-pill:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.round-pill--active {
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+  border-color: var(--accent-gold);
+}
+
+.round-pill--active:hover {
+  background: var(--accent-gold);
+  color: var(--bg-primary);
+}
+
+.round-pill--disabled {
+  opacity: 0.35;
+  pointer-events: none;
+  cursor: default;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   5. SESSION SUB-TABS (within Results)
+   Qualifying / Race toggle — blue underline (secondary level).
+   ──────────────────────────────────────────────────────────── */
+
+.session-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.session-tab {
+  position: relative;
+  padding: 10px 20px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.session-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: transparent;
+  transition: background 0.2s ease;
+}
+
+.session-tab:hover {
+  color: var(--accent-blue);
+}
+
+.session-tab--active {
+  color: var(--accent-blue);
+}
+
+.session-tab--active::after {
+  background: var(--accent-blue);
+}
+
+.session-tab:focus-visible {
+  outline: 2px solid var(--accent-blue);
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   6. PODIUM STRIP — Top-3 Highlight
+   Three-card row above the full results table.
+   ──────────────────────────────────────────────────────────── */
+
+.podium-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.podium-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 16px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.podium-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Podium gradient overlays — reuses regulation page pattern */
+.podium-card--p1 {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.14), var(--bg-surface));
+  border-color: rgba(255, 215, 0, 0.3);
+}
+
+.podium-card--p2 {
+  background: linear-gradient(135deg, rgba(192, 192, 192, 0.1), var(--bg-surface));
+  border-color: rgba(192, 192, 192, 0.25);
+}
+
+.podium-card--p3 {
+  background: linear-gradient(135deg, rgba(205, 127, 50, 0.1), var(--bg-surface));
+  border-color: rgba(205, 127, 50, 0.25);
+}
+
+.podium-card__pos {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.podium-card--p1 .podium-card__pos { color: #ffd700; }
+.podium-card--p2 .podium-card__pos { color: #c0c0c0; }
+.podium-card--p3 .podium-card__pos { color: #cd7f32; }
+
+.podium-card__name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.podium-card__time {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.podium-card__pts {
+  margin-top: 6px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+@media (max-width: 599px) {
+  .podium-card {
+    padding: 12px 8px;
+  }
+  .podium-card__pos {
+    font-size: 22px;
+  }
+  .podium-card__name {
+    font-size: 12px;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   7. RESULTS TABLE — Responsive Data Table
+   Full race/qualifying results with position styling.
+   ──────────────────────────────────────────────────────────── */
+
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 24px;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 480px;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+
+.data-table th {
+  font-family: var(--font-display);
+  font-size: var(--fs-table-head);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  background: var(--bg-surface-alt);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.data-table td {
+  font-size: var(--fs-table-cell);
+  color: var(--text-body);
+}
+
+.data-table tbody tr {
+  transition: background 0.1s ease;
+}
+
+.data-table tbody tr:hover {
+  background: var(--bg-elevated);
+}
+
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Position cell */
+.data-table__pos {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  width: 48px;
+  text-align: center;
+}
+
+/* Podium position colors */
+.pos--1 { color: #ffd700; }
+.pos--2 { color: #c0c0c0; }
+.pos--3 { color: #cd7f32; }
+
+/* Podium row subtle highlight */
+.data-table .row--p1 { background: rgba(255, 215, 0, 0.04); }
+.data-table .row--p2 { background: rgba(192, 192, 192, 0.03); }
+.data-table .row--p3 { background: rgba(205, 127, 50, 0.03); }
+
+/* Driver name in table */
+.driver-name {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.driver-name__first {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* Car column */
+.data-table__car {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Time / gap column */
+.data-table__time {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* Points column */
+.data-table__pts {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--accent-gold);
+  text-align: center;
+  width: 48px;
+}
+
+/* Fastest lap indicator */
+.fastest-lap {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b266ff;
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.fastest-lap-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.fastest-lap-legend__dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #b266ff;
+}
+
+/* Pole position indicator */
+.pole-indicator {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--accent-gold);
+  background: var(--accent-gold-glow);
+  border: 1px solid rgba(255, 192, 0, 0.3);
+  padding: 1px 6px;
+  border-radius: 3px;
+  margin-left: 6px;
+  vertical-align: middle;
+  text-transform: uppercase;
+}
+
+/* DNF / DSQ rows */
+.row--dnf {
+  background: rgba(255, 23, 68, 0.04);
+}
+
+.row--dnf .data-table__time,
+.row--dnf .data-table__pos {
+  color: var(--severity-very-grave);
+}
+
+.row--dsq {
+  background: rgba(255, 23, 68, 0.06);
+}
+
+.row--dsq .data-table__time {
+  color: var(--severity-very-grave);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.row--dsq td {
+  text-decoration: line-through;
+  text-decoration-color: rgba(255, 23, 68, 0.4);
+}
+
+.row--dsq .data-table__pos,
+.row--dsq .data-table__time {
+  text-decoration: none;
+}
+
+/* Penalty annotation */
+.penalty-note {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--severity-grave);
+  background: rgba(255, 171, 0, 0.1);
+  border: 1px solid rgba(255, 171, 0, 0.25);
+  padding: 1px 5px;
+  border-radius: 3px;
+  margin-left: 4px;
+  vertical-align: middle;
+  cursor: help;
+}
+
+/* Hide car column on narrow viewports */
+@media (max-width: 599px) {
+  .data-table .col-car {
+    display: none;
+  }
+  .data-table th,
+  .data-table td {
+    padding: 8px 8px;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   8. STANDINGS TABLE — Championship Leaderboard
+   Full table with per-round columns and expandable mobile rows.
+   ──────────────────────────────────────────────────────────── */
+
+/* Standings table inherits .data-table base styling above */
+
+.standings-table .data-table__total {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--accent-gold);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Per-round columns */
+.standings-table .round-col {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  min-width: 40px;
+  font-size: 13px;
+}
+
+.standings-table .round-col--header {
+  font-size: 11px;
+  letter-spacing: 0;
+  color: var(--text-faint);
+}
+
+/* Dropped score (strikethrough + faint) */
+.score--dropped {
+  text-decoration: line-through;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* DNS / did-not-start placeholder */
+.score--dns {
+  color: var(--text-faint);
+}
+
+/* Bonus points indicator (pole, fastest lap) */
+.score--bonus {
+  position: relative;
+}
+
+.score--bonus::after {
+  content: '*';
+  color: var(--accent-gold);
+  font-size: 10px;
+  position: absolute;
+  top: -2px;
+  right: -6px;
+}
+
+/* Position change arrows */
+.pos-change {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-size: 10px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.pos-change--up {
+  color: var(--severity-light);
+}
+
+.pos-change--down {
+  color: var(--severity-very-grave);
+}
+
+.pos-change--same {
+  color: var(--text-faint);
+}
+
+/* Hide per-round columns on mobile; show expandable row instead */
+@media (max-width: 767px) {
+  .standings-table .round-col,
+  .standings-table .round-col--header {
+    display: none;
+  }
+}
+
+/* ── Expandable mobile row for round-by-round breakdown ── */
+
+.standings-expand-btn {
+  display: none;          /* Hidden on desktop */
+  background: none;
+  border: none;
+  color: var(--accent-blue);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 2px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 767px) {
+  .standings-expand-btn {
+    display: inline-block;
+  }
+}
+
+.standings-expand-row {
+  display: none;
+}
+
+.standings-expand-row.open {
+  display: table-row;
+}
+
+.standings-expand-row td {
+  padding: 0 12px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.expand-rounds {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+}
+
+.expand-round {
+  background: var(--bg-surface-alt);
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+}
+
+.expand-round__label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-faint);
+  margin-bottom: 2px;
+}
+
+.expand-round__pts {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+@media (min-width: 400px) {
+  .expand-rounds {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   9. LEADER HIGHLIGHT CARD
+   Championship leader callout above the standings table.
+   ──────────────────────────────────────────────────────────── */
+
+.leader-card {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), var(--bg-surface));
+  border: 1px solid rgba(255, 215, 0, 0.25);
+  border-radius: var(--card-radius);
+  padding: var(--card-padding);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.leader-card__icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.leader-card__content {
+  flex: 1;
+  min-width: 0;
+}
+
+.leader-card__label {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  margin-bottom: 4px;
+}
+
+.leader-card__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leader-card__details {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.leader-card__points {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.leader-card__pts-value {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  line-height: 1;
+}
+
+.leader-card__pts-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+@media (max-width: 599px) {
+  .leader-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  .leader-card__name {
+    font-size: 18px;
+  }
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   10. DRIVER CARDS (Pilotos Panel)
+   Profile card grid with avatar, number, name, car, PSN ID.
+   ──────────────────────────────────────────────────────────── */
+
+.driver-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding-bottom: var(--section-padding);
+}
+
+@media (min-width: 600px) {
+  .driver-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .driver-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.driver-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.driver-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Avatar area */
+.driver-card__avatar {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-surface-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.driver-card__avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Initials fallback (when no photo) */
+.driver-card__initials {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.12);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+/* Car number badge — overlaid top-right of avatar */
+.driver-card__number {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent-gold);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(4px);
+  padding: 4px 10px;
+  border-radius: 4px;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+/* Driver card body */
+.driver-card__body {
+  padding: var(--card-padding);
+}
+
+.driver-card__name {
+  margin-bottom: 8px;
+}
+
+.driver-card__firstname {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: block;
+  line-height: 1.2;
+}
+
+.driver-card__surname {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  line-height: 1.2;
+}
+
+/* Metadata rows below the name */
+.driver-card__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.driver-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.driver-card__meta-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-blue);
+}
+
+.driver-card__meta-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.driver-card__meta-label {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.driver-card__meta-value {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-left: auto;
+}
+
+/* Standing position badge on driver card */
+.driver-card__standing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  background: var(--bg-elevated);
+  color: var(--text-muted);
+  margin-top: 10px;
+}
+
+.driver-card__standing--p1 {
+  background: rgba(255, 215, 0, 0.12);
+  color: #ffd700;
+  border: 1px solid rgba(255, 215, 0, 0.25);
+}
+
+.driver-card__standing--p2 {
+  background: rgba(192, 192, 192, 0.08);
+  color: #c0c0c0;
+  border: 1px solid rgba(192, 192, 192, 0.2);
+}
+
+.driver-card__standing--p3 {
+  background: rgba(205, 127, 50, 0.08);
+  color: #cd7f32;
+  border: 1px solid rgba(205, 127, 50, 0.2);
+}
+
+
+/* ────────────────────────────────────────────────────────────
+   11. SHARED UTILITIES
+   Position badges, no-data states, section spacing, footnotes.
+   ──────────────────────────────────────────────────────────── */
+
+/* Generic position badge (used in multiple contexts) */
+.pos-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  background: var(--bg-surface-alt);
+  color: var(--text-muted);
+}
+
+.pos-badge--1 {
+  background: linear-gradient(135deg, #ffd700, #b8860b);
+  color: #1a1a00;
+}
+
+.pos-badge--2 {
+  background: linear-gradient(135deg, #c0c0c0, #808080);
+  color: #1a1a1a;
+}
+
+.pos-badge--3 {
+  background: linear-gradient(135deg, #cd7f32, #8b4513);
+  color: #ffffff;
+}
+
+/* Empty/no-data state */
+.empty-state {
+  text-align: center;
+  padding: 48px var(--card-padding);
+  color: var(--text-muted);
+}
+
+.empty-state__icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.empty-state__text {
+  font-size: var(--fs-body);
+  font-weight: 500;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Footnotes / legend area below tables */
+.table-footnotes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 12px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.table-footnote {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Divider between sections within a panel */
+.panel-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 32px 0;
+}
+
+/* Results summary bar (round header within results) */
+.results-round-header {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: 16px var(--card-padding);
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.results-round-header__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.results-round-header__meta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.results-round-header__circuit {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+/* General purpose alternating background for panel sections */
+.panel-section {
+  padding: var(--section-padding) 0;
+}
+
+.panel-section.alt-bg {
+  background: var(--bg-surface-alt);
+}
+
+/* Standings footnote for drop-score rule */
+.standings-footnote {
+  background: var(--bg-surface);
+  border-left: 3px solid var(--accent-gold);
+  border-radius: 0 var(--card-radius) var(--card-radius) 0;
+  padding: 12px var(--card-padding);
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-body);
+}
+
+.standings-footnote strong {
+  color: var(--accent-gold);
+}
+
+/* Badge for "after round X" subtitle */
+.round-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent-blue);
+  background: var(--accent-blue-glow);
+  border: 1px solid rgba(0, 176, 240, 0.25);
+  padding: 4px 12px;
+  border-radius: 4px;
+}
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .page-footer {
+      text-align: center;
+      padding: 40px 16px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-surface);
+    }
+    .page-footer__org {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .page-footer__links {
+      margin-top: 12px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .page-footer__links a {
+      font-size: 13px;
+      color: var(--text-faint);
+      transition: color 0.15s;
+    }
+    .page-footer__links a:hover { color: var(--accent-blue); }
+
+    /* Ronda pill reuse from regulation page */
+    .ronda-pill {
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 3px 10px;
+      border-radius: 4px;
+      border: 1px solid;
+      display: inline-block;
+    }
+    .ronda-pill--tire {
+      color: var(--accent-gold);
+      border-color: rgba(255,192,0,0.3);
+      background: var(--accent-gold-glow);
+    }
+    .ronda-pill--fuel {
+      color: var(--accent-blue);
+      border-color: rgba(0,176,240,0.3);
+      background: var(--accent-blue-glow);
+    }
+
+  
+
+/* Multi-page navigation tweaks */
+.tab-bar { position: sticky; top: 0; }
+.tab-bar__tabs a.tab-bar__tab { text-decoration: none; }
+
+/* Missing / normalized classes from original markup */
+.event-status {
+  position: absolute; top: 10px; left: 10px; z-index: 2;
+  font-family: var(--font-display); font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 10px; border-radius: 4px;
+}
+.event-status--completed { background: var(--bg-elevated); color: var(--text-muted); }
+.event-status--next { background: var(--accent-gold); color: var(--bg-primary); }
+.event-status--upcoming { background: var(--accent-blue-glow); color: var(--accent-blue); border: 1px solid rgba(0,176,240,.3); }
+.event-card__header { display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; }
+.event-card__badge { font-family: var(--font-display); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--accent-gold); }
+.event-card__meta { display:flex; flex-direction:column; gap:10px; margin-top:8px; }
+.event-card__meta-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--text-body); }
+.event-card__meta-item svg, .event-card__countdown svg { flex:0 0 auto; color: var(--accent-blue); }
+.event-card__pills { display:flex; gap:8px; flex-wrap:wrap; }
+.event-card__cta {
+  display:inline-flex; align-items:center; gap:8px; margin-top:10px; padding:0; border:none; background:none;
+  color:var(--accent-gold); cursor:pointer; font-family:var(--font-display); font-size:13px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+}
+.event-card__cta:hover { color: var(--accent-blue); }
+.event-card__countdown { display:inline-flex; align-items:center; gap:8px; margin-top:12px; font-size:13px; color:var(--accent-blue); font-weight:600; }
+.driver-card__info { padding: var(--card-padding); }
+.driver-card__first { display:block; font-family: var(--font-display); font-size:13px; color: var(--text-muted); text-transform:uppercase; letter-spacing:1px; }
+.driver-card__last { display:block; font-family: var(--font-display); font-size:22px; color: var(--text-primary); text-transform:uppercase; letter-spacing:1.5px; }
+.driver-card__car, .driver-card__psn { color: var(--text-body); font-size:13px; }
+.driver-card__points { color: var(--accent-gold); font-family: var(--font-display); font-weight:700; }
+
+/* Data-driven cleanup helpers */
+.editor-note {
+  background: var(--bg-surface); border-left: 3px solid var(--accent-blue); padding: 12px 16px;
+  border-radius: 0 10px 10px 0; margin-bottom: 18px; color: var(--text-body); font-size: 13px;
+}
+.editor-note code { color: var(--accent-gold); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+.results-layout, .standings-layout { padding-bottom: var(--section-padding); }
+.hidden { display:none !important; }
+.section-stack { display:grid; gap:20px; }
+.round-context, .race-stats, .race-footnotes {
+  background: var(--bg-surface); border:1px solid var(--border); border-radius:var(--card-radius); padding:16px var(--card-padding); margin-bottom:20px;
+}
+.round-context { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.round-context__badge { display:inline-block; font-family:var(--font-display); font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--accent-gold); margin-right:8px; }
+.round-context__detail { color:var(--text-body); font-size:13px; }
+.round-context__car { color:var(--accent-blue); font-weight:600; font-size:13px; }
+.race-stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+.race-stat { background: var(--bg-surface-alt); border-radius:8px; padding:12px; }
+.race-stat__label { display:block; color:var(--text-muted); font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
+.race-stat__value { display:block; color:var(--text-primary); font-weight:700; margin-top:4px; }
+.race-stat__value--fl { color:#b266ff; }
+.race-footnotes { display:grid; gap:8px; font-size:13px; color:var(--text-body); }
+.badge-pole, .badge-fl, .badge-penalty, .badge-dsq, .podium-card__badge {
+  display:inline-flex; align-items:center; justify-content:center; min-width:20px; height:20px; padding:0 6px; border-radius:4px; margin-left:6px;
+  font-family: var(--font-display); font-size:10px; font-weight:700; letter-spacing:.5px;
+}
+.badge-pole, .podium-card__badge--pole { background: var(--accent-gold-glow); color: var(--accent-gold); border: 1px solid rgba(255,192,0,.3); }
+.badge-fl, .podium-card__badge--fl { background: rgba(178,102,255,.12); color: #c695ff; border: 1px solid rgba(178,102,255,.3); }
+.badge-penalty { background: rgba(255,171,0,.1); color: var(--severity-grave); border: 1px solid rgba(255,171,0,.25); }
+.badge-dsq { background: rgba(255,23,68,.12); color: var(--severity-very-grave); border: 1px solid rgba(255,23,68,.28); }
+.change-badge { font-family: var(--font-display); font-size: 11px; font-weight:700; }
+.change-badge--up { color: var(--severity-light); }
+.change-badge--down { color: var(--severity-very-grave); }
+.change-badge--same, .change-badge--new { color: var(--text-muted); }
+.expand-btn { background:none; border:none; color:var(--accent-blue); cursor:pointer; }
+.expand-btn svg { transition: transform .2s ease; }
+.expand-round__label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.5px; color:var(--text-faint); margin-bottom:2px; }
+.expand-round__pts { font-family:var(--font-display); font-size:16px; font-weight:700; color:var(--text-primary); }
+@media (max-width: 599px) { .round-context { flex-direction:column; } }

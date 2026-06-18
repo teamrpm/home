@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="I JogoDigital Cup — Calendário, Resultados, Classificação e Pilotos do Campeonato Interno de Verão no Gran Turismo 7">
+  <meta name="theme-color" content="#0a0a0f">
+  <title>I JogoDigital Cup — Resultados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="top">
+<header class="hero">
+<div class="hero__bg">
+<img alt="" aria-hidden="true" loading="eager" src="images/image9.png"/>
+</div>
+<div class="hero__content">
+<img alt="I JogoDigital Cup" class="hero__logo" loading="eager" src="images/image11.png"/>
+<p class="hero__subtitle">Campeonato Interno de Verão</p>
+<h1 class="hero__title">I JogoDigital Cup</h1>
+<p class="hero__tagline">Gran Turismo 7 · PS4/PS5 · 7 Rondas · Junho a Setembro 2026</p>
+<div class="hero__stats">
+<div class="hero__stat">
+<div class="hero__stat-num">7</div>
+<div class="hero__stat-label">Rondas</div>
+</div>
+<div class="hero__stat">
+<div class="hero__stat-num">16</div>
+<div class="hero__stat-label">Pilotos</div>
+</div>
+<div class="hero__stat">
+<div class="hero__stat-num">2</div>
+<div class="hero__stat-label">Concluídas</div>
+</div>
+</div>
+</div>
+</header>
+<nav class="tab-bar" aria-label="Secções do campeonato">
+  <div class="container">
+    <div class="tab-bar__tabs">
+      <a class="tab-bar__tab " href="index.html">Calendário</a>
+      <a class="tab-bar__tab tab-bar__tab--active" href="resultados.html">Resultados</a>
+      <a class="tab-bar__tab " href="classificacao.html">Classificação</a>
+      <a class="tab-bar__tab " href="pilotos.html">Pilotos</a>
+    </div>
+  </div>
+</nav>
+<main>
+<section class="panel panel--active" id="results" role="tabpanel" aria-labelledby="tab-results"><div class="container"><div class="panel__header"><span class="section-badge">Resultados</span><h1>Resultados das Corridas</h1><p class="panel__subtitle">Página simplificada: editar dados em <code>championship-data.js</code> e não no markup.</p></div><!-- DADOS EDITÁVEIS: championship-data.js → results.rounds[] --><div id="resultsApp"></div></div></section>
+</main>
+<footer class="page-footer">
+<p class="page-footer__org">I JogoDigital Cup — A Organização</p>
+<div class="page-footer__links">
+<a href="i_jogodigital_cup.html">Regulamento</a>
+<a href="#top">↑ Topo</a>
+</div>
+</footer>
+<script src="championship-data.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
