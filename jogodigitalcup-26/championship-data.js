@@ -8,7 +8,7 @@ window.CHAMPIONSHIP_DATA = {
         "date": "25 de Junho de 2026",
         "detail": "Circuit de Barcelona-Catalunya (GP Layout)",
         "car": "Peugeot RCZ Gr.4",
-        "hasResults": true,
+        "hasResults": false,
         "raceStats": {
           "laps": "27",
           "pits": "2 — 3",
