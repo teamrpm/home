@@ -270,7 +270,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Ismael",
             "last": "Cartucho",
             "car": "Ismael-Cartucho-m",
-            "time": "0",
+            "time": "+0.000",
             "pits": "0",
             "pts": "0"
           },
@@ -279,7 +279,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Bruno",
             "last": "Figueira",
             "car": "brunommf10",
-            "time": "0",
+            "time": "+0.000",
             "pits": "0",
             "pts": "0",
           },
@@ -288,7 +288,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Carlos",
             "last": "Gonçalves",
             "car": "SpeedyTuga75",
-            "time": "0",
+            "time": "+0.000",
             "pits": "0",
             "pts": "0",
           }
