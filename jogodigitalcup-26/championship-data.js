@@ -406,14 +406,14 @@ window.CHAMPIONSHIP_DATA = {
     },
     "drivers": [
       {
-        "driverId": "valente",
-        "pos": 8,
+        "driverId": "jpedrofm",
+        "pos": 1,
         "change": "—",
         "changeType": "same",
-        "first": "Diogo",
-        "last": "Valente",
+        "first": "João",
+        "last": "Pedro",
         "rounds": [
-          "9",
+          "23",
           "—",
           "—",
           "—",
@@ -421,7 +421,7 @@ window.CHAMPIONSHIP_DATA = {
           "—",
           "—"
         ],
-        "total": "9"
+        "total": "23"
       },
       {
         "driverId": "pefi",
@@ -442,14 +442,14 @@ window.CHAMPIONSHIP_DATA = {
         "total": "21"
       },
       {
-        "driverId": "implacavel",
-        "pos": 5,
+        "driverId": "rodrigues",
+        "pos": 3,
         "change": "—",
         "changeType": "same",
-        "first": "Ruben",
-        "last": "Ferreira",
+        "first": "Miguel",
+        "last": "Rodrigues",
         "rounds": [
-          "14",
+          "18",
           "—",
           "—",
           "—",
@@ -457,7 +457,7 @@ window.CHAMPIONSHIP_DATA = {
           "—",
           "—"
         ],
-        "total": "14"
+        "total": "18"
       },
       {
         "driverId": "ADPinto",
@@ -478,32 +478,14 @@ window.CHAMPIONSHIP_DATA = {
         "total": "16"
       },
       {
-        "driverId": "krypto",
-        "pos": 12,
+        "driverId": "implacavel",
+        "pos": 5,
         "change": "—",
         "changeType": "same",
-        "first": "José",
-        "last": "Vedes",
-        "rounds": [
-          "5",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        "total": "5"
-      },
-      {
-        "driverId": "faneka",
-        "pos": 11,
-        "change": "—",
-        "changeType": "same",
-        "first": "Helder",
+        "first": "Ruben",
         "last": "Ferreira",
         "rounds": [
-          "6",
+          "14",
           "—",
           "—",
           "—",
@@ -511,7 +493,61 @@ window.CHAMPIONSHIP_DATA = {
           "—",
           "—"
         ],
-        "total": "6"
+        "total": "14"
+      },
+      {
+        "driverId": "keijo",
+        "pos": 6,
+        "change": "—",
+        "changeType": "same",
+        "first": "Fernando",
+        "last": "Oliveira",
+        "rounds": [
+          "12",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "total": "12"
+      },
+      {
+        "driverId": "andre-thecat",
+        "pos": 7,
+        "change": "—",
+        "changeType": "same",
+        "first": "André",
+        "last": "",
+        "rounds": [
+          "10",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "total": "10"
+      },
+      {
+        "driverId": "valente",
+        "pos": 8,
+        "change": "—",
+        "changeType": "same",
+        "first": "Diogo",
+        "last": "Valente",
+        "rounds": [
+          "9",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "total": "9"
       },
       {
         "driverId": "bruny",
@@ -532,14 +568,14 @@ window.CHAMPIONSHIP_DATA = {
         "total": "8"
       },
       {
-        "driverId": "andre-thecat",
-        "pos": 8,
+        "driverId": "speedytuga",
+        "pos": 10,
         "change": "—",
         "changeType": "same",
-        "first": "André",
-        "last": "",
+        "first": "Carlos",
+        "last": "Gonçalves",
         "rounds": [
-          "10",
+          "7",
           "—",
           "—",
           "—",
@@ -547,7 +583,43 @@ window.CHAMPIONSHIP_DATA = {
           "—",
           "—"
         ],
-        "total": "10"
+        "total": "7"
+      },
+      {
+        "driverId": "faneka",
+        "pos": 11,
+        "change": "—",
+        "changeType": "same",
+        "first": "Helder",
+        "last": "Ferreira",
+        "rounds": [
+          "6",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "total": "6"
+      },
+      {
+        "driverId": "krypto",
+        "pos": 12,
+        "change": "—",
+        "changeType": "same",
+        "first": "José",
+        "last": "Vedes",
+        "rounds": [
+          "5",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—",
+          "—"
+        ],
+        "total": "5"
       },
       {
         "driverId": "reaper",
@@ -604,42 +676,6 @@ window.CHAMPIONSHIP_DATA = {
         "total": "2"
       },
       {
-        "driverId": "keijo",
-        "pos": 6,
-        "change": "—",
-        "changeType": "same",
-        "first": "Fernando",
-        "last": "Oliveira",
-        "rounds": [
-          "12",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        "total": "12"
-      },
-      {
-        "driverId": "rodrigues",
-        "pos": 3,
-        "change": "—",
-        "changeType": "same",
-        "first": "Miguel",
-        "last": "Rodrigues",
-        "rounds": [
-          "18",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        "total": "18"
-      },
-      {
         "driverId": "ango_chiggy",
         "pos": 16,
         "change": "—",
@@ -657,42 +693,6 @@ window.CHAMPIONSHIP_DATA = {
         ],
         "total": "1"
       },
-      {
-        "driverId": "jpedrofm",
-        "pos": 1,
-        "change": "—",
-        "changeType": "same",
-        "first": "João",
-        "last": "Pedro",
-        "rounds": [
-          "23",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        "total": "23"
-      },
-      {
-        "driverId": "speedytuga",
-        "pos": 10,
-        "change": "—",
-        "changeType": "same",
-        "first": "Carlos",
-        "last": "Gonçalves",
-        "rounds": [
-          "7",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—",
-          "—"
-        ],
-        "total": "7"
-      }
     ]
   }
 };
