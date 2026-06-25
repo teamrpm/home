@@ -122,8 +122,8 @@ window.CHAMPIONSHIP_DATA = {
           },
           {
             "pos": "14",
-            "first": "André",
-            "last": "Figueira",
+            "first": "Vitor",
+            "last": "André",
             "car": "Andre-TheCat",
             "time": "01:56.135",
             "gap": "+1.736"
@@ -205,8 +205,8 @@ window.CHAMPIONSHIP_DATA = {
           },
           {
             "pos": "7",
-            "first": "André",
-            "last": "",
+            "first": "Vitor",
+            "last": "André",
             "car": "Andre-TheCat",
             "time": "+10.000",
             "pits": "0",
@@ -518,8 +518,8 @@ window.CHAMPIONSHIP_DATA = {
         "pos": 7,
         "change": "—",
         "changeType": "same",
-        "first": "André",
-        "last": "",
+        "first": "Vitor",
+        "last": "André",
         "rounds": [
           "10",
           "—",
