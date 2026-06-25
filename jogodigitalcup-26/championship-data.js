@@ -10,152 +10,152 @@ window.CHAMPIONSHIP_DATA = {
         "car": "Peugeot RCZ Gr.4",
         "hasResults": true,
         "raceStats": {
-          "laps": "—",
-          "pits": "—",
-          "fastestLap": "—"
+          "laps": "26",
+          "pits": "2",
+          "fastestLap": ""
         },
         "qualifying": [
           {
             "pos": "1",
-            "first": "Diogo",
-            "last": "Valente",
-            "car": "Valente_131",
-            "time": "00:00.000",
+            "first": "João",
+            "last": "Pedro",
+            "car": "JPedroFM",
+            "time": "01:54.399",
             "gap": "—",
             "pole": true
           },
           {
             "pos": "2",
-            "first": "Pedro",
-            "last": "Ferreira",
-            "car": "Pe_Fi_Ma_Fe",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "3",
-            "first": "Fernando",
-            "last": "Oliveira",
-            "car": "Keijo_PTAO",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "4",
             "first": "Miguel",
             "last": "Rodrigues",
             "car": "M_Rodrigues_02",
-            "time": "00:00.000",
-            "gap": "+0.000"
+            "time": "01:54.557",
+            "gap": "+0.158"
           },
           {
-            "pos": "5",
-            "first": "João",
-            "last": "Pedro",
-            "car": "JPedroFM",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "6",
+            "pos": "3",
             "first": "Ruben",
             "last": "Ferreira",
             "car": "Implacavel_3",
-            "time": "00:00.000",
-            "gap": "+0.000"
+            "time": "01:55.042",
+            "gap": "+0.643"
           },
           {
-            "pos": "7",
+            "pos": "4",
             "first": "André",
             "last": "Pinto",
             "car": "ADPinto1983",
-            "time": "00:00.000",
-            "gap": "+0.000"
+            "time": "01:55.112",
+            "gap": "+0.713"
           },
           {
-            "pos": "8",
-            "first": "José",
-            "last": "Vedes",
-            "car": "RPM_Kryptonite_",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "9",
-            "first": "Helder",
-            "last": "Ferreira",
-            "car": "Faneka4154",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "10",
-            "first": "Bruno",
-            "last": "da Costa",
-            "car": "BrunydaCosta",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "11",
-            "first": "Eduardo",
-            "last": "Vilas-Boas",
-            "car": "cloudtuga",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "12",
-            "first": "Alexandre",
-            "last": "Sousa",
-            "car": "reaper-alexandre",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "13",
-            "first": "Ismael",
-            "last": "Cartucho",
-            "car": "IsmaelCartucho-m",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "14",
-            "first": "Bruno",
-            "last": "Figueira",
-            "car": "brunommf10",
-            "time": "00:00.000",
-            "gap": "+0.000"
-          },
-          {
-            "pos": "15",
+            "pos": "5",
             "first": "Carlos",
             "last": "Gonçalves",
             "car": "SpeedyTuga75",
-            "time": "00:00.000",
-            "gap": "+0.000"
+            "time": "01:55.142",
+            "gap": "+0.743"
+          },
+          {
+            "pos": "6",
+            "first": "Bruno",
+            "last": "da Costa",
+            "car": "BrunydaCosta",
+            "time": "01:55.195",
+            "gap": "+0.796"
+          },
+          {
+            "pos": "7",
+            "first": "Pedro",
+            "last": "Ferreira",
+            "car": "Pe_Fi_Ma_Fe",
+            "time": "01:55.344",
+            "gap": "+0.945"
+          },
+          {
+            "pos": "8",
+            "first": "Fernando",
+            "last": "Oliveira",
+            "car": "Keijo_PTAO",
+            "time": "01:55.364",
+            "gap": "+0.965"
+          },
+          {
+            "pos": "9",
+            "first": "Ismael",
+            "last": "Cartucho",
+            "car": "Ismael-Cartucho",
+            "time": "01:55.388",
+            "gap": "+0.989"
+          },
+          {
+            "pos": "10",
+            "first": "Alexandre",
+            "last": "Sousa",
+            "car": "reaper-alexandre",
+            "time": "01:55.753",
+            "gap": "+1.354"
+          },
+          {
+            "pos": "11",
+            "first": "Bruno",
+            "last": "Figueira",
+            "car": "brunommf10",
+            "time": "01:55.759",
+            "gap": "+1.360"
+          },
+          {
+            "pos": "12",
+            "first": "Helder",
+            "last": "Ferreira",
+            "car": "Faneka4154",
+            "time": "01:55.859",
+            "gap": "+1.460"
+          },
+          {
+            "pos": "13",
+            "first": "José",
+            "last": "Vedes",
+            "car": "RPM_Kryptonite_",
+            "time": "01:55.941",
+            "gap": "+1.542"
+          },
+          {
+            "pos": "14",
+            "first": "André",
+            "last": "Figueira",
+            "car": "Andre-TheCat",
+            "time": "01:56.135",
+            "gap": "+1.736"
+          },
+          {
+            "pos": "15",
+            "first": "Diogo",
+            "last": "Valente",
+            "car": "Valente_131",
+            "time": "01:57.439",
+            "gap": "+3.040"
           },
           {
             "pos": "16",
             "first": "Gil",
             "last": "Ferreira",
             "car": "Ango_Chiggy",
-            "time": "00:00.000",
-            "gap": "+0.000"
+            "time": "01:58.460",
+            "gap": "+4.061"
           }
         ],
         "race": [
           {
             "pos": "1",
-            "first": "Diogo",
-            "last": "Valente",
-            "car": "Valente_131",
-            "time": "00:00.000",
+            "first": "João",
+            "last": "Pedro",
+            "car": "JPedroFM",
+            "time": "50:54.937",
             "pits": "0",
-            "pts": "0",
+            "pts": "22",
             "pole": true,
-            "fl": true
+            "fl": false
           },
           {
             "pos": "2",
@@ -164,133 +164,134 @@ window.CHAMPIONSHIP_DATA = {
             "car": "Pe_Fi_Ma_Fe",
             "time": "+0.000",
             "pits": "0",
-            "pts": "0"
+            "pts": "20",
+            "fl": true
           },
           {
             "pos": "3",
-            "first": "Fernando",
-            "last": "Oliveira",
-            "car": "Keijo_PTAO",
-            "time": "+0.000",
-            "pits": "0",
-            "pts": "0"
-          },
-          {
-            "pos": "4",
             "first": "Miguel",
             "last": "Rodrigues",
             "car": "M_Rodrigues_02",
             "time": "+0.000",
             "pits": "0",
-            "pts": "0"
+            "pts": "18"
           },
           {
-            "pos": "5",
-            "first": "Gil",
-            "last": "Ferreira",
-            "car": "Ango_Chiggy",
-            "time": "+0.000",
-            "pits": "0",
-            "pts": "0"
-          },
-          {
-            "pos": "6",
-            "first": "João",
-            "last": "Pedro",
-            "car": "JPedroFM",
-            "time": "+0.000",
-            "pits": "0",
-            "pts": "0"
-          },
-          {
-            "pos": "7",
-            "first": "Ruben",
-            "last": "Ferreira",
-            "car": "Implacavel_3",
-            "time": "+0.000",
-            "pits": "0",
-            "pts": "0"
-          },
-          {
-            "pos": "8",
+            "pos": "4",
             "first": "André",
             "last": "Pinto",
             "car": "ADPinto1983",
             "time": "+0.000",
             "pits": "0",
-            "pts": "0"
+            "pts": "16"
+          },
+          {
+            "pos": "5",
+            "first": "Ruben",
+            "last": "Ferreira",
+            "car": "Implacavel_3",
+            "time": "+0.000",
+            "pits": "0",
+            "pts": "14"
+          },
+          {
+            "pos": "6",
+            "first": "Fernando",
+            "last": "Oliveira",
+            "car": "Keijo_PTAO",
+            "time": "+0.000",
+            "pits": "0",
+            "pts": "12"
+          },
+          {
+            "pos": "7",
+            "first": "André",
+            "last": "",
+            "car": "Andre-TheCat",
+            "time": "+10.000",
+            "pits": "0",
+            "pts": "10"
+          },
+          {
+            "pos": "8",
+            "first": "Diogo",
+            "last": "Valente",
+            "car": "Valente_131",
+            "time": "+54.000",
+            "pits": "0",
+            "pts": "9"
           },
           {
             "pos": "9",
-            "first": "José",
-            "last": "Vedes",
-            "car": "RPM_Kryptonite_",
-            "time": "+0.000",
-            "pits": "0",
-            "pts": "0"
-          },
-          {
-            "pos": "10",
-            "first": "Helder",
-            "last": "Ferreira",
-            "car": "Faneka4154",
-            "time": "+0.000",
-            "pits": "0",
-            "pts": "0"
-          },
-          {
-            "pos": "11",
             "first": "Bruno",
             "last": "da Costa",
             "car": "BrunydaCosta",
-            "time": "+0.000",
+            "time": "+1 Lap",
             "pits": "0",
-            "pts": "0"
+            "pts": "8"
+          },
+          {
+            "pos": "10",
+            "first": "Carlos",
+            "last": "Gonçalves",
+            "car": "SpeedyTuga75",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "7"
+          },
+          {
+            "pos": "11",
+            "first": "Helder",
+            "last": "Ferreira",
+            "car": "Faneka4154",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "6"
           },
           {
             "pos": "12",
-            "first": "Eduardo",
-            "last": "Vilas-Boas",
-            "car": "cloudtuga",
-            "time": "+0.000",
+            "first": "José",
+            "last": "Vedes",
+            "car": "RPM_Kryptonite_",
+            "time": "+1 Lap",
             "pits": "0",
-            "pts": "0"
+            "pts": "5"
           },
           {
             "pos": "13",
             "first": "Alexandre",
             "last": "Sousa",
             "car": "reaper-alexandre",
-            "time": "+0.000",
+            "time": "+1 Lap",
             "pits": "0",
-            "pts": "0",
+            "pts": "4",
           },
           {
             "pos": "14",
             "first": "Ismael",
             "last": "Cartucho",
             "car": "Ismael-Cartucho-m",
-            "time": "+0.000",
+            "time": "+1 Lap",
             "pits": "0",
-            "pts": "0"
+            "pts": "3"
           },
           {
             "pos": "15",
             "first": "Bruno",
             "last": "Figueira",
             "car": "brunommf10",
-            "time": "+0.000",
+            "time": "+1 Lap",
             "pits": "0",
-            "pts": "0",
+            "pts": "2",
           },
           {
-            "pos": "116",
-            "first": "Carlos",
-            "last": "Gonçalves",
-            "car": "SpeedyTuga75",
-            "time": "+0.000",
+            "pos": "16",
+            "first": "Gil",
+            "last": "Ferreira",
+            "car": "Ango_Chiggy",
+            "time": "+1 Lap",
             "pits": "0",
-            "pts": "0",
+            "pts": "1",
           }
         ]
       },
