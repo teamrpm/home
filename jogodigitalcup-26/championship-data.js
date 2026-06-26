@@ -12,7 +12,7 @@ window.CHAMPIONSHIP_DATA = {
         "raceStats": {
           "laps": "26",
           "pits": "2",
-          "fastestLap": ""
+          "fastestLap": "01:54.604"
         },
         "qualifying": [
           {
@@ -151,7 +151,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "João",
             "last": "Pedro",
             "car": "JPedroFM",
-            "time": "50:54.937",
+            "time": "51:32.828",
             "pits": "0",
             "pts": "22",
             "pole": true,
@@ -162,7 +162,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Pedro",
             "last": "Ferreira",
             "car": "Pe_Fi_Ma_Fe",
-            "time": "+0.000",
+            "time": "+8.406",
             "pits": "0",
             "pts": "20",
             "fl": true
@@ -172,7 +172,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Miguel",
             "last": "Rodrigues",
             "car": "M_Rodrigues_02",
-            "time": "+0.000",
+            "time": "+9.096",
             "pits": "0",
             "pts": "18"
           },
@@ -181,7 +181,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "André",
             "last": "Pinto",
             "car": "ADPinto1983",
-            "time": "+0.000",
+            "time": "+14.713",
             "pits": "0",
             "pts": "16"
           },
@@ -190,7 +190,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Ruben",
             "last": "Ferreira",
             "car": "Implacavel_3",
-            "time": "+0.000",
+            "time": "+19.033",
             "pits": "0",
             "pts": "14"
           },
@@ -199,7 +199,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Fernando",
             "last": "Oliveira",
             "car": "Keijo_PTAO",
-            "time": "+0.000",
+            "time": "+20.413",
             "pits": "0",
             "pts": "12"
           },
@@ -208,7 +208,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Vitor",
             "last": "André",
             "car": "Andre-TheCat",
-            "time": "+10.000",
+            "time": "+20.581",
             "pits": "0",
             "pts": "10"
           },
@@ -217,7 +217,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Diogo",
             "last": "Valente",
             "car": "Valente_131",
-            "time": "+54.000",
+            "time": "+54.460",
             "pits": "0",
             "pts": "9"
           },
