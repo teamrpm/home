@@ -153,7 +153,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "JPedroFM",
             "time": "51:32.828",
             "pits": "0",
-            "pts": "22",
+            "pts": "23",
             "pole": true,
             "fl": false
           },
@@ -164,7 +164,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "Pe_Fi_Ma_Fe",
             "time": "+8.406",
             "pits": "0",
-            "pts": "20",
+            "pts": "21",
             "fl": true
           },
           {
