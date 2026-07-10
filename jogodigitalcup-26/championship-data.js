@@ -585,7 +585,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "brunommf10",
             "time": "DNF",
             "pits": "0",
-            "pts": "0",
+            "pts": "1",
             "status": "dnf"
           }
         ]
@@ -981,7 +981,7 @@ window.CHAMPIONSHIP_DATA = {
         "last": "Figueira",
         "rounds": [
           "2",
-          "0",
+          "1",
           "—",
           "—",
           "—",
