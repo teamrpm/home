@@ -724,7 +724,7 @@ window.CHAMPIONSHIP_DATA = {
         "driverId": "ADPinto",
         "pos": 3,
         "change": "▲ 1",
-        "changeType": "same",
+        "changeType": "up",
         "first": "André",
         "last": "Pinto",
         "rounds": [
@@ -742,7 +742,7 @@ window.CHAMPIONSHIP_DATA = {
         "driverId": "Keijo",
         "pos": 4,
         "change": "▲ 2",
-        "changeType": "same",
+        "changeType": "up",
         "first": "Fernando",
         "last": "Oliveira",
         "rounds": [
