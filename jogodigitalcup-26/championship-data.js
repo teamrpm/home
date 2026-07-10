@@ -355,7 +355,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Carlos",
             "last": "Gonçalves",
             "car": "BSpeedyTuga75",
-            "time": "01:25.297,
+            "time": "01:25.297",
             "gap": "+0.811"
           },
           {
