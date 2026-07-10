@@ -456,7 +456,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Pedro",
             "last": "Ferreira",
             "car": "Pe_Fi_Ma_Fe",
-            "time": "+8.406",
+            "time": "+1 Lap",
             "pits": "0",
             "pts": "21"
           },
