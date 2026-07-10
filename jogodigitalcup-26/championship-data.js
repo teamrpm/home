@@ -447,7 +447,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "JPedroFM",
             "time": "51:32.828",
             "pits": "0",
-            "pts": "23",
+            "pts": "24",
             "pole": true,
             "fl": true
           },
@@ -458,7 +458,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "Pe_Fi_Ma_Fe",
             "time": "+1 Lap",
             "pits": "0",
-            "pts": "21"
+            "pts": "20"
           },
           {
             "pos": "3",
