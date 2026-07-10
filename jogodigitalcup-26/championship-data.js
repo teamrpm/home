@@ -571,12 +571,13 @@ window.CHAMPIONSHIP_DATA = {
           },
           {
             "pos": "15",
-            "first": "Bruno",
-            "last": "Figueira",
+            "first": "Alexandre",
+            "last": "Sousa",
             "car": "reaper-alexandre",
             "time": "DNF",
             "pits": "0",
-            "pts": "0",
+            "pts": "2",
+            "status": "dnf"
           },
           {
             "pos": "16",
@@ -586,6 +587,7 @@ window.CHAMPIONSHIP_DATA = {
             "time": "DNF",
             "pits": "0",
             "pts": "0",
+            "status": "dnf"
           }
         ]
       },
