@@ -558,7 +558,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "BrunydaCosta",
             "time": "+2 Lap",
             "pits": "0",
-            "pts": "4",
+            "pts": "4"
           },
           {
             "pos": "14",
