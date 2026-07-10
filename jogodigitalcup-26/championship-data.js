@@ -354,7 +354,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "6",
             "first": "Carlos",
             "last": "Gonçalves",
-            "car": "BSpeedyTuga75",
+            "car": "SpeedyTuga75",
             "time": "01:25.297",
             "gap": "+0.811"
           },
@@ -432,13 +432,12 @@ window.CHAMPIONSHIP_DATA = {
           },
           {
             "pos": "16",
-            "first": "Jose",
+            "first": "José",
             "last": "Edgar",
             "car": "Edgar5200",
             "time": "00:00.000",
             "gap": "+0.000"
           }
-        ],
         ],
         "race": [
           {
@@ -509,7 +508,7 @@ window.CHAMPIONSHIP_DATA = {
           {
             "pos": "8",
             "first": "Carlos",
-            "last": "Goncalves",
+            "last": "Gonçalves",
             "car": "SpeedyTuga75",
             "time": "+1 Lap",
             "pits": "0",
@@ -816,7 +815,7 @@ window.CHAMPIONSHIP_DATA = {
         "pos": 8,
         "change": "▼ 1",
         "changeType": "down",
-        "first": "Vitro",
+        "first": "Vitor",
         "last": "André",
         "rounds": [
           "10",
@@ -990,7 +989,7 @@ window.CHAMPIONSHIP_DATA = {
           "—"
         ],
         "total": "2"
-      },
+      }
     ]
   }
 };
