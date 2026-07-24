@@ -601,10 +601,10 @@ window.CHAMPIONSHIP_DATA = {
         "raceStats": {
           "laps": "29",
           "pits": "2",
-          "fastestLap": "A atualizar"
+          "fastestLap": "01:40.019"
         },
         "qualifying": [
-                    {
+          {
             "pos": "1",
             "first": "João",
             "last": "Pedro",
@@ -692,7 +692,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "Edgar5200",
             "time": "01:47.142",
             "gap": "+6.949"
-          },
+          }
         ],
         "race": [
           {
@@ -796,7 +796,7 @@ window.CHAMPIONSHIP_DATA = {
             "time": "+1 Lap",
             "pits": "0",
             "pts": "6"
-          },
+          }
         ]
       },
       {
