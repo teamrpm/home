@@ -713,8 +713,8 @@ window.CHAMPIONSHIP_DATA = {
             "car": "JPedroFM",
             "time": "+06.836",
             "pits": "0",
-            "pts": "21"
-            "pole": true,
+            "pts": "21",
+            "pole": true
           },
           {
             "pos": "3",
