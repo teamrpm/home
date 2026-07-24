@@ -599,12 +599,205 @@ window.CHAMPIONSHIP_DATA = {
         "car": "Subaru WRX Gr.4",
         "hasResults": true,
         "raceStats": {
-          "laps": "A atualizar",
-          "pits": "A atualizar",
+          "laps": "29",
+          "pits": "2",
           "fastestLap": "A atualizar"
         },
-        "qualifying": [],
-        "race": []
+        "qualifying": [
+                    {
+            "pos": "1",
+            "first": "João",
+            "last": "Pedro",
+            "car": "JPedroFM",
+            "time": "01:40.193",
+            "gap": "—",
+            "pole": true
+          },
+          {
+            "pos": "2",
+            "first": "Gil",
+            "last": "Ferreira",
+            "car": "Ango_Chiggy",
+            "time": "01:40.414",
+            "gap": "+0.221"
+          },
+          {
+            "pos": "3",
+            "first": "Ruben",
+            "last": "Ferreira",
+            "car": "Implacavel_3",
+            "time": "01:40.530",
+            "gap": "+0.337"
+          },
+          {
+            "pos": "4",
+            "first": "Helder",
+            "last": "Ferreira",
+            "car": "Fanieka_4154",
+            "time": "01:40.808",
+            "gap": "+0.615"
+          },
+          {
+            "pos": "5",
+            "first": "Vitor",
+            "last": "André",
+            "car": "André-TheCat",
+            "time": "01:40.826",
+            "gap": "+0.633"
+          },
+          {
+            "pos": "6",
+            "first": "Diogo",
+            "last": "Valente",
+            "car": "Valente_131",
+            "time": "01:41.110",
+            "gap": "+0.917"
+          },
+          {
+            "pos": "7",
+            "first": "Pedro",
+            "last": "Ferreira",
+            "car": "Pe_Fi_Ma_Fe",
+            "time": "01:41.210",
+            "gap": "+1.017"
+          },
+          {
+            "pos": "8",
+            "first": "Carlos",
+            "last": "Gonçalves",
+            "car": "SpeedyTuga75",
+            "time": "01:41.431",
+            "gap": "+1.238"
+          },
+          {
+            "pos": "9",
+            "first": "Ismael",
+            "last": "Cartucho",
+            "car": "Ismael-Cartucho",
+            "time": "01:41.881",
+            "gap": "+1.688"
+          },
+          {
+            "pos": "10",
+            "first": "José",
+            "last": "Vedes",
+            "car": "RPM_Kryptonite_",
+            "time": "01:41.891",
+            "gap": "+1.698"
+          },
+          {
+            "pos": "11",
+            "first": "José",
+            "last": "Edgar",
+            "car": "Edgar5200",
+            "time": "01:47.142",
+            "gap": "+6.949"
+          },
+        ],
+        "race": [
+          {
+            "pos": "1",
+            "first": "Ruben",
+            "last": "Ferreira",
+            "car": "Implacavel_3",
+            "time": "50:35.239",
+            "pits": "0",
+            "pts": "23",
+            "pole": false,
+            "fl": true
+          },
+          {
+            "pos": "2",
+            "first": "João",
+            "last": "Pedro",
+            "car": "JPedroFM",
+            "time": "+06.836",
+            "pits": "0",
+            "pts": "21"
+            "pole": true,
+          },
+          {
+            "pos": "3",
+            "first": "Diogo",
+            "last": "Valente",
+            "car": "Valente_131",
+            "time": "+11.191",
+            "pits": "0",
+            "pts": "18"
+          },
+          {
+            "pos": "4",
+            "first": "Pedro",
+            "last": "Ferreira",
+            "car": "Pe_Fi_Ma_Fe",
+            "time": "+15.345",
+            "pits": "0",
+            "pts": "16"
+          },
+          {
+            "pos": "5",
+            "first": "Vitor",
+            "last": "André",
+            "car": "André-TheCat",
+            "time": "+17.827",
+            "pits": "0",
+            "pts": "14"
+          },
+          {
+            "pos": "6",
+            "first": "Helder",
+            "last": "Ferreira",
+            "car": "Faneka4154",
+            "time": "+21.571",
+            "pits": "0",
+            "pts": "12"
+          },
+          {
+            "pos": "7",
+            "first": "José",
+            "last": "Vedes",
+            "car": "RPM_Kryptonite_",
+            "time": "+22.628",
+            "pits": "0",
+            "pts": "10"
+          },
+          {
+            "pos": "8",
+            "first": "Ismael",
+            "last": "Cartucho",
+            "car": "Ismael-Cartucho",
+            "time": "+39.384",
+            "pits": "0",
+            "pts": "9"
+          },
+          {
+            "pos": "9",
+            "first": "Gil",
+            "last": "Ferreira",
+            "car": "Ango_Chiggy",
+            "time": "+49.836",
+            "pits": "0",
+            "pts": "8"
+          },
+          {
+            "pos": "10",
+            "first": "Carlos",
+            "last": "Gonçalves",
+            "car": "SpeedyTuga75",
+            "time": "+55.680",
+            "pits": "0",
+            "pts": "7"
+          },
+          {
+            "pos": "11",
+            "first": "José",
+            "last": "Edgar",
+            "car": "Edgar5200",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "6"
+          },
+        ]
       },
       {
         "round": 4,
@@ -673,15 +866,15 @@ window.CHAMPIONSHIP_DATA = {
     ]
   },
   "standings": {
-    "afterRound": 2,
+    "afterRound": 3,
     "totalRounds": 7,
     "bestOf": "6 de 7",
     "leader": {
       "first": "João",
       "last": "Pedro",
       "cars": "JPedroFM",
-      "stats": "2 vitória · 2 poles · 1 voltas rápidas",
-      "points": "47"
+      "stats": "2 vitória · 3 poles · 1 voltas rápidas",
+      "points": "68"
     },
     "drivers": [
       {
@@ -694,13 +887,13 @@ window.CHAMPIONSHIP_DATA = {
         "rounds": [
           "23",
           "24",
-          "—",
+          "21",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "47"
+        "total": "68"
       },
       {
         "driverId": "pefi",
@@ -712,25 +905,25 @@ window.CHAMPIONSHIP_DATA = {
         "rounds": [
           "21",
           "20",
-          "—",
+          "16",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "41"
+        "total": "57"
       },
       {
         "driverId": "ADPinto",
-        "pos": 3,
-        "change": "▲ 1",
-        "changeType": "up",
+        "pos": 5,
+        "change": "▼ 2",
+        "changeType": "down",
         "first": "André",
         "last": "Pinto",
         "rounds": [
           "16",
           "18",
-          "—",
+          "0",
           "—",
           "—",
           "—",
@@ -740,15 +933,15 @@ window.CHAMPIONSHIP_DATA = {
       },
       {
         "driverId": "Keijo",
-        "pos": 4,
+        "pos": 7,
         "change": "▲ 2",
-        "changeType": "up",
+        "changeType": "down",
         "first": "Fernando",
         "last": "Oliveira",
         "rounds": [
           "12",
           "16",
-          "—",
+          "0",
           "—",
           "—",
           "—",
@@ -758,25 +951,25 @@ window.CHAMPIONSHIP_DATA = {
       },
       {
         "driverId": "implacavel",
-        "pos": 5,
-        "change": "—",
-        "changeType": "same",
+        "pos": 3,
+        "change": "▲ 1",
+        "changeType": "up",
         "first": "Ruben",
         "last": "Ferreira",
         "rounds": [
           "14",
           "14",
-          "—",
+          "23",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "28"
+        "total": "51"
       },
       {
         "driverId": "valente",
-        "pos": 6,
+        "pos": 4,
         "change": "▲ 2",
         "changeType": "up",
         "first": "Diogo",
@@ -784,25 +977,25 @@ window.CHAMPIONSHIP_DATA = {
         "rounds": [
           "9",
           "12",
-          "—",
+          "18",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "21"
+        "total": "39"
       },
       {
         "driverId": "rodrigues",
-        "pos": 7,
-        "change": "▼ 4",
+        "pos": 12,
+        "change": "▼ 5",
         "changeType": "down",
         "first": "Miguel",
         "last": "Rodrigues",
         "rounds": [
           "18",
           "0",
-          "—",
+          "0",
           "—",
           "—",
           "—",
@@ -812,69 +1005,69 @@ window.CHAMPIONSHIP_DATA = {
       },
       {
         "driverId": "andre-thecat",
-        "pos": 8,
-        "change": "▼ 1",
-        "changeType": "down",
+        "pos": 6,
+        "change": "▲ 2",
+        "changeType": "up",
         "first": "Vitor",
         "last": "André",
         "rounds": [
           "10",
           "7",
-          "—",
+          "14",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "17"
+        "total": "31"
       },
       {
         "driverId": "speedy",
         "pos": 9,
-        "change": "▲ 1",
-        "changeType": "up",
+        "change": "—",
+        "changeType": "same",
         "first": "Carlos",
         "last": "Gonçalves",
         "rounds": [
           "7",
           "9",
-          "—",
+          "7",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "16"
+        "total": "23"
       },
       {
         "driverId": "faneka",
-        "pos": 10,
-        "change": "▲ 1",
+        "pos": 8,
+        "change": "▲ 2",
         "changeType": "up",
         "first": "Helder",
         "last": "Ferreira",
         "rounds": [
           "6",
           "8",
-          "—",
+          "12",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "14"
+        "total": "26"
       },
       {
         "driverId": "bruny",
-        "pos": 11,
-        "change": "▼ 2",
+        "pos": 14,
+        "change": "▼ 3",
         "changeType": "down",
         "first": "Bruno",
         "last": "da Costa",
         "rounds": [
           "8",
           "4",
-          "—",
+          "0",
           "—",
           "—",
           "—",
@@ -884,69 +1077,69 @@ window.CHAMPIONSHIP_DATA = {
       },
       {
         "driverId": "ango",
-        "pos": 12,
-        "change": "▲ 4",
+        "pos": 11,
+        "change": "▲ 1",
         "changeType": "up",
         "first": "Gil",
         "last": "Ferreira",
         "rounds": [
           "1",
           "10",
-          "—",
+          "8",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "11"
+        "total": "19"
       },
       {
         "driverId": "krypto",
-        "pos": 13,
-        "change": "—",
-        "changeType": "same",
+        "pos": 10,
+        "change": "▲ 1",
+        "changeType": "up",
         "first": "José",
         "last": "Vedes",
         "rounds": [
           "5",
           "5",
-          "—",
+          "10",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "10"
+        "total": "20"
       },
       {
         "driverId": "cartucho",
-        "pos": 14,
-        "change": "—",
-        "changeType": "same",
+        "pos": 13,
+        "change": "▲ 1",
+        "changeType": "up",
         "first": "Ismael",
         "last": "Cartucho",
         "rounds": [
           "3",
           "6",
-          "—",
+          "9",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "9"
+        "total": "18"
       },
       {
         "driverId": "jock28",
         "pos": 15,
-        "change": "▼ 2",
+        "change": "▼ 1",
         "changeType": "down",
         "first": "Alexandre",
         "last": "Sousa",
         "rounds": [
           "4",
           "2",
-          "—",
+          "0",
           "—",
           "—",
           "—",
@@ -957,20 +1150,20 @@ window.CHAMPIONSHIP_DATA = {
       {
         "driverId": "edgar5200",
         "pos": 16,
-        "change": "NEW",
-        "changeType": "new",
+        "change": "▲ 2",
+        "changeType": "up",
         "first": "José",
         "last": "Edgar",
         "rounds": [
           "0",
           "3",
-          "—",
+          "6",
           "—",
           "—",
           "—",
           "—"
         ],
-        "total": "3"
+        "total": "9"
       },
       {
         "driverId": "brunommf10",
@@ -982,7 +1175,7 @@ window.CHAMPIONSHIP_DATA = {
         "rounds": [
           "2",
           "1",
-          "—",
+          "0",
           "—",
           "—",
           "—",
