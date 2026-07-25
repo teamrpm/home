@@ -225,14 +225,14 @@ const SITE_DATA = {
      Fields: image, caption, category (optional)
      ───────────────────────────────────────────── */
   gallery: [
-    { image: "", caption: "Spa 24 Hours — Into Eau Rouge", category: "Endurance" },
-    { image: "", caption: "Night Battle at Monza", category: "Sprint" },
-    { image: "", caption: "Team Lineup — Season 2025", category: "Team" },
-    { image: "", caption: "Podium Finish — Nürburgring", category: "Endurance" },
-    { image: "", caption: "Pit Stop Strategy", category: "Endurance" },
-    { image: "", caption: "Sunset at Bathurst", category: "Sprint" },
-    { image: "", caption: "Close Racing — Brands Hatch", category: "Sprint" },
-    { image: "", caption: "Season Celebration", category: "Team" }
+    { image: "images/galeria-rpm/fc035d41-bd28-4204-b3f5-754f8f8b5e97.jfif", caption: "Spa 24 Hours — Into Eau Rouge", category: "Endurance" },
+    { image: "images/galeria-rpm/cf8b9cc5-928d-42fe-9b19-844b453124a8.jfif", caption: "Night Battle at Monza", category: "Sprint" },
+    { image: "images/galeria-rpm/c6c88844-8f56-4dc5-8b1e-9ec6d98d567b.jfif", caption: "Team Lineup — Season 2025", category: "Team" },
+    { image: "images/galeria-rpm/aecbb1cf-6e0a-4589-8b14-81b6d0266eda.jfif", caption: "Podium Finish — Nürburgring", category: "Endurance" },
+    { image: "images/galeria-rpm/991cee83-1007-4edb-9ea9-d95c507fb292.jfif", caption: "Pit Stop Strategy", category: "Endurance" },
+    { image: "images/galeria-rpm/39f64631-d8a8-4047-a3f6-dda0b00e4596.jfif", caption: "Sunset at Bathurst", category: "Sprint" },
+    { image: "images/galeria-rpm/32bd9817-d372-40b7-a9a4-74df0d81e0b2.jfif", caption: "Close Racing — Brands Hatch", category: "Sprint" },
+    { image: "images/galeria-rpm/1b3dba5c-24ec-4ed0-9f9f-03b24a49b266.jfif", caption: "Season Celebration", category: "Team" }
   ],
 
   /* ─────────────────────────────────────────────
