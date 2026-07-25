@@ -242,7 +242,7 @@ const SITE_DATA = {
   sponsors: [
     {
       name: "RealPolimento",
-      logo: "https://www.realpolimento.pt/assets/img/escuro.png",
+      logo: "images/realpolimento_logotipo-removebg-preview.png",
       url: "https://www.realpolimento.pt/",
       tier: "gold"
     },
