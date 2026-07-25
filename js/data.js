@@ -24,7 +24,7 @@ const SITE_DATA = {
       role: "Valente_131",
       nationality: "Portuguese",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251482805983647/4ea40e61f16a4768e737e10a3d69f351_body.png",       // Replace with real photo
+      image: "images/pilotos-rpm/valente_131.png",       // Replace with real photo
       flag: "🇵🇹"
     },
     {
@@ -33,7 +33,7 @@ const SITE_DATA = {
       role: "Pe_Fi_Ma_Fe",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252360164819932/3a03aaec6c2e6f065d1353ae7e741088_body.png",
+      image: "images/pilotos-rpm/pe_fi_ma_fe.png",
       flag: "🇵🇹"
     },
     {
@@ -42,7 +42,7 @@ const SITE_DATA = {
       role: "M_Rodrigues_02",
       nationality: "Portugal",
       series: "Gran Turismo 7 · WRC",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251832737817256/bf14d93d01132ebf0af1857df51cf19e_body.png",
+      image: "images/pilotos-rpm/M_Rodrigues_02.png",
       flag: "🇵🇹"
     },
     {
@@ -51,7 +51,7 @@ const SITE_DATA = {
       role: "ADPinto1983",
       nationality: "Portugal",
       series: "Gran Turismo 7 · WRC",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251719594519766/fe10eded7b5df1037737741c1ddad8b6_body.png",
+      image: "images/pilotos-rpm/ADPinto1983.png",
       flag: "🇵🇹"
     },
     {
@@ -60,7 +60,7 @@ const SITE_DATA = {
       role: "BrunyDaCosta",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252274147228158/8d92aea1cbe2e7fad505480ce1599ab8_body.png",
+      image: "images/pilotos-rpm/BrunyDaCosta.png",
       flag: "🇵🇹"
     },
     {
@@ -69,7 +69,7 @@ const SITE_DATA = {
       role: "DanMarques_1",
       nationality: "Portugal",
       series: "Gran Turismo 7 · F1 25",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252229996328790/2247d3bf41d0d571dd1d2a49989328e6_body.png",
+      image: "images/pilotos-rpm/DanMarques_1.png",
       flag: "🇵🇹"
     },
      {
@@ -78,7 +78,7 @@ const SITE_DATA = {
       role: "jPedroFM",
       nationality: "Portugal",
       series: "Gran Turismo 7 · WRC",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251820185201092/ef6e55c4d03cba44351fc7d3270beb85_body.png",
+      image: "images/pilotos-rpm/JPedroFM.png",
       flag: "🇵🇹"
     },
     {
@@ -87,7 +87,7 @@ const SITE_DATA = {
       role: "Implacavel_3",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251439496157666/6e5cfae0853b71ee9a3704baa19a4f47_body.png",
+      image: "images/pilotos-rpm/Implacavel_3.png",
       flag: "🇵🇹"
     },
     {
@@ -96,7 +96,7 @@ const SITE_DATA = {
       role: "RPM_Kryptonite_",
       nationality: "Portugal",
       series: "Gran  Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251622302630451/41305c29e4148bd7cce0cde59837aad1_body.png",
+      image: "images/pilotos-rpm/RPM_Kryptonite_.png",
       flag: "🇵🇹"
     },
     {
@@ -105,16 +105,16 @@ const SITE_DATA = {
       role: "SpeedyTuga75",
       nationality: "Portugal",
       series: "Gran  Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251699196203397/7d664ec4fcc1d34cf745dfc33e929841_body.png",
+      image: "images/pilotos-rpm/SpeedyTuga75.png",
       flag: "🇵🇹"
     },
     {
-      name: "Wilson Barreto",
-      number: "777",
-      role: "Wilson_The_First",
+      name: "Gil Ferreira",
+      number: "86",
+      role: "Ango_Chiggy",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252437762849202/aa52fe46f3476c1a1754a7a1f68b2092_body.png",
+      image: "images/pilotos-rpm/ango_chiggy.png",
       flag: "🇵🇹"
     },
     {
@@ -123,7 +123,7 @@ const SITE_DATA = {
       role: "Keijo_PTAO",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251690360566346/4d101bbe8cb723eccb24dcccfb5ed1d1_body.png",
+      image: "images/pilotos-rpm/keijo_PTAO.png",
       flag: "🇵🇹"
     },
     {
@@ -132,7 +132,7 @@ const SITE_DATA = {
       role: "Faneka4154",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252200976801395/ef5b0bc9005712e6954c80a63fb39d20_body.png",
+      image: "images/pilotos-rpm/Faneka4154.png",
       flag: "🇵🇹"
     },
     {
@@ -141,7 +141,7 @@ const SITE_DATA = {
       role: "cloudtuga",
       nationality: "Portugal",
       series: "Gran Turismo 7 · F1 25",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251684262033119/8b5e55f4a535d6b536e362a54e1f9ab3_body.png",
+      image: "images/pilotos-rpm/cloudtuga.png",
       flag: "🇵🇹"
     },
     {
@@ -150,7 +150,7 @@ const SITE_DATA = {
       role: "reaper-alexandre",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21252027227095050/d8f9cf86e877d47fe3dce53c7e6a1e5d_body.png",
+      image: "images/pilotos-rpm/reaper-alexandre.png",
       flag: "🇵🇹"
     },
     {
@@ -159,7 +159,7 @@ const SITE_DATA = {
       role: "IsmaelCartucho-m",
       nationality: "Portugal",
       series: "Gran Turismo 7",
-      image: "https://ugc.gt7.game.gran-turismo.com/23/21251402296632961/e02b1b7a5eb1ecb68db1342fb8439f40_body.png",
+      image: "images/pilotos-rpm/Ismael-Cartucho.png",
       flag: "🇵🇹"
     },
   ],
