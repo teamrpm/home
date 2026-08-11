@@ -108,7 +108,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "12",
             "first": "Helder",
             "last": "Ferreira",
-            "car": "Faneka4154",
+            "car": "Faneka_4154",
             "time": "01:55.859",
             "gap": "+1.460"
           },
@@ -124,7 +124,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "14",
             "first": "Vitor",
             "last": "André",
-            "car": "Andre-TheCat",
+            "car": "André-TheCat",
             "time": "01:56.135",
             "gap": "+1.736"
           },
@@ -207,7 +207,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "7",
             "first": "Vitor",
             "last": "André",
-            "car": "Andre-TheCat",
+            "car": "André-TheCat",
             "time": "+20.581",
             "pits": "0",
             "pts": "10"
@@ -243,7 +243,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "11",
             "first": "Helder",
             "last": "Ferreira",
-            "car": "Faneka4154",
+            "car": "Faneka_4154",
             "time": "+1 Lap",
             "pits": "0",
             "pts": "6"
@@ -264,7 +264,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "reaper-alexandre",
             "time": "+1 Lap",
             "pits": "0",
-            "pts": "4",
+            "pts": "4"
           },
           {
             "pos": "14",
@@ -282,7 +282,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "brunommf10",
             "time": "+1 Lap",
             "pits": "0",
-            "pts": "2",
+            "pts": "2"
           },
           {
             "pos": "16",
@@ -291,7 +291,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "Ango_Chiggy",
             "time": "+1 Lap",
             "pits": "0",
-            "pts": "1",
+            "pts": "1"
           }
         ]
       },
@@ -402,7 +402,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "12",
             "first": "Vitor",
             "last": "Andre",
-            "car": "Andre-TheCat",
+            "car": "André-TheCat",
             "time": "01:26.280",
             "gap": "+1.460"
           },
@@ -418,7 +418,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "14",
             "first": "Helder",
             "last": "Ferreira",
-            "car": "Faneka4154",
+            "car": "Faneka_4154",
             "time": "01:26.913",
             "gap": "+2.368"
           },
@@ -518,7 +518,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "9",
             "first": "Helder",
             "last": "Ferreira",
-            "car": "Faneka4154",
+            "car": "Faneka_4154",
             "time": "+1 Lap",
             "pits": "0",
             "pts": "8"
@@ -527,7 +527,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "10",
             "first": "Vitor",
             "last": "André",
-            "car": "Andre-TheCat",
+            "car": "André-TheCat",
             "time": "+1 Lap",
             "pits": "0",
             "pts": "7"
@@ -633,7 +633,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "4",
             "first": "Helder",
             "last": "Ferreira",
-            "car": "Fanieka_4154",
+            "car": "Faneka_4154",
             "time": "01:40.808",
             "gap": "+0.615"
           },
@@ -747,7 +747,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "6",
             "first": "Helder",
             "last": "Ferreira",
-            "car": "Faneka4154",
+            "car": "Faneka_4154",
             "time": "+21.571",
             "pits": "0",
             "pts": "12"
@@ -841,7 +841,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "4",
             "first": "Vitor",
             "last": "André",
-            "car": "Andre-TheCat",
+            "car": "André-TheCat",
             "time": "01:25.064",
             "gap": "+0.519"
           },
@@ -905,7 +905,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "12",
             "first": "Alexandre",
             "last": "Sousa",
-            "car": "Jack28",
+            "car": "reaper-alexandre",
             "time": "01:26.280",
             "gap": "+1.460"
           },
@@ -985,7 +985,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "6",
             "first": "Vitor",
             "last": "André",
-            "car": "Andre-TheCat",
+            "car": "André-TheCat",
             "time": "+26.713",
             "pits": "0",
             "pts": "12"
@@ -1021,7 +1021,7 @@ window.CHAMPIONSHIP_DATA = {
             "pos": "10",
             "first": "Alexandre",
             "last": "Sousa",
-            "car": "Jack28",
+            "car": "reaper-alexandre",
             "time": "+1 Lap",
             "pits": "0",
             "pts": "7"
@@ -1059,7 +1059,7 @@ window.CHAMPIONSHIP_DATA = {
             "last": "Figueira",
             "car": "brunommf10",
             "time": "+2 Lap",
-            "pits": "0",
+            "pits": "0"
 		   },
           {
 			"pos": "15",
@@ -1067,7 +1067,7 @@ window.CHAMPIONSHIP_DATA = {
             "last": "Neves",
             "car": "lordvanmilo",
             "time": "+5 Lap",
-            "pits": "0",
+            "pits": "0"
           }
         ]
       },
@@ -1368,7 +1368,7 @@ window.CHAMPIONSHIP_DATA = {
         "total": "23"
       },
       {
-        "driverId": "jock28",
+        "driverId": "reaper-alexandre",
         "pos": 14,
         "change": "▲ 2",
         "changeType": "up",
@@ -1438,7 +1438,7 @@ window.CHAMPIONSHIP_DATA = {
           "—"
         ],
         "total": "8"
-      }
+      },
 	  {
         "driverId": "brunommf10",
         "pos": 18,
