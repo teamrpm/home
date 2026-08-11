@@ -25,7 +25,7 @@
     const root = document.getElementById('resultsApp');
     if (!root || !data.results) return;
     const rounds = data.results.rounds || [];
-    let activeRound = rounds.find(r => r.hasResults) || rounds[0];
+    let activeRound = [...rounds].reverse().find(r => r.hasResults) || rounds[0];
     let activeSession = 'race';
     function draw() {
       root.innerHTML = `
