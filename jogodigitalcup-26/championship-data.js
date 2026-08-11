@@ -1456,7 +1456,7 @@ window.CHAMPIONSHIP_DATA = {
           "—"
         ],
         "total": "5"
-      }
+      },
 	  {
         "driverId": "lordvanmilo",
         "pos": 19,
