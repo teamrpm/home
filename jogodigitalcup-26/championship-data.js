@@ -1078,7 +1078,7 @@ window.CHAMPIONSHIP_DATA = {
         "date": "20 de Agosto de 2026",
         "detail": "Grand Valley (Highway 1)",
         "car": "Volkswagen Beetle Gr.3",
-        "hasResults": true,
+        "hasResults": false,
         "raceStats": {
           "laps": "A atualizar",
           "pits": "A atualizar",
@@ -1094,7 +1094,7 @@ window.CHAMPIONSHIP_DATA = {
         "date": "03 de Setembro de 2026",
         "detail": "Road Atlanta (Full Course)",
         "car": "Chevrolet Corvette C7 Gr.4",
-        "hasResults": true,
+        "hasResults": false,
         "raceStats": {
           "laps": "A atualizar",
           "pits": "A atualizar",
@@ -1110,7 +1110,7 @@ window.CHAMPIONSHIP_DATA = {
         "date": "17 de Setembro de 2026",
         "detail": "Willow Springs (Big Willow)",
         "car": "Jaguar F-Type Gr.3",
-        "hasResults": true,
+        "hasResults": false,
         "raceStats": {
           "laps": "A atualizar",
           "pits": "A atualizar",
