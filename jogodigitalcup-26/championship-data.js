@@ -1059,7 +1059,7 @@ window.CHAMPIONSHIP_DATA = {
             "last": "Figueira",
             "car": "brunommf10",
             "time": "+2 Lap",
-            "pits": "0"
+            "pits": "3"
 		   },
           {
 			"pos": "15",
@@ -1067,7 +1067,7 @@ window.CHAMPIONSHIP_DATA = {
             "last": "Neves",
             "car": "lordvanmilo",
             "time": "+5 Lap",
-            "pits": "0"
+            "pits": "2"
           }
         ]
       },
