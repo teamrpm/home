@@ -1092,7 +1092,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Fernando",
             "last": "Oliveira",
             "car": "Keijo_PTAO",
-            "time": "01:48.6155",
+            "time": "01:48.615",
             "gap": "—",
             "pole": true
           },
