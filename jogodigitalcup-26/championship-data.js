@@ -1541,7 +1541,7 @@ window.CHAMPIONSHIP_DATA = {
           "—",
           "—"
         ],
-        "total": "23"
+        "total": "37"
       },
       {
         "driverId": "ADPinto",
