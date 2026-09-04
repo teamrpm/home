@@ -1297,132 +1297,132 @@ window.CHAMPIONSHIP_DATA = {
         "qualifying": [
           {
             "pos": "1",
-            "first": "João",
-            "last": "Pedro",
-            "car": "JPedroFM",
-            "time": "01:54.399",
+            "first": "Diogo",
+            "last": "Valente",
+            "car": "Valente_131",
+            "time": "01:26.700",
             "gap": "—",
             "pole": true
           },
           {
             "pos": "2",
-            "first": "Miguel",
-            "last": "Rodrigues",
-            "car": "M_Rodrigues_02",
-            "time": "01:54.557",
-            "gap": "+0.158"
-          },
-          {
-            "pos": "3",
-            "first": "Ruben",
-            "last": "Ferreira",
-            "car": "Implacavel_3",
-            "time": "01:55.042",
-            "gap": "+0.643"
-          },
-          {
-            "pos": "4",
-            "first": "André",
-            "last": "Pinto",
-            "car": "ADPinto1983",
-            "time": "01:55.112",
-            "gap": "+0.713"
-          },
-          {
-            "pos": "5",
-            "first": "Carlos",
-            "last": "Gonçalves",
-            "car": "SpeedyTuga75",
-            "time": "01:55.142",
-            "gap": "+0.743"
-          },
-          {
-            "pos": "6",
             "first": "Bruno",
             "last": "da Costa",
             "car": "BrunydaCosta",
-            "time": "01:55.195",
-            "gap": "+0.796"
+            "time": "01:26.859",
+            "gap": "+0.159"
           },
           {
-            "pos": "7",
-            "first": "Pedro",
-            "last": "Ferreira",
-            "car": "Pe_Fi_Ma_Fe",
-            "time": "01:55.344",
-            "gap": "+0.945"
-          },
-          {
-            "pos": "8",
+            "pos": "3",
             "first": "Fernando",
             "last": "Oliveira",
             "car": "Keijo_PTAO",
-            "time": "01:55.364",
-            "gap": "+0.965"
+            "time": "01:26.868",
+            "gap": "+0.168"
+          },
+          {
+            "pos": "4",
+            "first": "Daniel",
+            "last": "Marques",
+            "car": "DanMMarques_1",
+            "time": "01:26.896",
+            "gap": "+0.196"
+          },
+          {
+            "pos": "5",
+            "first": "Luke",
+            "last": "Taylor",
+            "car": "Midnight_ISO",
+            "time": "01:27.097",
+            "gap": "+0.397"
+          },
+          {
+            "pos": "6",
+            "first": "Pedro",
+            "last": "Ferreira",
+            "car": "Pe_Fi_Ma_Fe",
+            "time": "01:27.104",
+            "gap": "+0.404"
+          },
+          {
+            "pos": "7",
+            "first": "Vitor",
+            "last": "André",
+            "car": "Andre-TheCat",
+            "time": "01:27.139",
+            "gap": "+0.439"
+          },
+          {
+            "pos": "8",
+            "first": "Miguel",
+            "last": "Rodrigues",
+            "car": "M_Rodrigues_02",
+            "time": "01:27.228",
+            "gap": "+0.528"
           },
           {
             "pos": "9",
-            "first": "Ismael",
-            "last": "Cartucho",
-            "car": "Ismael-Cartucho",
-            "time": "01:55.388",
-            "gap": "+0.989"
+            "first": "João",
+            "last": "Pedro",
+            "car": "JPedroFM",
+            "time": "01:27.230",
+            "gap": "+0.530"
           },
           {
             "pos": "10",
-            "first": "Alexandre",
-            "last": "Sousa",
-            "car": "reaper-alexandre",
-            "time": "01:55.753",
-            "gap": "+1.354"
+            "first": "Rúben",
+            "last": "Ferreira",
+            "car": "Implacavel_3",
+            "time": "01:27.240",
+            "gap": "+0.540"
           },
           {
             "pos": "11",
-            "first": "Bruno",
-            "last": "Figueira",
-            "car": "brunommf10",
-            "time": "01:55.759",
-            "gap": "+1.360"
+            "first": "Helder",
+            "last": "Ferreira",
+            "car": "Faneka4154",
+            "time": "01:27.851",
+            "gap": "+1.151"
           },
           {
             "pos": "12",
-            "first": "Helder",
-            "last": "Ferreira",
-            "car": "Faneka_4154",
-            "time": "01:55.859",
-            "gap": "+1.460"
+            "first": "Carlos",
+            "last": "Gonçalves",
+            "car": "SpeedyTuga75",
+            "time": "01:28.124",
+            "gap": "+1.424"
           },
           {
             "pos": "13",
-            "first": "José",
-            "last": "Vedes",
-            "car": "RPM_Kryptonite_",
-            "time": "01:55.941",
-            "gap": "+1.542"
+            "first": "Rui",
+            "last": "Lopes",
+            "car": "Ziggy_Star",
+            "time": "01:28.180",
+            "gap": "+1.480"
           },
           {
             "pos": "14",
-            "first": "Vitor",
-            "last": "André",
-            "car": "André-TheCat",
-            "time": "01:56.135",
-            "gap": "+1.736"
+            "first": "José",
+            "last": "Vedes",
+            "car": "RPM_Kryptonite_",
+            "time": "01:28.272",
+            "gap": "+1.572"
           },
           {
             "pos": "15",
-            "first": "Diogo",
-            "last": "Valente",
-            "car": "Valente_131",
-            "time": "01:57.439",
-            "gap": "+3.040"
+            "first": "Ismael",
+            "last": "Cartucho",
+            "car": "Ismael-Cartucho",
+            "time": "01:28.946",
+            "gap": "+2.246"
           },
           {
             "pos": "16",
-            "first": "Gil",
-            "last": "Ferreira",
-            "car": "Ango_Chiggy",
-            "time": "01:58.460",
-            "gap": "+4.061"
+            "first": "José",
+            "last": "Edgar",
+            "car": "Edgar5200",
+            "time": "01:36.792",
+            "gap": "+10.092"
           }
         ],
         "race": [
@@ -1602,7 +1602,7 @@ window.CHAMPIONSHIP_DATA = {
       "last": "Pedro",
       "cars": "JPedroFM",
       "stats": "3 vitórias · 4 poles · 2 voltas rápidas",
-      "points": "108"
+      "points": "109"
     },
     "drivers": [
       {
@@ -1618,10 +1618,10 @@ window.CHAMPIONSHIP_DATA = {
           "21",
           "24",
           "16",
-          "DNF",
+          "1",
           "—"
         ],
-        "total": "108"
+        "total": "109"
       },
       {
         "driverId": "pefi",
@@ -1708,10 +1708,10 @@ window.CHAMPIONSHIP_DATA = {
           "14",
           "12",
           "20",
-          "DNF",
+          "1",
           "—"
         ],
-        "total": "63"
+        "total": "64"
       },
       {
         "driverId": "faneka",
@@ -1995,11 +1995,11 @@ window.CHAMPIONSHIP_DATA = {
           "DNS",
           "DNS",
           "DNS",
-          "DNF",
+          "1",
           "—",
           "—"
         ],
-        "total": "0"
+        "total": "1"
       }
     ]
   }
