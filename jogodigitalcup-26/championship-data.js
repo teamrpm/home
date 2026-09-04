@@ -1316,7 +1316,7 @@ window.CHAMPIONSHIP_DATA = {
     ]
   },
   "standings": {
-    "afterRound": 5,
+    "afterRound": 6,
     "totalRounds": 7,
     "bestOf": "6 de 7",
     "leader": {
@@ -1529,7 +1529,7 @@ window.CHAMPIONSHIP_DATA = {
         "driverId": "cartucho",
         "pos": 12,
         "change": "-",
-        "changeType": "upsame",
+        "changeType": "same",
         "first": "Ismael",
         "last": "Cartucho",
         "rounds": [
