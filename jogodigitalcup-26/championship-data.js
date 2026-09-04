@@ -1290,9 +1290,9 @@ window.CHAMPIONSHIP_DATA = {
         "car": "Chevrolet Corvette C7 Gr.4",
         "hasResults": true,
         "raceStats": {
-          "laps": "A atualizar",
-          "pits": "A atualizar",
-          "fastestLap": "A atualizar"
+          "laps": "33-34",
+          "pits": "2",
+          "fastestLap": "1:26.361"
         },
         "qualifying": [
           {
@@ -1444,7 +1444,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "Keijo_PTAO",
             "time": "+14.816",
             "pits": "0",
-            "pts": "20",
+            "pts": "20"
           },
           {
             "pos": "3",
@@ -1471,7 +1471,7 @@ window.CHAMPIONSHIP_DATA = {
             "car": "Implacavel_3",
             "time": "+1 Lap",
             "pits": "0",
-            "pts": "15"
+            "pts": "15",
 			"fl": true
           },
           {
