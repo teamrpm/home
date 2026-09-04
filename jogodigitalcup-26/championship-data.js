@@ -1288,14 +1288,292 @@ window.CHAMPIONSHIP_DATA = {
         "date": "03 de Setembro de 2026",
         "detail": "Road Atlanta (Full Course)",
         "car": "Chevrolet Corvette C7 Gr.4",
-        "hasResults": false,
+        "hasResults": true,
         "raceStats": {
           "laps": "A atualizar",
           "pits": "A atualizar",
           "fastestLap": "A atualizar"
         },
-        "qualifying": [],
-        "race": []
+        "qualifying": [
+          {
+            "pos": "1",
+            "first": "João",
+            "last": "Pedro",
+            "car": "JPedroFM",
+            "time": "01:54.399",
+            "gap": "—",
+            "pole": true
+          },
+          {
+            "pos": "2",
+            "first": "Miguel",
+            "last": "Rodrigues",
+            "car": "M_Rodrigues_02",
+            "time": "01:54.557",
+            "gap": "+0.158"
+          },
+          {
+            "pos": "3",
+            "first": "Ruben",
+            "last": "Ferreira",
+            "car": "Implacavel_3",
+            "time": "01:55.042",
+            "gap": "+0.643"
+          },
+          {
+            "pos": "4",
+            "first": "André",
+            "last": "Pinto",
+            "car": "ADPinto1983",
+            "time": "01:55.112",
+            "gap": "+0.713"
+          },
+          {
+            "pos": "5",
+            "first": "Carlos",
+            "last": "Gonçalves",
+            "car": "SpeedyTuga75",
+            "time": "01:55.142",
+            "gap": "+0.743"
+          },
+          {
+            "pos": "6",
+            "first": "Bruno",
+            "last": "da Costa",
+            "car": "BrunydaCosta",
+            "time": "01:55.195",
+            "gap": "+0.796"
+          },
+          {
+            "pos": "7",
+            "first": "Pedro",
+            "last": "Ferreira",
+            "car": "Pe_Fi_Ma_Fe",
+            "time": "01:55.344",
+            "gap": "+0.945"
+          },
+          {
+            "pos": "8",
+            "first": "Fernando",
+            "last": "Oliveira",
+            "car": "Keijo_PTAO",
+            "time": "01:55.364",
+            "gap": "+0.965"
+          },
+          {
+            "pos": "9",
+            "first": "Ismael",
+            "last": "Cartucho",
+            "car": "Ismael-Cartucho",
+            "time": "01:55.388",
+            "gap": "+0.989"
+          },
+          {
+            "pos": "10",
+            "first": "Alexandre",
+            "last": "Sousa",
+            "car": "reaper-alexandre",
+            "time": "01:55.753",
+            "gap": "+1.354"
+          },
+          {
+            "pos": "11",
+            "first": "Bruno",
+            "last": "Figueira",
+            "car": "brunommf10",
+            "time": "01:55.759",
+            "gap": "+1.360"
+          },
+          {
+            "pos": "12",
+            "first": "Helder",
+            "last": "Ferreira",
+            "car": "Faneka_4154",
+            "time": "01:55.859",
+            "gap": "+1.460"
+          },
+          {
+            "pos": "13",
+            "first": "José",
+            "last": "Vedes",
+            "car": "RPM_Kryptonite_",
+            "time": "01:55.941",
+            "gap": "+1.542"
+          },
+          {
+            "pos": "14",
+            "first": "Vitor",
+            "last": "André",
+            "car": "André-TheCat",
+            "time": "01:56.135",
+            "gap": "+1.736"
+          },
+          {
+            "pos": "15",
+            "first": "Diogo",
+            "last": "Valente",
+            "car": "Valente_131",
+            "time": "01:57.439",
+            "gap": "+3.040"
+          },
+          {
+            "pos": "16",
+            "first": "Gil",
+            "last": "Ferreira",
+            "car": "Ango_Chiggy",
+            "time": "01:58.460",
+            "gap": "+4.061"
+          }
+        ],
+        "race": [
+          {
+            "pos": "1",
+            "first": "Diogo",
+            "last": "Valente",
+            "car": "Valente_131",
+            "time": "51:17.555",
+            "pits": "0",
+            "pts": "23",
+            "pole": true,
+            "fl": false
+          },
+          {
+            "pos": "2",
+            "first": "Fernando",
+            "last": "Oliveira",
+            "car": "Keijo_PTAO",
+            "time": "+14.816",
+            "pits": "0",
+            "pts": "20",
+          },
+          {
+            "pos": "3",
+            "first": "Luke",
+            "last": "Taylor",
+            "car": "Midnight_ISO",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "18"
+          },
+          {
+            "pos": "4",
+            "first": "Pedro",
+            "last": "Ferreira",
+            "car": "Pe_Fi_Ma_Fe",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "16"
+          },
+          {
+            "pos": "5",
+            "first": "Ruben",
+            "last": "Ferreira",
+            "car": "Implacavel_3",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "15"
+			"fl": true
+          },
+          {
+            "pos": "6",
+            "first": "Helder",
+            "last": "Ferreira",
+            "car": "Faneka4154",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "12"
+          },
+          {
+            "pos": "7",
+            "first": "José",
+            "last": "Vedes",
+            "car": "RPM_Kryptonite_",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "10"
+          },
+          {
+            "pos": "8",
+            "first": "Carlos",
+            "last": "Gonçalves",
+            "car": "SpeedyTuga75",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "9"
+          },
+          {
+            "pos": "9",
+            "first": "Miguel",
+            "last": "Rodrigues",
+            "car": "MM_Rodrigues_02",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "8"
+          },
+          {
+            "pos": "10",
+            "first": "Rui",
+            "last": "Lopes",
+            "car": "Ziggy_star2018",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "7"
+          },
+          {
+            "pos": "11",
+            "first": "Ismael",
+            "last": "Cartucho",
+            "car": "Ismael-Cartucho",
+            "time": "+1 Lap",
+            "pits": "0",
+            "pts": "6"
+          },
+          {
+            "pos": "12",
+            "first": "Bruno",
+            "last": "Da Costa",
+            "car": "BrunydaCosta",
+            "time": "+2 Lap",
+            "pits": "0",
+            "pts": "5"
+          },
+          {
+            "pos": "13",
+            "first": "José",
+            "last": "Edgar",
+            "car": "Edgar5200",
+            "time": "+3 Lap",
+            "pits": "0",
+            "pts": "4"
+          },
+          {
+            "pos": "14",
+            "first": "João",
+            "last": "Pedro",
+            "car": "JPedroFM",
+            "time": "DNF",
+            "pits": "0",
+            "pts": "1"
+          },
+          {
+            "pos": "15",
+            "first": "Daniel",
+            "last": "Marques",
+            "car": "DanMarques_1",
+            "time": "DNF",
+            "pits": "0",
+            "pts": "1"
+          },
+          {
+            "pos": "16",
+            "first": "Vitor",
+            "last": "André",
+            "car": "Antre-TheCat",
+            "time": "DNF",
+            "pits": "0",
+            "pts": "1"
+          }
+        ]
       },
       {
         "round": 7,
