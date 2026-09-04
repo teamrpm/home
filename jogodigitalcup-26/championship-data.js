@@ -1437,7 +1437,7 @@ window.CHAMPIONSHIP_DATA = {
       },
       {
         "driverId": "faneka",
-		"pos": 11,
+		"pos": 7,
 		"change": "-",
 		"changeType": "same",
 		"first": "Helder",
@@ -1455,7 +1455,7 @@ window.CHAMPIONSHIP_DATA = {
       },
       {
         "driverId": "krypto",
-        "pos": 7,
+        "pos": 8,
         "change": "-",
         "changeType": "same",
         "first": "José",
@@ -1668,7 +1668,6 @@ window.CHAMPIONSHIP_DATA = {
           "—"
         ],
         "total": "7"
-      },
 		},
 		{
         "driverId": "brunommf10",
@@ -1687,7 +1686,6 @@ window.CHAMPIONSHIP_DATA = {
           "—"
         ],
         "total": "6"
-      },
 		},
 		{
         "driverId": "lordvanmilo",
