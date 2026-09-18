@@ -1845,7 +1845,7 @@ window.CHAMPIONSHIP_DATA = {
             "first": "Vitor",
             "last": "André",
             "car": "Andre-TheCat",
-            "time": "+1 Lap",
+            "time": "DNF",
             "pits": "0",
             "pts": "1"
           }
