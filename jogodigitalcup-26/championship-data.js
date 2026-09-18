@@ -1854,7 +1854,7 @@ window.CHAMPIONSHIP_DATA = {
     ]
   },
   "standings": {
-    "afterRound": 6,
+    "afterRound": 7,
     "totalRounds": 7,
     "bestOf": "6 de 7",
     "leader": {
@@ -1862,7 +1862,7 @@ window.CHAMPIONSHIP_DATA = {
       "last": "Pedro",
       "cars": "JPedroFM",
       "stats": "3 vitórias · 4 poles · 2 voltas rápidas",
-      "points": "109"
+      "points": "114"
     },
     "drivers": [
       {
@@ -1987,7 +1987,7 @@ window.CHAMPIONSHIP_DATA = {
 		  "6",
 		  "12",
 		  "12",
-		  "66"
+		  "10"
 		],
 		"total": "60"
       },
@@ -2136,7 +2136,6 @@ window.CHAMPIONSHIP_DATA = {
         "total": "31"
       },
       {
-        {
         "driverId": "ziggy",
         "pos": 16,
         "change": "▲ 3",
@@ -2242,7 +2241,7 @@ window.CHAMPIONSHIP_DATA = {
           "DNS",
           "DNS"
         ],
-        "total": "6
+        "total": "6"
       },
 		  {
         "driverId": "fritador",
@@ -2301,7 +2300,7 @@ window.CHAMPIONSHIP_DATA = {
 	  {
         "driverId": "danmarques",
         "pos": 25,
-        "change": ""▼ 3",
+        "change": "▼ 3",
         "changeType": "down",
         "first": "Daniel",
         "last": "Marques",
